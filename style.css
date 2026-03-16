@@ -1,10 +1,10 @@
 /* =====================================
    GLOBAL RESET
    Removes default browser spacing
-   and makes layout sizing consistent
+   and keeps sizing consistent
 ===================================== */
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -16,7 +16,7 @@ html{
 
 /* =====================================
    GENERAL BODY STYLING
-   Sets font, background, and text color
+   Sets overall font, colors, and layout
 ===================================== */
 
 body {
@@ -28,18 +28,18 @@ body {
 
 /* =====================================
    NAVBAR
-   Navigation bar layout and styling
+   Shared navigation bar for all pages
 ===================================== */
 
 nav {
-    display: flex; /* Align items horizontally */
-    justify-content: space-between; /* Space between logo and menu */
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    background: #2E7D32; /* Green background */
+    background: #2E7D32;
     padding: 20px 40px;
-    position:sticky;
-    top:0;
-    z-index:1000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav h2 {
@@ -48,76 +48,78 @@ nav h2 {
 }
 
 nav ul {
-    list-style: none; /* Remove bullet points */
+    list-style: none;
     display: flex;
-    gap: 25px; /* Space between menu items */
+    gap: 25px;
 }
 
-nav ul li a{
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
-    font-size:16px;
-    transition:0.3s; /* Smooth hover effect */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-nav ul li a:hover{
-    color:#C8E6C9; /* Light green hover color */
+nav ul li a:hover {
+    color: #C8E6C9;
+}
+
+/* Highlights the current page in the navigation */
+nav ul li a.active {
+    color: #C8E6C9;
+    border-bottom: 2px solid #C8E6C9;
+    padding-bottom: 4px;
 }
 
 /* =====================================
    HERO SECTION
-   Main landing section with background
+   Main landing section on the home page
 ===================================== */
 
-.hero{
-    text-align:center;
-    padding:140px 20px;
-
-    /* Dark overlay over background image */
+.hero {
+    text-align: center;
+    padding: 140px 20px;
     background-image: linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
     ), url("climate.jpg");
-
-    background-size:cover;
-    background-position:center;
-    color:white;
+    background-size: cover;
+    background-position: center;
+    color: white;
 }
 
-.hero h1{
-    font-size:64px;
-    margin-bottom:25px;
+.hero h1 {
+    font-size: 64px;
+    margin-bottom: 25px;
 }
 
-.hero p{
-    max-width:750px; /* Prevent text from stretching too wide */
-    margin:auto;
-    font-size:18px;
+.hero p {
+    max-width: 750px;
+    margin: auto;
+    font-size: 18px;
 }
 
-/* Hover animation for hero button */
-
-.hero button:hover{
-    background:#039BE5;
-    transform:scale(1.05);
+.hero button {
+    margin-top: 30px;
+    padding: 14px 28px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.hero button{
-    margin-top:30px;
-    padding:14px 28px;
-    font-size:16px;
-    border:none;
-    border-radius:6px;
-    background:#4CAF50;
-    color:white;
-    cursor:pointer;
-    transition:0.3s;
+.hero button:hover {
+    background: #039BE5;
+    transform: scale(1.05);
 }
 
 /* =====================================
    MISSION SECTION
-   Explains the goal of the website
+   Shared centered text section
 ===================================== */
 
 .mission {
@@ -140,65 +142,52 @@ nav ul li a:hover{
 
 /* =====================================
    TOPICS SECTION
-   Displays key climate topics
+   Used for home page cards and similar blocks
 ===================================== */
 
-.topics{
-padding:80px 20px;
-text-align:center;
-background:#ffffff;
+.topics {
+    padding: 80px 20px;
+    text-align: center;
+    background: #FFFFFF;
 }
 
-.topic img{
-width:100%;
-height:150px;
-object-fit:cover;
-border-radius:6px;
-margin-bottom:10px;
+.topics h2 {
+    font-size: 40px;
+    margin-bottom: 50px;
 }
 
-.topics h2{
-font-size:40px;
-margin-bottom:50px;
-}
-
-/* Container for topic cards */
-.topic-container{
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap; /* Allows wrapping on smaller screens */
+/* Container holding topic cards */
+.topic-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 /* Individual topic card */
-.topic{
-width:250px;
-padding:20px;
-background:#F5F5F5;
-border-radius:8px;
-transition:0.3s;
+.topic {
+    width: 250px;
+    padding: 20px;
+    background: #F5F5F5;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-/* Hover animation for topic cards */
-.topic:hover{
-transform:translateY(-8px);
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
+.topic:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.topic h3{
-margin-bottom:10px;
+.topic img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
 }
 
-/* =====================================
-   FOOTER
-   Bottom section of the website
-===================================== */
-
-footer{
-background:#2E7D32;
-color:white;
-text-align:center;
-padding:20px;
+.topic h3 {
+    margin-bottom: 10px;
 }
 
 /* =====================================
@@ -206,143 +195,245 @@ padding:20px;
    Displays animated impact statistics
 ===================================== */
 
-.stats{
-padding:80px 20px;
-text-align:center;
-background:#E8F5E9;
+.stats {
+    padding: 80px 20px;
+    text-align: center;
+    background: #E8F5E9;
 }
 
-.stats h2{
-font-size:40px;
-margin-bottom:40px;
+.stats h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
 }
 
-/* Container holding statistics */
-.stats-container{
-display:flex;
-justify-content:center;
-gap:60px;
-flex-wrap:wrap;
+/* Container for statistics */
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
 }
 
-/* Statistic numbers */
-.stat h3{
-font-size:48px;
-color:#2E7D32;
+.stat h3 {
+    font-size: 48px;
+    color: #2E7D32;
 }
 
-/* Statistic labels */
-.stat p{
-font-size:18px;
+.stat p {
+    font-size: 18px;
 }
 
 /* =====================================
    SCROLL REVEAL ANIMATION
-   Elements fade in when scrolling
+   Used on sections that animate into view
 ===================================== */
 
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:all 0.8s ease;
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
 }
 
-.reveal.active{
-opacity:1;
-transform:translateY(0);
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* =====================================
    GALLERY PAGE
-   Grid layout for displaying images
+   Thumbnail gallery layout
 ===================================== */
 
-.gallery{
-padding:80px 20px;
-text-align:center;
+.gallery {
+    padding: 80px 20px;
+    text-align: center;
 }
 
-.gallery h1{
-font-size:48px;
-margin-bottom:40px;
+.gallery h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
 }
 
-/* Image grid layout */
-.gallery-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-max-width:1000px;
-margin:auto;
+/* Grid layout for gallery items */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-/* Individual gallery item */
-.gallery-item{
-background:#F5F5F5;
-padding:10px;
-border-radius:8px;
-transition:0.3s;
+/* Individual gallery card */
+.gallery-item {
+    background: #F5F5F5;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-/* Gallery images */
-.gallery-item img{
-width:100%;
-height:200px;
-object-fit:cover; /* Ensures images fill container neatly */
-border-radius:6px;
+/* Gallery image styling */
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
 }
 
-.gallery-item p{
-margin-top:10px;
+.gallery-item p {
+    margin-top: 10px;
+    font-weight: bold;
 }
 
-/* Hover effect for gallery items */
-.gallery-item:hover{
-transform:scale(1.05);
-box-shadow:0 10px 20px rgba(0,0,0,0.15);
+/* =====================================
+   LIGHTBOX / EXTENDED GALLERY VIEW
+   Used when a gallery item is clicked
+===================================== */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 2000;
 }
 
-/* CONTENT PAGE LAYOUT */
-
-.content-wrapper{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
+.lightbox-content {
+    background: white;
+    max-width: 800px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-.content-wrapper h2{
-font-size:36px;
-margin-bottom:20px;
+.lightbox-content img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
-.content-wrapper p{
-font-size:17px;
-line-height:1.8;
+.lightbox-content h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #2E7D32;
 }
 
-/* ENERGY CARDS */
-
-.energy-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:25px;
-margin-top:30px;
+.lightbox-content p {
+    font-size: 17px;
+    line-height: 1.8;
+    background: #E8F5E9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
-.energy-card{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
-transition:0.3s;
+.lightbox-content button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #2E7D32;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 5px;
 }
 
-.energy-card:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 20px rgba(0,0,0,0.15);
+.lightbox-content button:hover {
+    background: #1B5E20;
+    transform: scale(1.05);
 }
 
-.energy-card h3{
-margin-bottom:10px;
-color:#2E7D32;
+.lightbox-controls {
+    margin-top: 10px;
+}
+
+/* =====================================
+   CONTENT PAGE LAYOUT
+   Used for content_ST1.html
+===================================== */
+
+.content-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.content-wrapper section {
+    margin-bottom: 70px;
+}
+
+.content-wrapper h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.content-wrapper p {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* Grid for renewable energy cards */
+.energy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Individual renewable energy card */
+.energy-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.energy-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.energy-card h3 {
+    margin-bottom: 10px;
+    color: #2E7D32;
+}
+
+/* =====================================
+   FOOTER
+   Shared footer for all pages
+===================================== */
+
+footer {
+    background: #2E7D32;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-navigation {
+    margin-bottom: 10px;
+}
+
+.footer-navigation a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.footer-navigation a:hover {
+    color: #C8E6C9;
 }
