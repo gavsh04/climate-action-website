@@ -1,84 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Climate Action | SDG 13</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <title>Climate Action</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body id="top">
+<body>
 
-<!-- HEADER -->
-<header>
+  <nav>
+    <h2>Climate Action</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
 
-<div class="logo-container">
-<img src="images/logo.png" alt="Climate Action logo">
-<h1>Climate Action</h1>
-<p>Act today for a sustainable tomorrow</p>
-</div>
+  <section class="hero">
+    <h1>Protect Our Planet</h1>
+    <p>
+      Climate change is one of the biggest challenges facing our planet.
+      Together we can take action to protect the environment and create
+      a sustainable future.
+    </p>
+    <button onclick="scrollToMission()">Learn More</button>
+  </section>
 
-<!-- NAVIGATION -->
-<nav>
-<ul class="navbar">
+  <section class="mission reveal" id="mission">
+    <h2>Our Mission</h2>
+    <p>
+      Our goal is to raise awareness about climate change and inspire
+      individuals to take action in their daily lives. Through education,
+      community engagement, and sustainable practices we can make
+      a positive impact on the environment.
+    </p>
+  </section>
 
-<li><a href="home.html" class="active">Home</a></li>
-<li><a href="gallery.html">Gallery</a></li>
-<li><a href="ais.html">Action Simulator</a></li>
-<li><a href="feedback.html">Feedback</a></li>
-<li><a href="team.html">Team</a></li>
-<li><a href="profile.html">User Profile</a></li>
-<li><a href="sitemap.html">Sitemap</a></li>
+  <section class="topics reveal">
+    <h2>Key Climate Topics</h2>
+    <div class="topic-container">
 
-</ul>
-</nav>
+      <div class="topic">
+        <h3>Renewable Energy</h3>
+        <p>Switching to solar, wind, and other renewable sources helps reduce carbon emissions.</p>
+      </div>
 
-</header>
+      <div class="topic">
+        <h3>Protect Forests</h3>
+        <p>Forests absorb carbon dioxide and play a critical role in maintaining climate balance.</p>
+      </div>
 
+      <div class="topic">
+        <h3>Reduce Pollution</h3>
+        <p>Reducing plastic and industrial pollution helps protect ecosystems and wildlife.</p>
+      </div>
 
-<!-- MAIN CONTENT AREA -->
-<main>
+    </div>
+  </section>
 
-<section class="hero">
+  <section class="stats reveal">
+    <h2>Our Impact</h2>
+    <div class="stats-container">
 
-<h2>Take Action Against Climate Change</h2>
+      <div class="stat">
+        <h3 id="trees">0</h3>
+        <p>Trees Saved</p>
+      </div>
 
-<p>
-Climate change is one of the most urgent global challenges today.
-This website explores actions individuals and communities can take
-to reduce environmental impact and create a more sustainable future.
-</p>
+      <div class="stat">
+        <h3 id="volunteers">0</h3>
+        <p>Volunteers</p>
+      </div>
 
-</section>
+      <div class="stat">
+        <h3 id="projects">0</h3>
+        <p>Projects Completed</p>
+      </div>
 
+    </div>
+  </section>
 
-<section class="cards">
+  <footer>
+    <p>© 2026 Climate Action | Protecting Our Planet</p>
+  </footer>
 
-<!-- Students place page content here -->
-
-</section>
-
-</main>
-
-
-<!-- FOOTER -->
-<footer>
-
-<p>© 2026 Climate Action Project</p>
-
-<p>
-<a href="pageEditor_ST1.html">Page Editor</a> |
-<a href="validation_ST1.html">Validation</a> |
-<a href="#">Accessibility</a>
-</p>
-
-<p>Student 1 – Gavin</p>
-
-</footer>
-
+  <script src="script.js"></script>
 
 </body>
+
 </html>

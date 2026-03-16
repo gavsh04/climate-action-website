@@ -1,11 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Page</title>
+  <meta charset="UTF-8">
+  <title>Gallery | Climate Action</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Page under construction</h1>
+  <nav>
+    <h2>Climate Action</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <section class="gallery">
+    <h1>Environmental Gallery</h1>
+
+    <div class="gallery-container">
+
+      <div class="gallery-item">
+        <img src="images/forest.jpg" alt="Forest Ecosystem" onclick="openLightbox(this)">
+        <p>Protecting Forest Ecosystems</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/wind.jpg" alt="Wind Energy" onclick="openLightbox(this)">
+        <p>Wind Energy Solutions</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/ocean.jpg" alt="Ocean Life" onclick="openLightbox(this)">
+        <p>Protecting Marine Life</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/solar.jpg" alt="Solar Panels" onclick="openLightbox(this)">
+        <p>Solar Power for the Future</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/recycle.jpg" alt="Recycling Efforts" onclick="openLightbox(this)">
+        <p>Reducing Plastic Waste</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/earth.jpg" alt="Planet Earth" onclick="openLightbox(this)">
+        <p>Our Planet Earth</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+  </div>
+
+  <footer>
+    <p>© 2026 Climate Action | Protecting Our Planet</p>
+  </footer>
 
 </body>
+
 </html>
