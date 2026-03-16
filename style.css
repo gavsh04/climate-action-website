@@ -4,6 +4,10 @@
    and makes layout sizing consistent
 ===================================== */
 
+html{
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -33,6 +37,9 @@ nav {
     align-items: center;
     background: #2E7D32; /* Green background */
     padding: 20px 40px;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 nav h2 {
@@ -90,9 +97,22 @@ nav ul li a:hover{
 }
 
 /* Hover animation for hero button */
+
 .hero button:hover{
     background:#039BE5;
     transform:scale(1.05);
+}
+
+.hero button{
+    margin-top:30px;
+    padding:14px 28px;
+    font-size:16px;
+    border:none;
+    border-radius:6px;
+    background:#4CAF50;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
 }
 
 /* =====================================
