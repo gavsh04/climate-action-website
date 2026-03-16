@@ -2,15 +2,23 @@
 <html lang="en">
 
 <head>
+  <!-- Character encoding -->
   <meta charset="UTF-8">
+
+  <!-- Title displayed in the browser tab -->
   <title>Climate Action</title>
+
+  <!-- Linking external CSS file -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <!-- Navigation bar -->
   <nav>
     <h2>Climate Action</h2>
+
+    <!-- Navigation menu links -->
     <ul>
       <li><a href="home.html">Home</a></li>
       <li><a href="gallery.html">Gallery</a></li>
@@ -19,18 +27,25 @@
     </ul>
   </nav>
 
+  <!-- Hero section: Main introduction area -->
   <section class="hero">
     <h1>Protect Our Planet</h1>
+
+    <!-- Short introduction about climate change -->
     <p>
       Climate change is one of the biggest challenges facing our planet.
       Together we can take action to protect the environment and create
       a sustainable future.
     </p>
+
+    <!-- Button that scrolls to mission section using JavaScript -->
     <button onclick="scrollToMission()">Learn More</button>
   </section>
 
+  <!-- Mission section explaining the purpose of the website -->
   <section class="mission reveal" id="mission">
     <h2>Our Mission</h2>
+
     <p>
       Our goal is to raise awareness about climate change and inspire
       individuals to take action in their daily lives. Through education,
@@ -39,20 +54,26 @@
     </p>
   </section>
 
+  <!-- Climate topics section -->
   <section class="topics reveal">
     <h2>Key Climate Topics</h2>
+
+    <!-- Container holding different climate topics -->
     <div class="topic-container">
 
+      <!-- Topic 1 -->
       <div class="topic">
         <h3>Renewable Energy</h3>
         <p>Switching to solar, wind, and other renewable sources helps reduce carbon emissions.</p>
       </div>
 
+      <!-- Topic 2 -->
       <div class="topic">
         <h3>Protect Forests</h3>
         <p>Forests absorb carbon dioxide and play a critical role in maintaining climate balance.</p>
       </div>
 
+      <!-- Topic 3 -->
       <div class="topic">
         <h3>Reduce Pollution</h3>
         <p>Reducing plastic and industrial pollution helps protect ecosystems and wildlife.</p>
@@ -61,20 +82,26 @@
     </div>
   </section>
 
+  <!-- Impact statistics section -->
   <section class="stats reveal">
     <h2>Our Impact</h2>
+
+    <!-- Container for statistics -->
     <div class="stats-container">
 
+      <!-- Trees saved counter -->
       <div class="stat">
         <h3 id="trees">0</h3>
         <p>Trees Saved</p>
       </div>
 
+      <!-- Volunteers counter -->
       <div class="stat">
         <h3 id="volunteers">0</h3>
         <p>Volunteers</p>
       </div>
 
+      <!-- Projects completed counter -->
       <div class="stat">
         <h3 id="projects">0</h3>
         <p>Projects Completed</p>
@@ -83,10 +110,12 @@
     </div>
   </section>
 
+  <!-- Website footer -->
   <footer>
     <p>© 2026 Climate Action | Protecting Our Planet</p>
   </footer>
 
+  <!-- Linking external JavaScript file -->
   <script src="script.js"></script>
 
 </body>
