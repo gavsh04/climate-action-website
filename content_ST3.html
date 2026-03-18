@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Finance & Communities | Climate Action</title>
+    <!-- Link to global CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Page-specific embedded CSS -->
+    <style>
+        /* ===== CONTENT PAGE SPECIFIC STYLES (content_ST3.html) ===== */
+
+        /* Internal navigation menu fixed at top of page content */
+        .internal-nav {
+            background: #0a6d62;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 35px;
+        }
+
+        .internal-nav h3 {
+            color: #ffd54f;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .internal-nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .internal-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.15);
+            padding: 5px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .internal-nav ul li a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Page title hero */
+        .content-hero {
+            background: linear-gradient(135deg, #0a6d62 0%, #1a9e8f 60%, #138f7a 100%);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .content-hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .content-hero p {
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.92;
+            line-height: 1.7;
+        }
+
+        /* Individual content sections */
+        .content-section {
+            margin-bottom: 55px;
+        }
+
+        .content-section h2 {
+            font-size: 1.7rem;
+            color: #0a6d62;
+            border-bottom: 3px solid #0a6d62;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .content-section h3 {
+            font-size: 1.2rem;
+            color: #138f7a;
+            margin: 20px 0 10px;
+        }
+
+        .content-section p {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 14px;
+        }
+
+        .content-section ul {
+            padding-left: 22px;
+            margin-bottom: 14px;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        /* Images within the content page */
+        .content-img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            margin: 20px auto 25px;
+            display: block;
+            border: 3px solid #e0f0ee;
+        }
+
+        /* Side-by-side image layout for wider screens */
+        .img-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .img-pair img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid #e0f0ee;
+        }
+
+        /* Responsive: stack images on smaller screens */
+        @media (max-width: 600px) {
+            .img-pair {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Pull quote / highlight block */
+        .highlight-box {
+            background: #e8f5f3;
+            border-left: 5px solid #0a6d62;
+            padding: 18px 22px;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+            color: #0a6d62;
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Statistic callout boxes */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 25px 0;
+        }
+
+        .stat-box {
+            background: #0a6d62;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-box .stat-num {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffd54f;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.85rem;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        /* "Go to Top" button - fixed position, always visible as user scrolls */
+        .go-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0a6d62;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+            z-index: 999;
+        }
+
+        .go-top-btn:hover {
+            background: #064e46;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Anchor target for "Go to Top" -->
+<span id="top"></span>
+
+<!-- ===== HEADER (Shared Template) ===== -->
+<header>
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Climate Action Website Logo">
+    </div>
+    <h1>Climate Action</h1>
+    <nav>
+        <ul class="navbar">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="ais.html">Action Simulator</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main>
+
+    <!-- Page hero -->
+    <div class="content-hero">
+        <h1>Climate Finance &amp; Community Action</h1>
+        <p>Understanding how money, policy, and everyday communities must come together to fund and deliver a just climate transition — and what you can do about it.</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- INTERNAL NAVIGATION MENU (links to sections within this page) -->
+    <!-- ============================================================ -->
+    <nav class="internal-nav" aria-label="Page sections">
+        <h3>Jump to Section</h3>
+        <ul>
+            <li><a href="#what-is-climate-finance">What is Climate Finance?</a></li>
+            <li><a href="#why-it-matters">Why It Matters</a></li>
+            <li><a href="#community-action">Community Action</a></li>
+            <li><a href="#student-role">Your Role as a Student</a></li>
+            <li><a href="#barriers">Barriers &amp; Solutions</a></li>
+            <li><a href="#take-action">Take Action Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1: WHAT IS CLIMATE FINANCE                          -->
+    <!-- ============================================================ -->
+    <section class="content-section" id="what-is-climate-finance">
+        <h2>What is Climate Finance?</h2>
+
+        <p>Climate finance refers to the flow of money — from governments, businesses, banks, and international institutions — towards activities that reduce greenhouse gas emissions or help communities adapt to the effects of climate change. It is one of the most critical levers for accelerating the global transition to a low-carbon, climate-resilient world.</p>
+
+        <img src="images/content3_finance.jpg"
+             alt="A graph showing global climate finance flows in billions of dollars"
+             class="content-img">
+
+        <p>At the international level, countries have pledged billions through agreements such as the Paris Agreement and the Green Climate Fund. At a local level, climate finance can look like a community solar panel scheme, a grant for an urban green space, or a student-led campaign that secures university investment in sustainable infrastructure.</p>
+
+        <div class="highlight-box">
+            "Solving climate change is not just a scientific challenge — it is a financial and political one. Without adequate, fairly distributed funding, the most vulnerable communities will bear the greatest costs of a crisis they did little to create."
+        </div>
+
+        <h3>Key Types of Climate Finance</h3>
+        <ul>
+            <li><strong>Mitigation finance</strong> — funding activities that reduce or prevent greenhouse gas emissions, such as renewable energy, energy efficiency, and sustainable transport.</li>
+            <li><strong>Adaptation finance</strong> — funding activities that help communities adjust to the present and future effects of climate change, such as flood defences, drought-resistant agriculture, and heat-resilient urban design.</li>
+            <li><strong>Loss and damage finance</strong> — newer and more contested, this covers compensation for the irreversible impacts of climate change already being experienced by vulnerable nations.</li>
+        </ul>
+
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="stat-num">$1.3T</div>
+                <div class="stat-label">Global climate finance tracked in 2023 (Climate Policy Initiative)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">$100B</div>
+                <div class="stat-label">Annual pledge by wealthy nations to developing countries — still unmet by 2022</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">3x</div>
+                <div class="stat-label">More finance needed by 2030 to meet Paris Agreement goals</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: WHY IT MATTERS                                    -->
+    <!-- ============================================================ -->
+    <section class="content-section" id="why-it-matters">
+        <h2>Why It Matters</h2>
+
+        <p>The consequences of insufficient climate finance are not abstract. Communities in low-income countries — which contribute least to global emissions — are already experiencing more intense floods, prolonged droughts, and rising sea levels. Without adequate funding, they cannot build the infrastructure, healthcare systems, or early-warning systems needed to survive these changes.</p>
+
+        <div class="img-pair">
+            <img src="images/content3_flood.jpg" alt="A flooded village in a low-income country showing the real-world impact of climate change">
+            <img src="images/content3_solar.jpg" alt="Workers installing solar panels in a rural community as part of a climate finance project">
+        </div>
+
+        <p>Closer to home, climate finance matters for urban communities too. Rising energy costs, flooding in low-lying areas, and heatwaves affecting public health are all issues that require investment in climate-resilient infrastructure — investment that cities and communities need support to fund.</p>
+
+        <h3>The Justice Dimension</h3>
+        <p>Climate finance is also a matter of justice. The countries and communities that have historically emitted the fewest greenhouse gases are experiencing the worst impacts. This is why climate finance must not only be large in scale but also equitable in distribution — prioritising those most in need rather than those most able to attract investment.</p>
+
+        <ul>
+            <li>Small Island Developing States face existential threats from sea level rise despite contributing less than 1% of global emissions.</li>
+            <li>Sub-Saharan Africa contributes roughly 4% of global emissions but faces some of the most severe climate impacts.</li>
+            <li>Women and marginalised groups are disproportionately affected by climate disruption, particularly in agricultural communities.</li>
+        </ul>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3: COMMUNITY ACTION                                  -->
+    <!-- ============================================================ -->
+    <section class="content-section" id="community-action">
+        <h2>Community-Level Climate Action</h2>
+
+        <p>Global agreements matter, but real change happens at the community level — in neighbourhoods, schools, local businesses, and city councils. Community climate action is powerful because it is visible, immediate, and participatory. It creates social norms that shift behaviour far more effectively than distant policy alone.</p>
+
+        <img src="images/content3_community.jpg"
+             alt="A community group working together to plant trees and green a local neighbourhood"
+             class="content-img">
+
+        <h3>Examples of Effective Community Climate Finance</h3>
+        <ul>
+            <li><strong>Community energy co-operatives</strong> — residents pool money to invest in shared solar or wind energy, reducing energy bills and local emissions simultaneously.</li>
+            <li><strong>Green bonds for local councils</strong> — cities issue bonds specifically to fund climate-friendly infrastructure such as cycling lanes, green roofs, and electric bus fleets.</li>
+            <li><strong>Participatory budgeting</strong> — communities vote directly on how public money is spent, and increasingly choose climate-related projects when given the option.</li>
+            <li><strong>Microfinance for climate adaptation</strong> — small loans enable farmers and small business owners in vulnerable regions to adopt drought-resistant crops, improved storage, or renewable energy.</li>
+        </ul>
+
+        <div class="highlight-box">
+            When communities control their own climate funding, they make decisions that reflect local priorities, local knowledge, and local needs — producing outcomes that are more durable and more equitable than top-down approaches.
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4: YOUR ROLE AS A STUDENT                           -->
+    <!-- ============================================================ -->
+    <section class="content-section" id="student-role">
+        <h2>Your Role as a Student</h2>
+
+        <p>You do not have to be a financial expert or a policymaker to contribute to climate finance and community action. As a student, you have a unique set of tools: time, digital skills, critical thinking, and a network of peers who are collectively forming the next generation of decision-makers.</p>
+
+        <img src="images/content3_students.jpg"
+             alt="University students collaborating on a climate action project in a library"
+             class="content-img">
+
+        <h3>Practical Actions You Can Take This Week</h3>
+        <ul>
+            <li>Advocate for your university to divest its pension fund and endowment from fossil fuel companies — student campaigns have succeeded at dozens of universities worldwide.</li>
+            <li>Join or start a sustainability society to raise awareness and lobby for greener campus policies.</li>
+            <li>Switch to an ethical or green bank that does not fund fossil fuel expansion.</li>
+            <li>Attend local council meetings or sign petitions supporting green investment in your city.</li>
+            <li>Volunteer with a community energy project or environmental charity.</li>
+        </ul>
+
+        <h3>Longer-Term Choices</h3>
+        <ul>
+            <li>Choose a career or employer that is actively working to address the climate crisis.</li>
+            <li>Use your professional skills — in technology, design, finance, law, or communications — to support climate solutions.</li>
+            <li>Vote for politicians and parties with credible, science-aligned climate finance commitments.</li>
+        </ul>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 5: BARRIERS AND SOLUTIONS                           -->
+    <!-- ============================================================ -->
+    <section class="content-section" id="barriers">
+        <h2>Barriers &amp; Solutions</h2>
+
+        <p>Despite growing awareness, climate finance still faces significant barriers. Understanding them is the first step toward dismantling them.</p>
+
+        <h3>Common Barriers</h3>
+        <ul>
+            <li><strong>Short-termism</strong> — political and financial systems tend to prioritise short-term profits over long-term climate resilience.</li>
+            <li><strong>Greenwashing</strong> — some companies and funds label activities as "green" without meeting rigorous standards, undermining trust.</li>
+            <li><strong>Access inequality</strong> — the communities most in need of climate finance often have the least access to international funding mechanisms.</li>
+            <li><strong>Complex bureaucracy</strong> — international climate funds can be slow and expensive to access, particularly for smaller organisations and local governments.</li>
+        </ul>
+
+        <h3>Emerging Solutions</h3>
+        <ul>
+            <li>Standardised green taxonomies that clearly define what qualifies as a sustainable investment.</li>
+            <li>Direct access modalities that allow local organisations to apply to international funds without going through national governments.</li>
+            <li>Blended finance models that combine public and private money to reduce risk for investors in developing markets.</li>
+            <li>Digital platforms that enable peer-to-peer climate crowdfunding at a community level.</li>
+        </ul>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 6: TAKE ACTION NOW                                   -->
+    <!-- ============================================================ -->
+    <section class="content-section" id="take-action">
+        <h2>Take Action Now</h2>
+
+        <p>Climate finance is not a passive subject to read about — it is an invitation to act. Whether you redirect your savings, join a campaign, or simply talk about these issues with friends and family, every action creates ripples that contribute to larger change.</p>
+
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="stat-num">1</div>
+                <div class="stat-label">Conversation with a friend or peer about climate finance this week</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">1</div>
+                <div class="stat-label">Petition signed for green investment in your university or city</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">1</div>
+                <div class="stat-label">Hour volunteered with a local sustainability group this month</div>
+            </div>
+        </div>
+
+        <p>These small commitments add up. When millions of students make them simultaneously, they form a movement powerful enough to shift policy, redirect capital, and build the climate-resilient future that SDG 13 calls for.</p>
+
+        <div class="highlight-box">
+            The most powerful force for climate action is not a new technology or a new government — it is an informed, engaged, and determined community of people who refuse to accept the status quo.
+        </div>
+
+        <p>Explore the rest of our website to find programmes you can join, test your climate impact using our Action Simulator, and share your feedback to help us grow.</p>
+    </section>
+
+</main>
+
+<!-- "Go to Top" button - always visible, implemented with HTML and CSS only (no JavaScript) -->
+<a href="#top" class="go-top-btn" aria-label="Go back to the top of the page">↑ Top</a>
+
+<!-- ===== FOOTER (Shared Template - Student 3 version) ===== -->
+<footer>
+    <p>
+        <a href="pageEditor_ST3.html">Page Editor – Nadith</a> |
+        <a href="validation_ST3.html">Validation</a> |
+        <a href="#">Accessibility Statement</a>
+    </p>
+    <p>Student: Nadith | Student 3 | University of Westminster | Module: 4COSC011W</p>
+    <p>&copy; 2026 Climate Action Website – CLIMA Group</p>
+</footer>
+
+</body>
+</html>
