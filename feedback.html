@@ -1,576 +1,660 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback & Programs | Climate Action</title>
-    <!-- Link to global CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Page-specific embedded CSS for feedback.html -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback & Programs – Climate Action</title>
+
+    <!-- 
+         GLOBAL CSS – shared across all pages
+     -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- 
+         PAGE-SPECIFIC EMBEDDED CSS – feedback.html only
+         Does NOT override or conflict with style.css
+     -->
     <style>
-        /* ===== FEEDBACK PAGE SPECIFIC STYLES ===== */
-
-        /* Hero banner at the top of the page */
-        .feedback-hero {
-            background: linear-gradient(135deg, #0a6d62 0%, #1a9e8f 100%);
-            color: white;
-            text-align: center;
-            padding: 50px 30px;
-            margin-bottom: 40px;
-            border-radius: 12px;
+        /* --- 1. Section layout wrapper  */
+        .feedback-page-main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+            
         }
 
-        .feedback-hero h2 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-
-        .feedback-hero p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Section titles */
+        /* --- 2. Section titles  */
         .section-title {
-            font-size: 1.6rem;
-            color: #0a6d62;
-            border-left: 5px solid #0a6d62;
-            padding-left: 15px;
-            margin-bottom: 25px;
+            font-size: 32px;
+            color: #057d15;
+            margin-bottom: 20px;
+            border-left: 6px solid #189629;
+            padding-left: 14px;
+            
         }
 
-        /* ===== SCROLLABLE PROGRAM CARDS SECTION ===== */
-
-        /* Outer container that holds scrollable content */
-        .programs-scroll-container {
+        /*  3. Scrollable programme cards container  */
+        .programme-scroll {
             max-height: 520px;
             overflow-y: auto;
-            border: 2px solid #e0e0e0;
+            padding-right: 10px;
+            margin-bottom: 50px;
+            border: 1px solid #C8E6C9;
             border-radius: 10px;
             padding: 20px;
-            background: #f9fbfa;
-            margin-bottom: 40px;
-            /* Custom scrollbar styling */
-            scrollbar-width: thin;
-            scrollbar-color: #0a6d62 #f0f0f0;
+            background: #fff;
         }
 
-        /* Scrollbar for webkit browsers */
-        .programs-scroll-container::-webkit-scrollbar {
+        /* Custom scrollbar styling */
+        .programme-scroll::-webkit-scrollbar {
             width: 8px;
         }
 
-        .programs-scroll-container::-webkit-scrollbar-thumb {
-            background: #0a6d62;
+        .programme-scroll::-webkit-scrollbar-track {
+            background: #E8F5E9;
             border-radius: 4px;
         }
 
-        /* Grid layout for program cards */
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+        .programme-scroll::-webkit-scrollbar-thumb {
+            background: #4CAF50;
+            border-radius: 4px;
         }
 
-        /* Individual program card */
-        .program-card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .program-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(10,109,98,0.2);
-        }
-
-        /* Program card image thumbnail */
-        .program-card img {
-            width: 100%;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .program-card h3 {
-            font-size: 1.05rem;
-            color: #0a6d62;
-            margin-bottom: 8px;
-        }
-
-        .program-card p {
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 14px;
-        }
-
-        /* Dropdown filter bar above program list */
-        .filter-bar {
+        /*  4. Toolbar row (dropdown)  */
+        .toolbar {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 15px;
             margin-bottom: 20px;
             flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .filter-bar label {
-            font-weight: bold;
-            color: #333;
+        .toolbar p {
+            font-size: 15px;
+            color: #555;
         }
 
-        /* Styled dropdown for sorting */
-        .filter-bar select {
+        .sort-dropdown {
             padding: 8px 14px;
-            border: 2px solid #0a6d62;
+            border: 2px solid #4CAF50;
             border-radius: 6px;
-            background: white;
+            font-size: 14px;
+            background: #fff;
             color: #333;
-            font-size: 0.9rem;
             cursor: pointer;
         }
 
-        /* ===== RATINGS & REVIEWS SECTION ===== */
-
-        .ratings-section {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
+        /*  5. Programme card grid  */
+        .programme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
         }
 
-        /* Large numeric rating display */
-        .overall-rating {
+        /* Individual programme card */
+        .prog-card {
+            background: #F5F5F5;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .prog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .prog-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .prog-card-body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .prog-card-body h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: #2E7D32;
+        }
+
+        .prog-card-body p {
+            font-size: 14px;
+            color: #555;
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        /* Card action button */
+        .prog-btn {
+            margin-top: 14px;
+            padding: 9px 16px;
+            background: #2E7D32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .prog-btn:hover {
+            background: #039BE5;
+            transform: scale(1.04);
+        }
+
+        /*  6. Ratings & Reviews section  */
+        .reviews-section {
+            background: #E8F5E9;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 50px;
+        }
+
+        .rating-summary {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
+            gap: 30px;
+            margin-bottom: 30px;
             flex-wrap: wrap;
         }
 
-        .rating-number {
-            font-size: 4rem;
+        .rating-big {
+            font-size: 64px;
             font-weight: bold;
-            color: #0a6d62;
+            color: #2E7D32;
             line-height: 1;
         }
 
         .rating-label {
-            font-size: 1.3rem;
+            font-size: 20px;
             color: #333;
         }
 
-        .rating-count {
-            font-size: 0.9rem;
-            color: #888;
+        .rating-label span {
+            display: block;
+            font-size: 14px;
+            color: #777;
         }
 
-        /* Grid of review cards */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        /* Review cards row */
+        .review-cards {
+            display: flex;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
-        /* Individual review card */
         .review-card {
-            border: 1px solid #0a6d62;
-            border-radius: 10px;
+            background: #fff;
+            border-radius: 8px;
             padding: 18px;
-            background: #f9fbfa;
-            border-left: 4px solid #138f7a;
+            flex: 1;
+            min-width: 220px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #00c71c;
         }
 
         .review-card h4 {
-            color: #0a6d62;
+            font-size: 16px;
+            color: #2E7D32;
             margin-bottom: 6px;
         }
 
         .review-card p {
-            font-size: 0.88rem;
-            color: #555;
-            margin-bottom: 10px;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.5;
         }
 
-        .review-meta {
-            font-size: 0.8rem;
-            color: #888;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .review-card .see-more {
+            color: #039BE5;
+            font-size: 13px;
+            text-decoration: none;
         }
 
-        .review-score {
-            font-weight: bold;
-            color: #0a6d62;
-            font-size: 1rem;
-        }
-
-        .see-more-link {
-            color: #138f7a;
-            font-size: 0.82rem;
+        .review-card .see-more:hover {
             text-decoration: underline;
         }
 
-        /* ===== FEEDBACK FORM SECTION ===== */
-
-        .form-section {
-            background: white;
-            border-radius: 12px;
-            padding: 35px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
+        .review-meta {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #888;
         }
 
-        /* Fieldset grouping */
+        .review-rating {
+            font-weight: bold;
+            color: #2E7D32;
+        }
+
+        /*  7. Feedback form section  */
+        .feedback-form-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 36px;
+            border: 1px solid #C8E6C9;
+        }
+
+        .feedback-form-section h2 {
+            margin-bottom: 24px;
+        }
+
+        /* Fieldset & legend */
         fieldset {
-            border: 2px solid #d0eae7;
+            border: 3px solid #C8E6C9;
             border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
         }
 
         legend {
             font-weight: bold;
-            color: #0a6d62;
-            padding: 0 10px;
-            font-size: 1rem;
+            color: #2E7D32;
+            font-size: 16px;
+            padding: 0 8px;
         }
 
-        /* Form labels */
+        /* Form controls */
         .form-group {
             margin-bottom: 18px;
         }
 
         .form-group label {
             display: block;
+            font-size: 14px;
             font-weight: bold;
             margin-bottom: 6px;
             color: #333;
-            font-size: 0.95rem;
         }
 
-        /* Text inputs and textareas */
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 10px 14px;
-            border: 2px solid #ccc;
+            padding: 10px 12px;
+            border: 2px solid #ddd;
             border-radius: 6px;
-            font-size: 0.95rem;
-            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
             transition: border-color 0.3s;
+            font-family: Arial, sans-serif;
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
+            border-color: #4CAF50;
             outline: none;
-            border-color: #0a6d62;
         }
 
-        /* Character counter display */
+        /* Error message style (shown via JavaScript) */
+        .error-msg {
+            color: #c62828;
+            font-size: 13px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        /* Character counter */
         .char-counter {
-            font-size: 0.8rem;
-            color: #888;
+            font-size: 12px;
+            color: #777;
             text-align: right;
             margin-top: 4px;
         }
 
-        /* Error message styling */
-        .error-msg {
-            color: #c0392b;
-            font-size: 0.82rem;
-            margin-top: 4px;
-            display: none; /* Hidden until JavaScript reveals it */
+        /* Submit button */
+        .submit-btn {
+            padding: 12px 32px;
+            background: #2E7D32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
         }
 
-        /* Confirmation message shown on valid submission */
-        .confirm-msg {
+        .submit-btn:hover {
+            background: #039BE5;
+            transform: scale(1.04);
+        }
+
+        /* Confirmation message (shown by JavaScript on success) */
+        #confirmation-msg {
             display: none;
-            background: #d4edda;
-            border: 2px solid #0a6d62;
-            color: #155724;
+            background: #E8F5E9;
+            border: 2px solid #4CAF50;
             border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            font-size: 1.1rem;
+            padding: 18px 24px;
+            color: #2E7D32;
+            font-size: 16px;
             margin-top: 20px;
+            text-align: center;
         }
 
-        /* Input validation highlight */
+        /* Highlight invalid fields via JS */
         .input-error {
-            border-color: #c0392b !important;
+            border-color: #c62828 !important;
+        }
+
+        /* Divider between sections */
+        .section-divider {
+            border: none;
+            border-top: 2px solid #C8E6C9;
+            margin: 50px 0;
         }
     </style>
 </head>
+
 <body>
 
-<!-- ===== HEADER (Shared Template - Do Not Modify Structure) ===== -->
-<header>
-    <div class="logo-container">
-        <img src="images/logo.png" alt="Climate Action Website Logo">
-    </div>
-    <h1>Climate Action</h1>
-    <nav>
-        <ul class="navbar">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="ais.html">Action Simulator</a></li>
-            <li><a href="feedback.html" class="active">Feedback</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="profile.html">User Profile</a></li>
-            <li><a href="sitemap.html">Sitemap</a></li>
-        </ul>
-    </nav>
-</header>
+    <!-- 
+         HEADER / NAVIGATION BAR  (shared template)
+     -->
+    <header>
+        <nav>
+            <h2>🌍 Climate Action</h2>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="ais.html">AIS</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html" class="active">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- ===== MAIN CONTENT ===== -->
-<main>
+    <!-- 
+         MAIN CONTENT
+     -->
+    <main>
+        <div class="feedback-page-main">
 
-    <!-- Hero Banner -->
-    <div class="feedback-hero">
-        <h2>🌍 Climate Programs & Feedback</h2>
-        <p>Explore climate action opportunities near you — and share your thoughts to help us improve.</p>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- SECTION 1: SCROLLABLE PROGRAM DIRECTORY                      -->
-    <!-- ============================================================ -->
-    <h2 class="section-title">Climate Action Programs</h2>
-
-    <!-- Sort/filter dropdown (visual only - does not change content) -->
-    <div class="filter-bar">
-        <label for="sort-select">Sort by:</label>
-        <select id="sort-select">
-            <option>Most Popular</option>
-            <option>Student-Friendly</option>
-            <option>Nearest</option>
-            <option>Newest</option>
-        </select>
-    </div>
-
-    <!-- Scrollable container holds all program cards -->
-    <div class="programs-scroll-container">
-        <div class="programs-grid">
-
-            <!-- Program Card 1 -->
-            <div class="program-card">
-                <img src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg" alt="Tree planting volunteers in a local park">
-                <h3> Plant for the Planet</h3>
-                <p>Join community tree-planting events in your local area to offset carbon emissions and restore green spaces.</p>
-                <button onclick="window.open('#', '_blank')">Get Involved</button>
+            <!-- ---- Hero heading ---- -->
+            <div class="mission" style="padding: 40px 0 10px; background: linear-gradient(135deg, #1B5E20, #2E7D32, #43A047); color: white;">
+                <h2>Feedback &amp; Programme Directory</h2>
+                <p>Explore climate action opportunities and share your thoughts with us. Every voice matters in the
+                    fight against climate change.</p>
             </div>
 
-            <!-- Program Card 2 -->
-            <div class="program-card">
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600" alt="Students attending a climate education workshop">
-                <h3> Campus Climate Scholars</h3>
-                <p>A student-led initiative running workshops, seminars, and campaigns to raise awareness about climate change on campus.</p>
-                <button onclick="window.open('#', '_blank')">Learn More</button>
+            <hr class="section-divider" />
+
+            <!-- 
+                 SECTION 1 – Scrollable Programme Directory
+             -->
+            <h2 class="section-title">Climate Action Programmes</h2>
+
+            <!-- Toolbar with sort dropdown -->
+            <div class="toolbar">
+                <p>Showing <strong>4</strong> programmes available for you</p>
+                <select class="sort-dropdown" aria-label="Sort programmes">
+                    <option>Most Popular</option>
+                    <option>Student-Friendly</option>
+                    <option>Nearest</option>
+                    <option>Newest</option>
+                </select>
             </div>
 
-            <!-- Program Card 3 -->
-            <div class="program-card">
-                <img src="https://images.pexels.com/photos/248547/pexels-photo-248547.jpeg" alt="Volunteers clearing plastic waste from a beach">
-                <h3>Green Commute Challenge</h3>
-                <p>A 30-day challenge encouraging students and workers to swap car journeys for cycling, walking or public transport.</p>
-                <button onclick="window.open('#', '_blank')">Join</button>
-            </div>
+            <!-- Scrollable container -->
+            <div class="programme-scroll" aria-label="Scrollable list of climate programmes">
+                <div class="programme-grid">
 
-            <!-- Program Card 4 -->
-            <div class="program-card">
-                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600" alt="Solar panels installed on rooftops in a community">
-                <h3>Renewable Energy Fund</h3>
-                <p>Support community renewable energy projects, including solar panel installations in low-income neighbourhoods to reduce energy poverty.</p>
-                <button onclick="window.open('#', '_blank')">Learn More</button>
-            </div>
+                    <!-- Card 1 -->
+                    <article class="prog-card">
+                        <!--
+                            REPLACE the src below with your own image path, e.g.:
+                            src="images/treeplanting.jpg"
+                            Use a royalty-free image from https://www.istockphoto.com/
+                            and reference it in your Page Editor.
+                        -->
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=150&fit=crop"
+                            alt="Volunteers planting trees in a deforested area to restore green cover" />
+                        <div class="prog-card-body">
+                            <h3> Urban Tree Planting Initiative</h3>
+                            <p>Join local volunteers every weekend to plant trees in urban areas, helping absorb CO₂
+                                and restore biodiversity in our cities.</p>
+                            <a href="#" class="prog-btn">Get Involved</a>
+                        </div>
+                    </article>
 
+                    <!-- Card 2 -->
+                    <article class="prog-card">
+                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&h=150&fit=crop"
+                            alt="Solar panels installed on rooftops providing clean renewable energy" />
+                        <div class="prog-card-body">
+                            <h3> Campus Solar Drive</h3>
+                            <p>A student-led campaign to promote solar energy adoption on university campuses. Sign
+                                petitions, attend talks, and spread awareness.</p>
+                            <a href="#" class="prog-btn">Learn More</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="prog-card">
+                        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=400&h=150&fit=crop"
+                            alt="People sorting recyclable materials at a community recycling drive" />
+                        <div class="prog-card-body">
+                            <h3> Zero Waste Campus</h3>
+                            <p>Help reduce plastic and food waste on campus through awareness workshops, recycling
+                                drives, and composting stations.</p>
+                            <a href="#" class="prog-btn">Join Now</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="prog-card">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=150&fit=crop"
+                            alt="Students cycling to university as a sustainable transport alternative" />
+                        <div class="prog-card-body">
+                            <h3> Green Commute Challenge</h3>
+                            <p>Swap your car or bus for a bike or walk for 30 days. Track your carbon savings and earn
+                                rewards through our student app.</p>
+                            <a href="#" class="prog-btn">Start Challenge</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div><!-- /programme-scroll -->
+
+            <hr class="section-divider" />
+
+            <!--
+                 SECTION 2 – Ratings & Reviews Summary
+             -->
+            <h2 class="section-title">What Participants Are Saying</h2>
+
+            <div class="reviews-section">
+                <!-- Overall rating -->
+                <div class="rating-summary">
+                    <div class="rating-big">8.7<span style="font-size:28px;">%</span></div>
+                    <div class="rating-label">
+                        Excellent
+                        <span>Based on 142 participant reviews</span>
+                    </div>
+                </div>
+
+                <!-- Individual review cards -->
+                <div class="review-cards">
+
+                    <div class="review-card">
+                        <h4>10/10 – Life Changing Experience</h4>
+                        <p>The tree planting programme completely changed how I think about my impact on the planet. I
+                            met amazing people and learned so much about local ecosystems...
+                            <a href="#" class="see-more">See more</a>
+                        </p>
+                        <div class="review-meta">
+                            <span class="review-rating">⭐ 10/10</span> — Aisha R., 12 Feb 2026
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <h4>9/10 – Great for Students</h4>
+                        <p>The Zero Waste Campus workshop fitted perfectly around my lectures. The team was
+                            well-organised and the tips they shared were practical and easy to follow...
+                            <a href="#" class="see-more">See more</a>
+                        </p>
+                        <div class="review-meta">
+                            <span class="review-rating">⭐ 9/10</span> — Marcus T., 28 Jan 2026
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <h4>8/10 – Highly Recommended</h4>
+                        <p>The Green Commute Challenge pushed me to finally buy a bicycle. I saved money on transport
+                            and felt much healthier after the 30 days...
+                            <a href="#" class="see-more">See more</a>
+                        </p>
+                        <div class="review-meta">
+                            <span class="review-rating">⭐ 8/10</span> — Priya S., 5 Mar 2026
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- /reviews-section -->
+
+            <hr class="section-divider" />
+
+            <!-- 
+                 SECTION 3 – Feedback Form
+     -->
+            <section class="feedback-form-section" aria-label="Feedback submission form">
+                <h2 class="section-title">Share Your Feedback</h2>
+                <p style="margin-bottom:28px; color:#555;">
+                    We value your opinion. Fill in the form below and let us know what you think about our climate
+                    action programmes.
+                </p>
+
+                <!--
+                    NOTE: No <form> tag used here intentionally to avoid default submission.
+                    JavaScript handles validation and submission feedback.
+                -->
+
+                <!-- FIELDSET 1 – Personal Details -->
+                <fieldset>
+                    <legend>Personal Details</legend>
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" placeholder="e.g. Nadith Perera" maxlength="80" />
+                        <span class="error-msg" id="err-name">Please enter your full name.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emailAddr">Email Address *</label>
+                        <input type="email" id="emailAddr" placeholder="e.g. nadith@email.com" />
+                        <span class="error-msg" id="err-email">Please enter a valid email address.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telNumber">Telephone Number</label>
+                        <input type="tel" id="telNumber" placeholder="e.g. +44 7700 000000" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userAddress">Address</label>
+                        <textarea id="userAddress" rows="3" placeholder="Your address (optional)"></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- FIELDSET 2 – Feedback Details -->
+                <fieldset>
+                    <legend>Feedback Details</legend>
+
+                    <div class="form-group">
+                        <label for="programme">Which programme are you reviewing? *</label>
+                        <select id="programme">
+                            <option value="">-- Select a programme --</option>
+                            <option value="tree">Urban Tree Planting Initiative</option>
+                            <option value="solar">Campus Solar Drive</option>
+                            <option value="waste">Zero Waste Campus</option>
+                            <option value="commute">Green Commute Challenge</option>
+                        </select>
+                        <span class="error-msg" id="err-programme">Please select a programme.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="visitDate">Date of Participation *</label>
+                        <input type="date" id="visitDate" />
+                        <span class="error-msg" id="err-date">Please select a date.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="visitDateTime">Preferred Follow-up Time</label>
+                        <input type="datetime-local" id="visitDateTime" />
+                    </div>
+
+                    <!-- Searchable programme suggestion via datalist -->
+                    <div class="form-group">
+                        <label for="topicSuggest">Suggest a New Programme Topic</label>
+                        <input type="text" id="topicSuggest" list="topicList"
+                            placeholder="e.g. Ocean clean-up drive" />
+                        <datalist id="topicList">
+                            <option value="Ocean clean-up drive"></option>
+                            <option value="Urban farming workshop"></option>
+                            <option value="Climate documentary screening"></option>
+                            <option value="Carbon footprint calculator event"></option>
+                            <option value="Renewable energy fair"></option>
+                        </datalist>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="commentMsg">Your Comment / Message * <small>(max 300 characters)</small></label>
+                        <textarea id="commentMsg" rows="5" maxlength="300"
+                            placeholder="Tell us about your experience..."></textarea>
+                        <!-- Live character counter – updated by JavaScript -->
+                        <div class="char-counter"><span id="charCount">0</span> / 300 characters used</div>
+                        <span class="error-msg" id="err-comment">Please write a comment (at least 10 characters).</span>
+                    </div>
+                </fieldset>
+
+                <!-- Submit button -->
+                <button class="submit-btn" id="submitBtn" type="button" onclick="submitFeedback()">
+                    Send Feedback
+                </button>
+
+                <!-- Confirmation message shown by JavaScript on success -->
+                <div id="confirmation-msg" role="alert" aria-live="polite">
+                    ✅ Thank you for your feedback, <span id="confirm-name"></span>! We will review your response
+                    and get back to you soon.
+                </div>
+
+            </section>
+
+        </div><!-- /feedback-page-main -->
+    </main>
+
+    <!--
+         FOOTER (shared template – Student 3 version)
+     -->
+    <footer>
+        <div class="footer-navigation">
+            <a href="pageEditor_ST3.html" style="color: blue;">Page Editor – Nadith  </a>
+            <a href="validation_ST3.html" style="color: blue;">Validation</a>
+            <a href="#" style="color: blue;">Accessibility Statement</a>
             
-
-        </div><!-- end .programs-grid -->
-    </div><!-- end .programs-scroll-container -->
-
-
-    <!-- ============================================================ -->
-    <!-- SECTION 2: RATINGS & REVIEWS SUMMARY                        -->
-    <!-- ============================================================ -->
-    <h2 class="section-title">Ratings &amp; Reviews</h2>
-
-    <div class="ratings-section">
-
-        <!-- Overall numeric rating -->
-        <div class="overall-rating">
-            <div class="rating-number">8.7</div>
-            <div>
-                <div class="rating-label">⭐ Excellent</div>
-                <div class="rating-count">Based on 214 participant reviews</div>
-            </div>
+            
         </div>
-
-        <!-- Individual review cards -->
-        <div class="reviews-grid">
-
-            <!-- Review 1 -->
-            <div class="review-card">
-                <h4>Life-Changing Experience</h4>
-                <p>Taking part in the tree planting programme genuinely changed how I think about my environmental impact. Highly recommend to any student...</p>
-                <a href="#" class="see-more-link">See more</a>
-                <div class="review-meta">
-                    <span>Amara J. — 12 Feb 2026</span>
-                    <span class="review-score">9/10</span>
-                </div>
-            </div>
-
-            <!-- Review 2 -->
-            <div class="review-card">
-                <h4>Great for Beginners</h4>
-                <p>I had no idea where to start with climate action. The Campus Climate Scholars programme was welcoming, well-organised and inspiring...</p>
-                <a href="#" class="see-more-link">See more</a>
-                <div class="review-meta">
-                    <span>Tom R. — 28 Jan 2026</span>
-                    <span class="review-score">8/10</span>
-                </div>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="review-card">
-                <h4>Visible Real-World Impact</h4>
-                <p>The Clean Coast Campaign was incredibly satisfying — we cleared over 40kg of plastic in one afternoon. You can see the difference you make...</p>
-                <a href="#" class="see-more-link">See more</a>
-                <div class="review-meta">
-                    <span>Priya S. — 5 Mar 2026</span>
-                    <span class="review-score">9/10</span>
-                </div>
-            </div>
-
-        </div><!-- end .reviews-grid -->
-    </div><!-- end .ratings-section -->
-
-
-    <!-- ============================================================ -->
-    <!-- SECTION 3: FEEDBACK FORM                                     -->
-    <!-- ============================================================ -->
-    <h2 class="section-title">Submit Your Feedback</h2>
-
-    <div class="form-section">
-        <form id="feedbackForm" novalidate>
-
-            <!-- Fieldset 1: Personal Details -->
-            <fieldset>
-                <legend>Personal Details</legend>
-
-                <div class="form-group">
-                    <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" placeholder="e.g. Jane Smith">
-                    <div class="error-msg" id="nameError">Please enter your full name.</div>
-                </div>
-
-                <div class="form-group">
-                    <label for="emailAddr">Email Address *</label>
-                    <input type="email" id="emailAddr" name="emailAddr" placeholder="e.g. jane@example.com">
-                    <div class="error-msg" id="emailError">Please enter a valid email address.</div>
-                </div>
-
-                <div class="form-group">
-                    <label for="phoneNum">Telephone Number</label>
-                    <input type="tel" id="phoneNum" name="phoneNum" placeholder="e.g. +44 7700 900000">
-                </div>
-
-                <div class="form-group">
-                    <label for="userAddress">Address</label>
-                    <textarea id="userAddress" name="userAddress" rows="3" placeholder="Your address (optional)"></textarea>
-                </div>
-            </fieldset>
-
-            <!-- Fieldset 2: Feedback Details -->
-            <fieldset>
-                <legend>Feedback Details</legend>
-
-                <div class="form-group">
-                    <label for="programSelect">Which programme are you reviewing? *</label>
-                    <!-- Select dropdown -->
-                    <select id="programSelect" name="programSelect">
-                        <option value="">-- Select a programme --</option>
-                        <option value="plant">Plant for the Planet</option>
-                        <option value="campus">Campus Climate Scholars</option>
-                        <option value="coast">Clean Coast Campaign</option>
-                        <option value="solar">Renewable Energy Fund</option>
-                        <option value="cycle">Cycle City Movement</option>
-                        <option value="plates">Planet-Friendly Plates</option>
-                    </select>
-                    <div class="error-msg" id="selectError">Please select a programme.</div>
-                </div>
-
-                <div class="form-group">
-                    <label for="visitDate">Date of Participation *</label>
-                    <input type="date" id="visitDate" name="visitDate">
-                    <div class="error-msg" id="dateError">Please enter the date of participation.</div>
-                </div>
-
-                <div class="form-group">
-                    <label for="visitDateTime">Preferred contact date &amp; time</label>
-                    <input type="datetime-local" id="visitDateTime" name="visitDateTime">
-                </div>
-
-                <!-- Datalist for searchable interest suggestions -->
-                <div class="form-group">
-                    <label for="interest">Your area of climate interest</label>
-                    <input type="text" id="interest" name="interest" list="interestOptions" placeholder="Start typing...">
-                    <datalist id="interestOptions">
-                        <option value="Renewable Energy">
-                        <option value="Sustainable Transport">
-                        <option value="Ocean Conservation">
-                        <option value="Reforestation">
-                        <option value="Sustainable Food">
-                        <option value="Climate Policy">
-                        <option value="Green Technology">
-                    </datalist>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Your Comments / Feedback *</label>
-                    <!-- maxlength attribute limits characters; JS provides live counter -->
-                    <textarea id="message" name="message" rows="5"
-                              maxlength="500"
-                              placeholder="Share your experience (max 500 characters)..."></textarea>
-                    <!-- Live character counter updated by JavaScript -->
-                    <div class="char-counter" id="charCounter">500 characters remaining</div>
-                    <div class="error-msg" id="msgError">Please enter your feedback (at least 20 characters).</div>
-                </div>
-
-            </fieldset>
-
-            <!-- Submit button -->
-            <button type="submit" id="submitBtn">Submit Feedback</button>
-
-        </form>
-
-        <!-- Confirmation message - shown by JavaScript on successful submission -->
-        <div class="confirm-msg" id="confirmMsg">
-            ✅ <strong>Thank you for your feedback, </strong><span id="confirmName"></span>!<br>
-            Your response about <em><span id="confirmProgram"></span></em> has been recorded. We appreciate your contribution to climate action!
-        </div>
-
-    </div><!-- end .form-section -->
-
-</main>
-
-<!-- ===== FOOTER (Shared Template - Student 3 version) ===== -->
-<footer>
-    <p>
-        <a href="pageEditor_ST3.html">Page Editor – Nadith</a> |
-        <a href="validation_ST3.html">Validation</a> |
-        <a href="#">Accessibility Statement</a>
-    </p>
-    <p>Student: Nadith | Student 3 | University of Westminster | Module: 4COSC011W</p>
-    <p>&copy; 2026 Climate Action Website – CLIMA Group</p>
-</footer>
+        <p>Student: Nadith | Student 3 | University of Westminster | Module: 4COSC011W</p>
+        <p style="margin-top:6px; font-size:13px;">&copy; 2026 Climate Action Team – Gavin, Lehan, Nadith, Dinura</p>
+    </footer>
+    <!-- External JavaScript file for Nadith (Student 3) -->
+    <script src="nadith script.js"></script>
 
 
 </body>
+
 </html>
