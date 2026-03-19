@@ -1,79 +1,154 @@
- const messageBox = document.getElementById('message');
-    const charCounter = document.getElementById('charCounter');
+/* 
+           1. LIVE CHARACTER COUNTER
+           Updates the counter span as the user types in the textarea.
+ */
+        const commentField = document.getElementById('commentMsg');
+        const charCountSpan = document.getElementById('charCount');
 
-    messageBox.addEventListener('input', function () {
-        const maxLen = parseInt(messageBox.getAttribute('maxlength'));
-        const remaining = maxLen - messageBox.value.length;
-        charCounter.textContent = remaining + ' characters remaining';
+        commentField.addEventListener('input', function () {
+            const used = this.value.length;
+            charCountSpan.textContent = used;
 
-        // Warn user when nearly at the limit
-        if (remaining <= 50) {
-            charCounter.style.color = '#c0392b';
-        } else {
-            charCounter.style.color = '#888';
-        }
-    });
+            // Warn user when approaching limit
+            if (used >= 270) {
+                charCountSpan.style.color = '#c62828';
+            } else {
+                charCountSpan.style.color = '#777';
+            }
+        });
 
 
-    // -------------------------------------------------------
-    // 2. FORM VALIDATION AND SUBMISSION
-    // Checks fields, shows error messages, confirms on success
-    // -------------------------------------------------------
-    const feedbackForm = document.getElementById('feedbackForm');
-
-    feedbackForm.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent default browser submit
-
-        let isValid = true; // Track overall validity
-
-        // Helper: show or hide an error message
-        function showError(errorId, inputId, show) {
+        /* 
+           2. HELPER – Show or hide an error message and highlight field
+           @param {string} fieldId  – the input/textarea id
+           @param {string} errorId  – the error <span> id
+           @param {boolean} show    – true to show error, false to hide
+         */
+        function setError(fieldId, errorId, show) {
+            const field = document.getElementById(fieldId);
             const errorEl = document.getElementById(errorId);
-            const inputEl = document.getElementById(inputId);
+
             if (show) {
                 errorEl.style.display = 'block';
-                inputEl.classList.add('input-error');
-                isValid = false;
+                field.classList.add('input-error');
             } else {
                 errorEl.style.display = 'none';
-                inputEl.classList.remove('input-error');
+                field.classList.remove('input-error');
             }
         }
 
-        // Validate Full Name (must not be empty)
-        const nameVal = document.getElementById('fullName').value.trim();
-        showError('nameError', 'fullName', nameVal === '');
 
-        // Validate Email (basic pattern check)
-        const emailVal = document.getElementById('emailAddr').value.trim();
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        showError('emailError', 'emailAddr', !emailPattern.test(emailVal));
+        /* 
+           3. FORM VALIDATION (JavaScript-enhanced)
+           Called when the user clicks "Send Feedback".
+           Checks each required field and shows inline error messages.
+           Returns true only if all required fields pass.
+       */
+        function validateForm() {
+            let isValid = true;
 
-        // Validate programme selection
-        const selectVal = document.getElementById('programSelect').value;
-        showError('selectError', 'programSelect', selectVal === '');
+            // --- Full Name (must not be empty) ---
+            const name = document.getElementById('fullName').value.trim();
+            if (name === '') {
+                setError('fullName', 'err-name', true);
+                isValid = false;
+            } else {
+                setError('fullName', 'err-name', false);
+            }
 
-        // Validate date field
-        const dateVal = document.getElementById('visitDate').value;
-        showError('dateError', 'visitDate', dateVal === '');
+            // --- Email (HTML type="email" handles format; check it's not empty) ---
+            const email = document.getElementById('emailAddr').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                setError('emailAddr', 'err-email', true);
+                isValid = false;
+            } else {
+                setError('emailAddr', 'err-email', false);
+            }
 
-        // Validate message (at least 20 characters)
-        const msgVal = messageBox.value.trim();
-        showError('msgError', 'message', msgVal.length < 20);
+            // --- Programme selection (must not be the blank option) ---
+            const prog = document.getElementById('programme').value;
+            if (prog === '') {
+                setError('programme', 'err-programme', true);
+                isValid = false;
+            } else {
+                setError('programme', 'err-programme', false);
+            }
 
-        // If all valid, show confirmation message
-        if (isValid) {
-            // Populate confirmation with user's name and selected programme
-            document.getElementById('confirmName').textContent = nameVal;
-            const selectEl = document.getElementById('programSelect');
-            const programName = selectEl.options[selectEl.selectedIndex].text;
-            document.getElementById('confirmProgram').textContent = programName;
+            // --- Date (must not be empty) ---
+            const visitDate = document.getElementById('visitDate').value;
+            if (visitDate === '') {
+                setError('visitDate', 'err-date', true);
+                isValid = false;
+            } else {
+                setError('visitDate', 'err-date', false);
+            }
 
-            // Show confirmation and hide the form
-            document.getElementById('confirmMsg').style.display = 'block';
-            feedbackForm.style.display = 'none';
+            // --- Comment (must be at least 10 characters) ---
+            const comment = document.getElementById('commentMsg').value.trim();
+            if (comment.length < 10) {
+                setError('commentMsg', 'err-comment', true);
+                isValid = false;
+            } else {
+                setError('commentMsg', 'err-comment', false);
+            }
 
-            // Scroll to confirmation message
-            document.getElementById('confirmMsg').scrollIntoView({ behavior: 'smooth' });
+            return isValid;
         }
-    });
+
+
+        /* 
+           4. SUBMISSION HANDLER
+           Runs validation. On success, shows a confirmation message
+           and hides the submit button. No server request is made.
+         */
+        function submitFeedback() {
+            // Hide any previous confirmation message
+            document.getElementById('confirmation-msg').style.display = 'none';
+
+            const valid = validateForm();
+
+            if (valid) {
+                // Show personalised confirmation message
+                const userName = document.getElementById('fullName').value.trim();
+                document.getElementById('confirm-name').textContent = userName;
+                document.getElementById('confirmation-msg').style.display = 'block';
+
+                // Scroll confirmation into view
+                document.getElementById('confirmation-msg').scrollIntoView({ behavior: 'smooth' });
+
+                // Disable submit button to prevent duplicate submissions
+                const btn = document.getElementById('submitBtn');
+                btn.textContent = 'Submitted ✓';
+                btn.disabled = true;
+                btn.style.background = '#888';
+                btn.style.cursor = 'default';
+            }
+        }
+
+
+        /* 
+           5. REAL-TIME INLINE VALIDATION
+           As the user leaves each field (blur event), immediately show
+           or clear its error — gives faster feedback than waiting for submit.
+         */
+        document.getElementById('fullName').addEventListener('blur', function () {
+            setError('fullName', 'err-name', this.value.trim() === '');
+        });
+
+        document.getElementById('emailAddr').addEventListener('blur', function () {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            setError('emailAddr', 'err-email', !emailRegex.test(this.value.trim()));
+        });
+
+        document.getElementById('programme').addEventListener('change', function () {
+            setError('programme', 'err-programme', this.value === '');
+        });
+
+        document.getElementById('visitDate').addEventListener('change', function () {
+            setError('visitDate', 'err-date', this.value === '');
+        });
+
+        document.getElementById('commentMsg').addEventListener('blur', function () {
+            setError('commentMsg', 'err-comment', this.value.trim().length < 10);
+        });
