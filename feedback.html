@@ -5,364 +5,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback & Programs – Climate Action</title>
+    <link rel="stylesheet" href="feedback.css">
 
     <!-- 
          GLOBAL CSS – shared across all pages
-     -->
+    -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="feedback_rule1.css" />
+    <link rel="stylesheet" href="feedback_rule2.css" />
+    <link rel="stylesheet" href="feedback_rule3.css" />
+    <link rel="stylesheet" href="feedback_rule4.css" />
+    <link rel="stylesheet" href="feedback_rule5.css" />
+    <link rel="stylesheet" href="feedback_rule6.css" />
+    <link rel="stylesheet" href="feedback_rule7.css" />
 
-    <!-- 
+    <!--
          PAGE-SPECIFIC EMBEDDED CSS – feedback.html only
          Does NOT override or conflict with style.css
      -->
-    <style>
-        /* --- 1. Section layout wrapper  */
-        .feedback-page-main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px 60px;
-            
-        }
-
-        /* --- 2. Section titles  */
-        .section-title {
-            font-size: 32px;
-            color: #057d15;
-            margin-bottom: 20px;
-            border-left: 6px solid #189629;
-            padding-left: 14px;
-            
-        }
-
-        /*  3. Scrollable programme cards container  */
-        .programme-scroll {
-            max-height: 520px;
-            overflow-y: auto;
-            padding-right: 10px;
-            margin-bottom: 50px;
-            border: 1px solid #C8E6C9;
-            border-radius: 10px;
-            padding: 20px;
-            background: #fff;
-        }
-
-        /* Custom scrollbar styling */
-        .programme-scroll::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .programme-scroll::-webkit-scrollbar-track {
-            background: #E8F5E9;
-            border-radius: 4px;
-        }
-
-        .programme-scroll::-webkit-scrollbar-thumb {
-            background: #4CAF50;
-            border-radius: 4px;
-        }
-
-        /*  4. Toolbar row (dropdown)  */
-        .toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .toolbar p {
-            font-size: 15px;
-            color: #555;
-        }
-
-        .sort-dropdown {
-            padding: 8px 14px;
-            border: 2px solid #4CAF50;
-            border-radius: 6px;
-            font-size: 14px;
-            background: #fff;
-            color: #333;
-            cursor: pointer;
-        }
-
-        /*  5. Programme card grid  */
-        .programme-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-        }
-
-        /* Individual programme card */
-        .prog-card {
-            background: #F5F5F5;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .prog-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-        }
-
-        .prog-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .prog-card-body {
-            padding: 16px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .prog-card-body h3 {
-            font-size: 17px;
-            margin-bottom: 8px;
-            color: #2E7D32;
-        }
-
-        .prog-card-body p {
-            font-size: 14px;
-            color: #555;
-            flex: 1;
-            line-height: 1.5;
-        }
-
-        /* Card action button */
-        .prog-btn {
-            margin-top: 14px;
-            padding: 9px 16px;
-            background: #2E7D32;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-            text-align: center;
-            transition: background 0.3s, transform 0.2s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .prog-btn:hover {
-            background: #039BE5;
-            transform: scale(1.04);
-        }
-
-        /*  6. Ratings & Reviews section  */
-        .reviews-section {
-            background: #E8F5E9;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 50px;
-        }
-
-        .rating-summary {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .rating-big {
-            font-size: 64px;
-            font-weight: bold;
-            color: #2E7D32;
-            line-height: 1;
-        }
-
-        .rating-label {
-            font-size: 20px;
-            color: #333;
-        }
-
-        .rating-label span {
-            display: block;
-            font-size: 14px;
-            color: #777;
-        }
-
-        /* Review cards row */
-        .review-cards {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .review-card {
-            background: #fff;
-            border-radius: 8px;
-            padding: 18px;
-            flex: 1;
-            min-width: 220px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border-left: 4px solid #00c71c;
-        }
-
-        .review-card h4 {
-            font-size: 16px;
-            color: #2E7D32;
-            margin-bottom: 6px;
-        }
-
-        .review-card p {
-            font-size: 14px;
-            color: #444;
-            line-height: 1.5;
-        }
-
-        .review-card .see-more {
-            color: #039BE5;
-            font-size: 13px;
-            text-decoration: none;
-        }
-
-        .review-card .see-more:hover {
-            text-decoration: underline;
-        }
-
-        .review-meta {
-            margin-top: 10px;
-            font-size: 12px;
-            color: #888;
-        }
-
-        .review-rating {
-            font-weight: bold;
-            color: #2E7D32;
-        }
-
-        /*  7. Feedback form section  */
-        .feedback-form-section {
-            background: #fff;
-            border-radius: 12px;
-            padding: 36px;
-            border: 1px solid #C8E6C9;
-        }
-
-        .feedback-form-section h2 {
-            margin-bottom: 24px;
-        }
-
-        /* Fieldset & legend */
-        fieldset {
-            border: 3px solid #C8E6C9;
-            border-radius: 8px;
-            padding: 20px 24px;
-            margin-bottom: 24px;
-        }
-
-        legend {
-            font-weight: bold;
-            color: #2E7D32;
-            font-size: 16px;
-            padding: 0 8px;
-        }
-
-        /* Form controls */
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 6px;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 10px 12px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-            font-family: Arial, sans-serif;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: #4CAF50;
-            outline: none;
-        }
-
-        /* Error message style (shown via JavaScript) */
-        .error-msg {
-            color: #c62828;
-            font-size: 13px;
-            margin-top: 4px;
-            display: none;
-        }
-
-        /* Character counter */
-        .char-counter {
-            font-size: 12px;
-            color: #777;
-            text-align: right;
-            margin-top: 4px;
-        }
-
-        /* Submit button */
-        .submit-btn {
-            padding: 12px 32px;
-            background: #2E7D32;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .submit-btn:hover {
-            background: #039BE5;
-            transform: scale(1.04);
-        }
-
-        /* Confirmation message (shown by JavaScript on success) */
-        #confirmation-msg {
-            display: none;
-            background: #E8F5E9;
-            border: 2px solid #4CAF50;
-            border-radius: 8px;
-            padding: 18px 24px;
-            color: #2E7D32;
-            font-size: 16px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        /* Highlight invalid fields via JS */
-        .input-error {
-            border-color: #c62828 !important;
-        }
-
-        /* Divider between sections */
-        .section-divider {
-            border: none;
-            border-top: 2px solid #C8E6C9;
-            margin: 50px 0;
-        }
-    </style>
 </head>
 
 <body>
 
     <!-- 
          HEADER / NAVIGATION BAR  (shared template)
-     -->
+    -->
     <header>
         <nav>
             <h2>🌍 Climate Action</h2>
@@ -380,7 +47,7 @@
 
     <!-- 
          MAIN CONTENT
-     -->
+    -->
     <main>
         <div class="feedback-page-main">
 
@@ -393,7 +60,7 @@
 
             <hr class="section-divider" />
 
-            <!-- 
+            <!--
                  SECTION 1 – Scrollable Programme Directory
              -->
             <h2 class="section-title">Climate Action Programmes</h2>
@@ -472,7 +139,7 @@
 
             <hr class="section-divider" />
 
-            <!--
+            <!-- 
                  SECTION 2 – Ratings & Reviews Summary
              -->
             <h2 class="section-title">What Participants Are Saying</h2>
@@ -528,9 +195,9 @@
 
             <hr class="section-divider" />
 
-            <!-- 
+            <!--
                  SECTION 3 – Feedback Form
-     -->
+             -->
             <section class="feedback-form-section" aria-label="Feedback submission form">
                 <h2 class="section-title">Share Your Feedback</h2>
                 <p style="margin-bottom:28px; color:#555;">
@@ -549,7 +216,7 @@
 
                     <div class="form-group">
                         <label for="fullName">Full Name *</label>
-                        <input type="text" id="fullName" placeholder="e.g. Nadith sanjuna" maxlength="80" />
+                        <input type="text" id="fullName" placeholder="e.g. Nadith Perera" maxlength="80" />
                         <span class="error-msg" id="err-name">Please enter your full name.</span>
                     </div>
 
@@ -561,7 +228,7 @@
 
                     <div class="form-group">
                         <label for="telNumber">Telephone Number</label>
-                        <input type="tel" id="telNumber" placeholder="e.g. +94 0770000000" />
+                        <input type="tel" id="telNumber" placeholder="e.g. +44 7700 000000" />
                     </div>
 
                     <div class="form-group">
@@ -637,7 +304,7 @@
         </div><!-- /feedback-page-main -->
     </main>
 
-    <!--
+    <!-- 
          FOOTER (shared template – Student 3 version)
      -->
     <footer>
