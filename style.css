@@ -1,21 +1,87 @@
 /* GLOBAL RESET & TYPOGRAPHY */
-html { scroll-behavior: smooth; }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; background-color: #F5F5F5; color: #333333; line-height: 1.6; }
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    color: #333333;
+    line-height: 1.6;
+}
 
 /* SHARED HEADER & NAVBAR */
-header { position: sticky; top: 0; z-index: 1000; }
-nav { display: flex; justify-content: space-between; align-items: center; background: #2E7D32; padding: 20px 40px; }
-nav h2 { color: white; font-size: 22px; }
-nav ul { list-style: none; display: flex; gap: 25px; }
-nav ul li a { text-decoration: none; color: white; font-weight: bold; transition: 0.3s; }
-nav ul li a:hover, nav ul li a.active { color: #C8E6C9; }
-nav ul li a.active { border-bottom: 2px solid #C8E6C9; padding-bottom: 4px; }
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2E7D32;
+    padding: 20px 40px;
+}
+
+nav h2 {
+    color: white;
+    font-size: 22px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #C8E6C9;
+}
+
+nav ul li a.active {
+    border-bottom: 2px solid #C8E6C9;
+    padding-bottom: 4px;
+}
 
 /* SHARED FOOTER */
-footer { background: #2E7D32; color: white; text-align: center; padding: 20px; }
-.footer-navigation a { color: white; text-decoration: none; margin: 0 10px; transition: 0.3s; }
+footer {
+    background: #2E7D32;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-navigation a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: 0.3s;
+}
 
 /* GLOBAL REVEAL ANIMATION */
-.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
-.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
