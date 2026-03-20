@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +12,7 @@
   <!-- Page-specific CSS for AIS page -->
   <link rel="stylesheet" href="ais.css" />
 </head>
+
 <body>
 
   <!-- ===== HEADER & NAV (shared template – do not modify structure) ===== -->
@@ -18,17 +20,18 @@
     <div class="site-identity">
       <!-- Logo: royalty-free SDG 3 icon used as logo placeholder -->
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/SDG-icon-EN-03.jpg/240px-SDG-icon-EN-03.jpg"
-           alt="SDG 3 Good Health and Well-being logo" class="site-logo" />
+        alt="SDG 3 Good Health and Well-being logo" class="site-logo" />
       <span class="site-name">HLTHY</span>
     </div>
-    <nav aria-label="Main navigation">
+    <nav>
+      <h2>Climate Action</h2>
       <ul>
         <li><a href="home.html">Home</a></li>
-        <li><a href="ais.html" class="active" aria-current="page">Action Simulator</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="profile.html">User Profile</a></li>
+        <li><a href="ais.html" class="active">Simulator</a></li>
         <li><a href="feedback.html">Feedback</a></li>
         <li><a href="team.html">Team</a></li>
+        <li><a href="profile.html">Profile</a></li>
         <li><a href="sitemap.html">Sitemap</a></li>
       </ul>
     </nav>
@@ -66,104 +69,73 @@
       <div class="action-grid" id="action-grid">
 
         <!-- Card 1 -->
-        <div class="action-card"
-             id="card-0"
-             role="checkbox"
-             aria-checked="false"
-             tabindex="0"
-             onclick="toggleCard(0)"
-             onkeydown="handleKey(event, 0)"
-             data-points="4">
+        <div class="action-card" id="card-0" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCard(0)"
+          onkeydown="handleKey(event, 0)" data-points="4">
           <span class="tick" aria-hidden="true">✔</span>
           <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=70"
-               alt="Person exercising outdoors in a park" />
+            alt="Person exercising outdoors in a park" />
           <h3>Exercise 30 Minutes Daily</h3>
-          <p>Regular physical activity reduces the risk of heart disease, obesity, and mental health conditions. A 30-minute walk, jog, or cycle counts.</p>
+          <p>Regular physical activity reduces the risk of heart disease, obesity, and mental health conditions. A
+            30-minute walk, jog, or cycle counts.</p>
           <span class="impact-badge">Impact: 4 pts</span>
         </div>
 
         <!-- Card 2 -->
-        <div class="action-card"
-             id="card-1"
-             role="checkbox"
-             aria-checked="false"
-             tabindex="0"
-             onclick="toggleCard(1)"
-             onkeydown="handleKey(event, 1)"
-             data-points="3">
+        <div class="action-card" id="card-1" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCard(1)"
+          onkeydown="handleKey(event, 1)" data-points="3">
           <span class="tick" aria-hidden="true">✔</span>
           <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=70"
-               alt="A bowl of healthy fruit and vegetables" />
+            alt="A bowl of healthy fruit and vegetables" />
           <h3>Eat More Fruit &amp; Vegetables</h3>
-          <p>Eating five portions of fruit and vegetables a day supports immune function, reduces chronic disease risk, and improves energy levels.</p>
+          <p>Eating five portions of fruit and vegetables a day supports immune function, reduces chronic disease risk,
+            and improves energy levels.</p>
           <span class="impact-badge">Impact: 3 pts</span>
         </div>
 
         <!-- Card 3 -->
-        <div class="action-card"
-             id="card-2"
-             role="checkbox"
-             aria-checked="false"
-             tabindex="0"
-             onclick="toggleCard(2)"
-             onkeydown="handleKey(event, 2)"
-             data-points="5">
+        <div class="action-card" id="card-2" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCard(2)"
+          onkeydown="handleKey(event, 2)" data-points="5">
           <span class="tick" aria-hidden="true">✔</span>
           <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=70"
-               alt="Person meditating peacefully" />
+            alt="Person meditating peacefully" />
           <h3>Practise Mindfulness Daily</h3>
-          <p>Just 10 minutes of mindfulness or meditation each day can significantly reduce stress, anxiety, and symptoms of depression.</p>
+          <p>Just 10 minutes of mindfulness or meditation each day can significantly reduce stress, anxiety, and
+            symptoms of depression.</p>
           <span class="impact-badge">Impact: 5 pts</span>
         </div>
 
         <!-- Card 4 -->
-        <div class="action-card"
-             id="card-3"
-             role="checkbox"
-             aria-checked="false"
-             tabindex="0"
-             onclick="toggleCard(3)"
-             onkeydown="handleKey(event, 3)"
-             data-points="3">
+        <div class="action-card" id="card-3" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCard(3)"
+          onkeydown="handleKey(event, 3)" data-points="3">
           <span class="tick" aria-hidden="true">✔</span>
           <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&q=70"
-               alt="Person sleeping in a comfortable bed" />
+            alt="Person sleeping in a comfortable bed" />
           <h3>Get 7–9 Hours of Sleep</h3>
-          <p>Consistent quality sleep improves memory, mood, immune function, and reduces the risk of obesity and cardiovascular disease.</p>
+          <p>Consistent quality sleep improves memory, mood, immune function, and reduces the risk of obesity and
+            cardiovascular disease.</p>
           <span class="impact-badge">Impact: 3 pts</span>
         </div>
 
         <!-- Card 5 -->
-        <div class="action-card"
-             id="card-4"
-             role="checkbox"
-             aria-checked="false"
-             tabindex="0"
-             onclick="toggleCard(4)"
-             onkeydown="handleKey(event, 4)"
-             data-points="4">
+        <div class="action-card" id="card-4" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCard(4)"
+          onkeydown="handleKey(event, 4)" data-points="4">
           <span class="tick" aria-hidden="true">✔</span>
-          <img src="https://images.unsplash.com/photo-1559181567-c3190ca9be46?w=400&q=70"
-               alt="Glass of fresh water" />
+          <img src="https://images.unsplash.com/photo-1559181567-c3190ca9be46?w=400&q=70" alt="Glass of fresh water" />
           <h3>Drink 8 Glasses of Water Daily</h3>
-          <p>Staying properly hydrated improves concentration, prevents headaches, supports kidney function, and boosts energy throughout the day.</p>
+          <p>Staying properly hydrated improves concentration, prevents headaches, supports kidney function, and boosts
+            energy throughout the day.</p>
           <span class="impact-badge">Impact: 4 pts</span>
         </div>
 
         <!-- Card 6 -->
-        <div class="action-card"
-             id="card-5"
-             role="checkbox"
-             aria-checked="false"
-             tabindex="0"
-             onclick="toggleCard(5)"
-             onkeydown="handleKey(event, 5)"
-             data-points="5">
+        <div class="action-card" id="card-5" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCard(5)"
+          onkeydown="handleKey(event, 5)" data-points="5">
           <span class="tick" aria-hidden="true">✔</span>
           <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=70"
-               alt="Two people having a supportive conversation" />
+            alt="Two people having a supportive conversation" />
           <h3>Check In on Someone's Mental Health</h3>
-          <p>Reaching out to a friend, classmate, or family member to ask how they are doing can help prevent social isolation and support emotional well-being.</p>
+          <p>Reaching out to a friend, classmate, or family member to ask how they are doing can help prevent social
+            isolation and support emotional well-being.</p>
           <span class="impact-badge">Impact: 5 pts</span>
         </div>
 
@@ -191,4 +163,5 @@
   <script src="ais.js"></script>
 
 </body>
+
 </html>
