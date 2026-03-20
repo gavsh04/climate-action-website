@@ -1,0 +1,231 @@
+/* =============================================
+   SPLASH SCREEN – PAGE-SPECIFIC STYLES
+   Does NOT use shared template layout.
+   Matches website colour palette & typography.
+   Fonts loaded via <link> in splash.html.
+============================================= */
+
+/* Full-screen dark overlay on background image */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    /* Full-screen background image with dark overlay for text readability */
+    background-image: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
+                      url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ---- Green glow aura behind centre content ---- */
+body::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(76,175,80,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50%       { transform: scale(1.15); opacity: 1; }
+}
+
+/* ---- SDG badge top ---- */
+.sdg-badge {
+    position: relative;
+    z-index: 2;
+    background: #2E7D32;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* ---- Main website title ---- */
+.splash-title {
+    position: relative;
+    z-index: 2;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(44px, 8vw, 90px);
+    font-weight: 700;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+/* Accent green on second word */
+.splash-title span {
+    color: #81C784;
+}
+
+/* ---- Website mission statement ---- */
+.splash-mission {
+    position: relative;
+    z-index: 2;
+    font-size: 17px;
+    font-weight: 300;
+    max-width: 560px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 30px;
+}
+
+/* ---- Group members list ---- */
+.splash-team {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 38px;
+}
+
+.splash-team .member {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.splash-team .member.highlight {
+    background: rgba(46,125,50,0.45);
+    border-color: #81C784;
+    color: #C8E6C9;
+}
+
+/* ---- CSS Loader Animation (NO gif/video) ---- */
+.loader-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+/* Spinning ring loader made purely with CSS */
+.loader-ring {
+    width: 52px;
+    height: 52px;
+    border: 4px solid rgba(255,255,255,0.15);
+    border-top-color: #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Countdown number display */
+.countdown-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #C8E6C9;
+}
+
+/* ---- Progress bar showing redirect countdown ---- */
+.progress-bar-wrap {
+    position: relative;
+    z-index: 2;
+    width: min(380px, 90vw);
+    height: 4px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 28px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #4CAF50, #81C784);
+    border-radius: 2px;
+    transform-origin: left;
+    animation: shrink-bar 4s linear forwards;
+}
+
+/* Bar shrinks from full to 0 matching the 4-second redirect */
+@keyframes shrink-bar {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
+}
+
+/* ---- Skip Intro button ---- */
+.skip-btn {
+    position: relative;
+    z-index: 2;
+    padding: 13px 36px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: transparent;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.skip-btn:hover {
+    background: #4CAF50;
+    color: white;
+    transform: scale(1.05);
+}
+
+.skip-btn:focus {
+    outline: 3px solid #81C784;
+    outline-offset: 3px;
+}
+
+/* ---- Fade-in animation for content blocks ---- */
+.fade-in {
+    animation: fadeUp 0.9s ease both;
+}
+
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.3s; }
+.fade-in:nth-child(3) { animation-delay: 0.5s; }
+.fade-in:nth-child(4) { animation-delay: 0.7s; }
+.fade-in:nth-child(5) { animation-delay: 0.9s; }
+.fade-in:nth-child(6) { animation-delay: 1.1s; }
+.fade-in:nth-child(7) { animation-delay: 1.3s; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
