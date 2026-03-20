@@ -1,7 +1,24 @@
-.content-body { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-.content-body h2 { color: #2E7D32; margin-bottom: 20px; }
-.content-body p { margin-bottom: 15px; font-size: 18px; }
-.content-image { width: 100%; border-radius: 8px; margin: 20px 0; }
+.content-body {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.content-body h2 {
+    color: #2E7D32;
+    margin-bottom: 20px;
+}
+
+.content-body p {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.content-image {
+    width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+}
 
 /* --- CONTENT PAGE SPECIFIC STYLES --- */
 
@@ -106,12 +123,14 @@ article p {
 .toc-container {
     background: white;
     max-width: 1000px;
-    margin: -40px auto 40px; /* Overlaps the hero slightly for style */
+    margin: -40px auto 40px;
+    /* Overlaps the hero slightly for style */
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     position: relative;
-    top: 100px; /* Stays below your fixed navigation bar */
+    top: 100px;
+    /* Stays below your fixed navigation bar */
     z-index: 100;
     border-left: 8px solid #2E7D32;
 }
@@ -153,46 +172,18 @@ html {
 
 /* IMAGE */
 .content-image {
-width: 100%;
-border-radius: 10px;
-margin: 20px 0;
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
 }
 
 /* ACTION LIST */
 .action-list {
-margin-top: 20px;
-padding-left: 20px;
+    margin-top: 20px;
+    padding-left: 20px;
 }
 
 .action-list li {
-margin-bottom: 10px;
-font-size: 18px;
-}
-
-/* NAVBAR FIX */
-.navbar {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 15px 30px;
-background: #2E7D32;
-color: white;
-}
-
-.navbar ul {
-display: flex;
-gap: 15px;
-list-style: none;
-}
-
-.navbar a {
-color: white;
-text-decoration: none;
-padding: 8px 12px;
-border-radius: 5px;
-}
-
-.navbar a:hover {
-background: white;
-color: #2E7D32;
+    margin-bottom: 10px;
+    font-size: 18px;
 }
