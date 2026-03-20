@@ -150,3 +150,49 @@ article p {
 html {
     scroll-behavior: smooth;
 }
+
+/* IMAGE */
+.content-image {
+width: 100%;
+border-radius: 10px;
+margin: 20px 0;
+}
+
+/* ACTION LIST */
+.action-list {
+margin-top: 20px;
+padding-left: 20px;
+}
+
+.action-list li {
+margin-bottom: 10px;
+font-size: 18px;
+}
+
+/* NAVBAR FIX */
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 30px;
+background: #2E7D32;
+color: white;
+}
+
+.navbar ul {
+display: flex;
+gap: 15px;
+list-style: none;
+}
+
+.navbar a {
+color: white;
+text-decoration: none;
+padding: 8px 12px;
+border-radius: 5px;
+}
+
+.navbar a:hover {
+background: white;
+color: #2E7D32;
+}
