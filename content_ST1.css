@@ -120,10 +120,6 @@
     gap: 60px;
 }
 
-.content-wrapper article section {
-    /* no extra margin needed — gap handles spacing */
-}
-
 /* ─── HEADINGS ──────────────────────────────────────────── */
 .content-wrapper h2 {
     font-size: 26px;
