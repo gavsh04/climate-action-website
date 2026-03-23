@@ -74,6 +74,7 @@
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
+    margin-bottom: 60px;
 }
 
 /* CARD */
