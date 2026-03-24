@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor — Dinura | Climate Action</title>
+
+    <!-- Shared Page Editor / Validator CSS -->
+    <link rel="stylesheet" href="pageEditor_validator.css">
+
+    <!-- Global CSS shared across the website -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Page-specific embedded CSS for the Page Editor -->
+    <style>
+        /* === Page Editor specific styles === */
+
+        /* Hero banner at the top of this editor page */
+        .editor-hero {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 60%, #01579B 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 20px 35px;
+        }
+
+        .editor-hero h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .editor-hero p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Highlight badge for role label */
+        .role-badge {
+            display: inline-block;
+            background: #E8F5E9;
+            color: #1B5E20;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        /* Section card styling within the editor */
+        .editor-section {
+            background: #fff;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 28px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .editor-section h2 {
+            color: #01579B;
+            font-size: 24px;
+            border-bottom: 3px solid #B3E5FC;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        .editor-section h3 {
+            color: #2E7D32;
+            font-size: 18px;
+            margin: 20px 0 8px;
+        }
+
+        .editor-section p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        /* Styled table for meeting log */
+        .meeting-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: 16px;
+        }
+
+        .meeting-table th {
+            background: #1B5E20;
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        .meeting-table td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #E0E0E0;
+            vertical-align: top;
+        }
+
+        .meeting-table tr:nth-child(even) td {
+            background: #F1F8E9;
+        }
+
+        /* Info note box */
+        .info-box {
+            background: #E8F5E9;
+            border-left: 5px solid #2E7D32;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin: 14px 0;
+            font-size: 14px;
+            color: #1B5E20;
+        }
+
+        /* Reference list styling */
+        ul.ref-list {
+            list-style: disc;
+            padding-left: 22px;
+            font-size: 15px;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        ul.ref-list a {
+            color: #01579B;
+        }
+
+        /* Go to top button */
+        .go-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2E7D32;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            transition: background 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+
+        .go-top-btn:hover {
+            background: #1B5E20;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         PAGE TOP ANCHOR
+    ============================================================ -->
+    <div id="top"></div>
+
+    <!-- ============================================================
+         HEADER / NAVIGATION BAR — consistent with the rest of the site
+    ============================================================ -->
+    <header>
+        <nav>
+            <h2>🌍 Climate Action</h2>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="ais.html">Action Simulator</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ============================================================
+         HERO BANNER
+    ============================================================ -->
+    <div class="editor-hero">
+        <h1>📝 Page Editor</h1>
+        <p>Technical report, reflection, and contribution log</p>
+        <span class="role-badge">Student 4 — Dinura | Role: User Profile &amp; Sitemap</span>
+    </div>
+
+    <!-- ============================================================
+         STUDENT IDENTITY SECTION
+    ============================================================ -->
+    <section class="stud">
+        <h2>Dinura &nbsp;|&nbsp; Climate Action Team &nbsp;|&nbsp; Role: User Profile &amp; Sitemap</h2>
+    </section>
+
+    <!-- ============================================================
+         MAIN LAYOUT — content + sidebar
+    ============================================================ -->
+    <div class="container">
+
+        <!-- ========================================================
+             SIDEBAR NAVIGATION (left)
+        ======================================================== -->
+        <aside>
+            <h3>Core pages developed:</h3>
+            <ul class="top-level-ul">
+                <li>Student 4 — Dinura</li>
+                <ul>
+                    <li><a href="#profile">User Profile</a></li>
+                    <li><a href="#sitemap">Sitemap</a></li>
+                    <li><a href="#content">Content Page</a></li>
+                </ul>
+                <li><a href="#challenge">Challenges &amp; Lessons Learned</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Group Meetings Log</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+
+        <!-- ========================================================
+             MAIN CONTENT
+        ======================================================== -->
+        <main>
+
+            <!-- ====================================================
+                 SECTION 1: USER PROFILE PAGE
+            ==================================================== -->
+            <div class="editor-section" id="profile">
+                <h2>User Profile Page</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The User Profile page (<code>profile.html</code>) was built using the shared HTML template structure,
+                    with a <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code>.
+                    The core interaction is driven entirely by JavaScript <code>prompt()</code> calls that collect
+                    user data step-by-step across three distinct stages: Basic Details, Interests &amp; Preferences,
+                    and Climate Actions &amp; Goals.
+                </p>
+                <p>
+                    Data is stored in a JavaScript object (<code>profileData</code>) that persists across steps
+                    during a session. DOM manipulation via <code>getElementById()</code> and
+                    <code>innerHTML</code> is used to progressively reveal profile sections and update a progress bar
+                    as each step is completed. Conditional logic handles skipped prompts — skipped fields are
+                    omitted from the displayed output, and the progress indicator reflects partial completion.
+                    Users can revisit and complete skipped steps using dedicated "Revisit Step" buttons, which
+                    re-run only the missing prompts and merge the new data with what was already collected.
+                </p>
+                <p>
+                    Embedded CSS within a <code>&lt;style&gt;</code> block styles the step buttons, progress bar,
+                    and profile output area. These styles are page-specific and do not conflict with the Global CSS.
+                    The page also uses the <code>active</code> class on the navigation link for Profile to meet
+                    the active-page requirement.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    All dynamically generated profile content uses clear, descriptive labels so that screen
+                    readers can interpret the output. The progress bar uses an ARIA <code>role="progressbar"</code>
+                    attribute with <code>aria-valuenow</code>, <code>aria-valuemin</code>, and
+                    <code>aria-valuemax</code> to communicate completion status. Buttons use meaningful text labels
+                    (e.g. "Start Profile", "Revisit Step 1") rather than generic icons. Font size and contrast
+                    ratios were kept above WCAG AA minimums.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p>
+                    <a href="validation_ST4.html#profileVal">View the validation evidence for the User Profile page.</a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p>
+                    <a href="profile.html" target="_blank">Open the User Profile page.</a>
+                </p>
+            </div>
+
+            <!-- ====================================================
+                 SECTION 2: SITEMAP PAGE
+            ==================================================== -->
+            <div class="editor-section" id="sitemap">
+                <h2>Sitemap Page</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The Sitemap page (<code>sitemap.html</code>) uses an inline SVG element embedded directly
+                    within the <code>&lt;main&gt;</code> section. The SVG uses a <code>viewBox</code> attribute
+                    and <code>width="100%"</code> / <code>height="auto"</code> to make it fully responsive across
+                    different screen sizes.
+                </p>
+                <p>
+                    Each page in the website hierarchy is represented as a rounded rectangle (<code>&lt;rect&gt;</code>)
+                    with a <code>&lt;text&gt;</code> label. Nodes are connected using <code>&lt;line&gt;</code>
+                    elements to communicate the parent–child structure visually. Every node is wrapped in an
+                    SVG <code>&lt;a&gt;</code> tag linking to the corresponding page file, making each node
+                    clickable. Hover effects are implemented via CSS targeting SVG elements (e.g.
+                    <code>a:hover rect</code>), changing fill colour to provide visual feedback.
+                </p>
+                <p>
+                    Each node group contains an SVG <code>&lt;title&gt;</code> element that provides an accessible
+                    name for screen readers. Focusable nodes support keyboard Tab navigation and show a visible
+                    focus outline via CSS.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    The SVG element carries a <code>role="img"</code> attribute and an <code>aria-label</code>
+                    describing the diagram's purpose. Individual nodes use SVG <code>&lt;title&gt;</code> tags
+                    for screen-reader labels. All links are keyboard-navigable via Tab, and a visible focus
+                    state (stroke highlight) is applied. Text contrast within nodes meets WCAG AA guidelines.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p>
+                    <a href="validation_ST4.html#sitemapVal">View the validation evidence for the Sitemap page.</a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p>
+                    <a href="sitemap.html" target="_blank">Open the Sitemap page.</a>
+                </p>
+            </div>
+
+            <!-- ====================================================
+                 SECTION 3: CONTENT PAGE (Ocean Health)
+            ==================================================== -->
+            <div class="editor-section" id="content">
+                <h2>Content Page — Ocean Health &amp; Climate Action</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The Content Page (<code>content_ST4.html</code>) covers the topic of Ocean Health and its
+                    relationship to climate change. It follows the shared HTML template and links to both the
+                    Global CSS (<code>style.css</code>) and a dedicated page-specific stylesheet
+                    (<code>style_ST4.css</code>).
+                </p>
+                <p>
+                    The page is divided into five clearly-labelled sections — Introduction, Threats, Coral Reefs,
+                    Rising Sea Levels, and Actions — each given a unique <code>id</code> attribute. An internal
+                    navigation menu at the top of the article uses anchor links (<code>href="#section-id"</code>)
+                    to allow users to jump directly to any section. A fixed-position "Go to Top" button
+                    (<code>position: fixed</code>) using a CSS-only <code>&lt;a href="#top"&gt;</code> approach
+                    ensures users can always return to the top without JavaScript.
+                </p>
+                <p>
+                    Images are styled with <code>border-radius</code>, <code>box-shadow</code>, and
+                    <code>object-fit: cover</code> for a consistent, polished appearance. Fact highlight boxes
+                    use a left-border accent style to draw attention to key statistics.
+                    <code>scroll-margin-top</code> is applied to each section to prevent the sticky header
+                    from overlapping when jumping to an anchor.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    Every image carries a descriptive <code>alt</code> attribute. The internal navigation
+                    <code>&lt;nav&gt;</code> uses <code>aria-label="Page sections"</code> so screen readers
+                    can distinguish it from the main site navigation. Heading elements follow a strict hierarchy
+                    (<code>&lt;h1&gt;</code> → <code>&lt;h2&gt;</code> → <code>&lt;h3&gt;</code>). The "Go to Top"
+                    button includes an <code>aria-label</code> for clarity. Text colour contrast ratios exceed
+                    WCAG AA minimums throughout.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p>
+                    <a href="validation_ST4.html#contentVal">View the validation evidence for the Content page.</a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p>
+                    <a href="content_ST4.html" target="_blank">Open the Ocean Health &amp; Climate Action content page.</a>
+                </p>
+            </div>
+
+            <!-- ====================================================
+                 SECTION 4: CHALLENGES AND LESSONS LEARNED
+            ==================================================== -->
+            <div class="editor-section" id="challenge">
+                <h2>Challenges and Lessons Learned</h2>
+
+                <h3>User Profile — JavaScript Prompt Complexity</h3>
+                <p>
+                    One of the main challenges in the User Profile page was managing the flow of
+                    <code>prompt()</code> calls across multiple steps while allowing users to skip individual
+                    questions without breaking the profile structure. Initially, skipped prompts were leaving
+                    <code>null</code> values that appeared as the string "null" in the output. This was resolved
+                    by adding a conditional check: if the prompt returns <code>null</code> or an empty string,
+                    the field is simply not added to the profile object and not rendered to the page.
+                </p>
+
+                <h3>SVG Sitemap — Responsive Scaling</h3>
+                <p>
+                    Positioning SVG elements precisely while keeping the diagram responsive proved tricky.
+                    Setting fixed pixel coordinates within the SVG but using a flexible <code>viewBox</code>
+                    allowed the diagram to scale proportionally. I also had to adjust the stroke widths and
+                    font sizes to ensure readability at smaller screen sizes.
+                </p>
+
+                <h3>Content Page — Anchor Offset with Sticky Header</h3>
+                <p>
+                    When users clicked internal navigation links, the target section was being partially hidden
+                    behind the sticky header. This was fixed by adding <code>scroll-margin-top: 80px</code> to
+                    each <code>.content-section</code>, which pushed the scroll position down by the height of
+                    the header.
+                </p>
+
+                <div class="info-box">
+                    💡 <strong>Key Lesson:</strong> Testing across multiple screen sizes early — rather than only
+                    at the end — would have saved significant time during the SVG and content page development.
+                </div>
+            </div>
+
+            <!-- ====================================================
+                 SECTION 5: COMPLIANCE
+            ==================================================== -->
+            <div class="editor-section" id="compliance">
+                <h2>Compliance</h2>
+                <p>
+                    All pages I implemented comply with JANET (Joint Academic Network) regulations governing
+                    the publication of web pages. The key areas of compliance are as follows:
+                </p>
+                <p>
+                    <strong>Appropriate Content:</strong> All content on my pages — including the Ocean Health
+                    content page, User Profile, and Sitemap — is educational, factual, and directly relevant to
+                    the chosen SDG (Climate Action, SDG 13). No offensive, defamatory, or misleading content
+                    is present.
+                </p>
+                <p>
+                    <strong>Copyright and Intellectual Property:</strong> All images used are either royalty-free
+                    (sourced from Unsplash and iStockPhoto) and properly referenced, or original. No copyrighted
+                    material has been reproduced without permission.
+                </p>
+                <p>
+                    <strong>Accessibility:</strong> Pages follow WCAG 2.1 Level AA guidelines — including
+                    meaningful alt text, sufficient colour contrast, semantic HTML, and keyboard navigation
+                    support — to ensure the site is inclusive and usable by people with disabilities.
+                </p>
+                <p>
+                    <strong>Privacy:</strong> The User Profile page collects data only via in-browser JavaScript
+                    prompts and does not transmit or store any information server-side, ensuring user privacy.
+                </p>
+                <p>
+                    <strong>Validation:</strong> All pages have been validated using the W3C HTML Validator with
+                    no errors reported. Evidence is provided in the Validation Page.
+                </p>
+                <p>
+                    For full JANET compliance guidelines, see:
+                    <a href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html"
+                       target="_blank">ECS Compliance Notes</a>.
+                </p>
+            </div>
+
+            <!-- ====================================================
+                 SECTION 6: GROUP MEETINGS AND CONTRIBUTION LOG
+            ==================================================== -->
+            <div class="editor-section" id="group">
+                <h2>Group Meetings and Individual Contribution Log</h2>
+
+                <table class="meeting-table">
+                    <thead>
+                        <tr>
+                            <th colspan="6">Group Meetings and Contribution Log — Dinura (Student 4)</th>
+                        </tr>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>My Individual Contribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>3 Feb 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Agree SDG and assign roles</td>
+                            <td>Yes</td>
+                            <td>I confirmed my responsibility for the User Profile and Sitemap pages, and proposed using SDG 13 (Climate Action) as our chosen goal.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>10 Feb 2026</td>
+                            <td>Online (Teams)</td>
+                            <td>Review shared template and agree visual identity</td>
+                            <td>Yes</td>
+                            <td>I contributed to agreeing the green and blue colour palette and reviewed the draft navigation structure proposed by Student 1.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>17 Feb 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Progress check — individual pages</td>
+                            <td>Yes</td>
+                            <td>I presented my initial SVG sitemap structure and received feedback to add hover effects and improve node spacing.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>03 Mar 2026</td>
+                            <td>Hybrid</td>
+                            <td>Testing and cross-browser review</td>
+                            <td>Yes</td>
+                            <td>I tested my pages on Chrome and Firefox, identified the sticky header anchor offset issue, and shared the fix with the group.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>10 Mar 2026</td>
+                            <td>Online (Teams)</td>
+                            <td>Validation and accessibility review</td>
+                            <td>Yes</td>
+                            <td>I validated all my pages using the W3C validator, fixed a stray closing tag in the content page, and reviewed Student 3's feedback page for accessibility.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>17 Mar 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Final review and submission preparation</td>
+                            <td>Yes</td>
+                            <td>I completed my Page Editor and Validation page, confirmed all internal links were functioning correctly, and helped zip the final project folder.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ====================================================
+                 SECTION 7: REFERENCES
+            ==================================================== -->
+            <div class="editor-section" id="ref">
+                <h2>References</h2>
+                <ul class="ref-list">
+                    <li>
+                        Duckett, J. (2011). <em>HTML and CSS: Design and Build Websites.</em>
+                        John Wiley &amp; Sons Inc., Indianapolis.
+                    </li>
+                    <li>
+                        W3Schools (2025) <em>HTML Tutorial.</em> Available at:
+                        <a href="https://www.w3schools.com/html/" target="_blank">https://www.w3schools.com/html/</a>
+                        (Last accessed: 20 Mar 2026).
+                    </li>
+                    <li>
+                        MDN Web Docs (2025) <em>SVG: Scalable Vector Graphics.</em> Available at:
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG</a>
+                        (Last accessed: 15 Mar 2026).
+                    </li>
+                    <li>
+                        Unsplash (2025) <em>Free high-resolution photos.</em> Available at:
+                        <a href="https://unsplash.com/" target="_blank">https://unsplash.com/</a>
+                        (Last accessed: 10 Mar 2026).
+                    </li>
+                    <li>
+                        iStock (2025) <em>Royalty-free stock images.</em> Available at:
+                        <a href="https://www.istockphoto.com/" target="_blank">https://www.istockphoto.com/</a>
+                        (Last accessed: 10 Mar 2026).
+                    </li>
+                    <li>
+                        NOAA (2025) <em>Ocean acidification.</em> Available at:
+                        <a href="https://oceanservice.noaa.gov/hazards/ocean-acidification/" target="_blank">https://oceanservice.noaa.gov/</a>
+                        (Last accessed: 12 Mar 2026).
+                    </li>
+                    <li>
+                        United Nations (2025) <em>SDG 13 — Climate Action.</em> Available at:
+                        <a href="https://sdgs.un.org/goals/goal13" target="_blank">https://sdgs.un.org/goals/goal13</a>
+                        (Last accessed: 5 Mar 2026).
+                    </li>
+                    <li>
+                        W3C (2025) <em>Web Content Accessibility Guidelines (WCAG) 2.1.</em> Available at:
+                        <a href="https://www.w3.org/TR/WCAG21/" target="_blank">https://www.w3.org/TR/WCAG21/</a>
+                        (Last accessed: 18 Mar 2026).
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Go to top link -->
+            <p class="top"><a href="#top">Go top</a></p>
+
+        </main>
+
+
+    </div><!-- end .container -->
+
+    <!-- ============================================================
+         GO TO TOP BUTTON
+    ============================================================ -->
+    <a href="#top" class="go-top-btn" aria-label="Go back to the top of the page">▲ Top</a>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer>
+        <div class="footer-navigation">
+            <a href="pageEditor_ST4.html">Page Editor</a>
+            <a href="validation_ST4.html">Validation</a>
+            <a href="#">Accessibility</a>
+        </div>
+        <p>Student: Dinura | Role: User Profile &amp; Sitemap | Climate Action Website &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
