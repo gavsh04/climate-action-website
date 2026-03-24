@@ -1,8 +1,8 @@
 /*
  * ===================================================
  * ais.js – JavaScript for the Action Impact Simulator
- * SDG 3: Good Health & Well-being
- * Team: HLTHY | University of Westminster 2025/26
+ * SDG 13: Climate Action
+ * Team: CLMT | University of Westminster 2025/26
  * Spec ref: Section 4.5 (Student 2)
  *
  * Impact thresholds:
@@ -16,12 +16,17 @@
 var selected = [false, false, false, false, false, false];
 
 // Background images for each impact level
-// (royalty-free Unsplash URLs)
+// (royalty-free Unsplash URLs – Climate Action themed)
+// Photo credits via Unsplash:
+//   none   – Dikaseva (grey city skyline)
+//   low    – Markus Spiske (lone green seedling)
+//   medium – Appolinary Kalashnikova (wind turbines at sunset)
+//   high   – Arnaud Mesureur (lush green forest aerial)
 var backgrounds = {
-  none:   'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1600&q=80',   // neutral gym
-  low:    'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&q=80', // calm meditation
-  medium: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1600&q=80', // healthy food
-  high:   'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1600&q=80'  // energy/running
+  none:   'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80',  // grey city skyline
+  low:    'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1600&q=80',  // lone green seedling
+  medium: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80',  // wind turbines at sunset
+  high:   'https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&q=80'   // lush green forest aerial
 };
 
 /*
@@ -93,32 +98,32 @@ function updateFeedback() {
     // No actions selected
     levelEl.textContent = 'No actions selected yet';
     levelEl.style.color = '#333';
-    msgEl.textContent   = 'Select actions above to calculate your personal health impact.';
-    // Background: neutral
+    msgEl.textContent   = 'Select actions above to calculate your personal climate impact.';
+    // Background: neutral grey city
     wrapper.style.backgroundImage = 'url(' + backgrounds.none + ')';
 
   } else if (score >= 1 && score <= 7) {
     // LOW IMPACT (1–7 points)
     levelEl.textContent = '🌱 Low Impact';
     levelEl.style.color = '#e65100';
-    msgEl.textContent   = 'You\'ve made a start — every small action matters. Try selecting a few more to build healthier habits.';
-    // Background image A – calm / beginner
+    msgEl.textContent   = 'Every green action counts — you\'ve planted the seed. Try selecting a few more to amplify your climate impact.';
+    // Background image A – lone seedling / early effort
     wrapper.style.backgroundImage = 'url(' + backgrounds.low + ')';
 
   } else if (score >= 8 && score <= 14) {
     // MEDIUM IMPACT (8–14 points)
     levelEl.textContent = '⚡ Medium Impact';
     levelEl.style.color = '#f57f17';
-    msgEl.textContent   = 'Great effort! You\'re making meaningful progress toward SDG 3. Keep building on these habits to reach high impact.';
-    // Background image B – healthy food / growth
+    msgEl.textContent   = 'Great effort! You\'re making a meaningful contribution to SDG 13. Keep building these habits to reach high impact.';
+    // Background image B – wind turbines / renewable energy
     wrapper.style.backgroundImage = 'url(' + backgrounds.medium + ')';
 
   } else {
     // HIGH IMPACT (15+ points)
-    levelEl.textContent = '🌟 High Impact';
+    levelEl.textContent = '🌍 High Impact';
     levelEl.style.color = '#2e7d32';
-    msgEl.textContent   = 'Outstanding commitment! Your actions collectively contribute to better health outcomes for yourself and inspire those around you. You are living SDG 3!';
-    // Background image C – energetic / running
+    msgEl.textContent   = 'Outstanding commitment! Your daily actions are actively fighting climate change and inspiring those around you. You are living SDG 13!';
+    // Background image C – lush green forest / thriving planet
     wrapper.style.backgroundImage = 'url(' + backgrounds.high + ')';
   }
 }
