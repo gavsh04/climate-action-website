@@ -1,23 +1,86 @@
 /*
  * =====================================================
  * ais.css – Page-specific CSS for AIS Page
- * SDG 3: Good Health & Well-being
- * Team: HLTHY | University of Westminster 2025/26
+ * SDG 13: Climate Action
+ * Team: CLMT | University of Westminster 2025/26
+ * Author: Student 2
+ * Spec ref: Section 4.5 – SDG Action Impact Simulator
  * =====================================================
  *
- * These styles apply ONLY to ais.html.
- * They do not override or conflict with style.css.
- * Spec ref: Section 4.5 – SDG Action Impact Simulator (Student 2)
+ * TABLE OF CONTENTS
+ * -----------------
+ * 1.  Font Import
+ * 2.  CSS Custom Properties (Variables)
+ * 3.  Page Background Wrapper
+ * 4.  Dark Overlay
+ * 5.  Main Content Area
+ * 6.  Page Heading (h1)
+ * 7.  Page Subtitle
+ * 8.  Instruction Note
+ * 9.  Feedback / Score Panel
+ * 10. Score Display Number
+ * 11. Impact Level Label
+ * 12. Impact Message Text
+ * 13. Reset Button
+ * 14. Action Cards Grid Layout
+ * 15. Action Card – Default State
+ * 16. Action Card – Hover State
+ * 17. Action Card – Selected State
+ * 18. Card Thumbnail Image
+ * 19. Card Title (h3)
+ * 20. Card Description Text
+ * 21. Impact Points Badge
+ * 22. Selected Tick Indicator
+ * 23. Responsive Layout (max-width: 600px)
  * =====================================================
  */
 
-/* Import fonts consistent with site identity */
+
+/* =====================================================
+   1. FONT IMPORT
+   Playfair Display – headings (elegant serif)
+   Lato            – body text (clean sans-serif)
+   ===================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap');
 
-/* 1. Page background – controlled by JavaScript based on impact level */
+
+/* =====================================================
+   2. CSS CUSTOM PROPERTIES (VARIABLES)
+   Central place to control the entire colour scheme.
+   Green palette chosen to reflect the environment /
+   climate action theme of SDG 13.
+   ===================================================== */
+:root {
+  --clr-primary:       #2e7d32;   /* deep forest green – main brand colour      */
+  --clr-primary-dark:  #1b5e20;   /* darker green – hover states                */
+  --clr-primary-light: #e8f5e9;   /* very light green – selected card bg        */
+  --clr-accent:        #66bb6a;   /* mid green – decorative accents              */
+  --clr-white:         #ffffff;
+  --clr-text-dark:     #333333;
+  --clr-text-mid:      #444444;
+  --clr-text-light:    #555555;
+  --clr-overlay:       rgba(0, 0, 0, 0.45);
+  --font-heading:      'Playfair Display', serif;
+  --font-body:         'Lato', sans-serif;
+  --radius-card:       12px;
+  --radius-pill:       999px;
+  --transition-fast:   0.2s ease;
+}
+
+
+/* =====================================================
+   3. PAGE BACKGROUND WRAPPER
+   Full-viewport container whose background image is
+   swapped by JavaScript depending on the impact level:
+     none   → grey city skyline
+     low    → lone seedling
+     medium → wind turbines
+     high   → aerial green forest
+   background-attachment: fixed creates a parallax feel.
+   ===================================================== */
 #ais-wrapper {
   min-height: 100vh;
-  background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1600&q=80');
+  background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -25,17 +88,29 @@
   position: relative;
 }
 
-/* 2. Overlay so content stays readable over background */
+
+/* =====================================================
+   4. DARK OVERLAY
+   Semi-transparent black layer rendered via ::before
+   pseudo-element so the text remains legible over any
+   background image. position: fixed ensures it covers
+   the full viewport even when scrolling.
+   ===================================================== */
 #ais-wrapper::before {
   content: '';
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  inset: 0;                          /* shorthand for top/right/bottom/left: 0 */
+  background: var(--clr-overlay);
   z-index: 0;
-  pointer-events: none;
+  pointer-events: none;              /* overlay never blocks clicks             */
 }
 
-/* 3. Main content area sits above overlay */
+
+/* =====================================================
+   5. MAIN CONTENT AREA
+   Sits above the overlay (z-index: 1).
+   Max-width + auto margins centre it on wide screens.
+   ===================================================== */
 #ais-content {
   position: relative;
   z-index: 1;
@@ -44,105 +119,54 @@
   margin: 0 auto;
 }
 
-/* 4. Page heading */
+
+/* =====================================================
+   6. PAGE HEADING (h1)
+   clamp() makes the font size fluid:
+     min 1.8rem → scales with viewport → max 2.8rem
+   ===================================================== */
 #ais-content h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: #ffffff;
+  color: var(--clr-white);
   margin-bottom: 8px;
   text-align: center;
 }
 
-/* 5. Page subtitle */
+
+/* =====================================================
+   7. PAGE SUBTITLE
+   Light-weight paragraph beneath the main heading.
+   Slightly translucent white blends with backgrounds.
+   ===================================================== */
 .ais-subtitle {
   text-align: center;
   color: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 300;
   margin-bottom: 36px;
 }
 
-/* 6. Action cards grid layout */
-.action-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  margin-bottom: 36px;
+
+/* =====================================================
+   8. INSTRUCTION NOTE
+   Small helper text above the card grid.
+   ===================================================== */
+.ais-note {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  margin-bottom: 24px;
 }
 
-/* 7. Individual action card – default (unselected) state */
-.action-card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 3px solid transparent;
-  border-radius: 12px;
-  padding: 20px;
-  cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  user-select: none;
-}
 
-/* 8. Hover state for action card */
-.action-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.35);
-}
-
-/* 9. Selected state for action card */
-.action-card.selected {
-  border-color: #2e7d32;
-  background: #e8f5e9;
-  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.2);
-}
-
-/* 10. Card thumbnail image */
-.action-card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
-
-/* 11. Card title */
-.action-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  color: #2e7d32;
-  margin-bottom: 6px;
-}
-
-/* 12. Card description */
-.action-card p {
-  font-size: 0.88rem;
-  color: #444;
-  line-height: 1.5;
-  margin-bottom: 10px;
-}
-
-/* 13. Impact points badge */
-.impact-badge {
-  display: inline-block;
-  background: #2e7d32;
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 999px;
-}
-
-/* 14. Selected tick indicator */
-.action-card .tick {
-  display: none;
-  float: right;
-  font-size: 1.4rem;
-  color: #2e7d32;
-}
-
-.action-card.selected .tick {
-  display: inline;
-}
-
-/* 15. Feedback / results panel */
+/* =====================================================
+   9. FEEDBACK / SCORE PANEL
+   White card centred above the action grid.
+   Displays the live score, level label, and message.
+   ===================================================== */
 #feedback-panel {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 14px;
@@ -154,57 +178,225 @@
 }
 
 #feedback-panel h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   font-size: 1.4rem;
-  color: #2e7d32;
+  color: var(--clr-primary);
   margin-bottom: 10px;
 }
 
+
+/* =====================================================
+   10. SCORE DISPLAY NUMBER
+   Large bold number updated by JavaScript.
+   ===================================================== */
 #score-display {
+  font-family: var(--font-body);
   font-size: 3rem;
   font-weight: 700;
-  color: #2e7d32;
+  color: var(--clr-primary);
   line-height: 1;
   margin: 8px 0;
 }
 
+
+/* =====================================================
+   11. IMPACT LEVEL LABEL
+   Text (e.g. "🌱 Low Impact") – colour also set
+   dynamically by JavaScript per impact tier.
+   ===================================================== */
 #impact-level {
+  font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 8px;
-  color: #333;
+  color: var(--clr-text-dark);
 }
 
+
+/* =====================================================
+   12. IMPACT MESSAGE TEXT
+   Descriptive sentence beneath the level label.
+   ===================================================== */
 #impact-message {
+  font-family: var(--font-body);
   font-size: 0.95rem;
-  color: #555;
+  color: var(--clr-text-light);
   line-height: 1.6;
 }
 
-/* 16. Reset button */
+
+/* =====================================================
+   13. RESET BUTTON
+   Pill-shaped button that clears all card selections.
+   Hover state darkens the green and scales it slightly.
+   ===================================================== */
 #btn-reset {
   margin-top: 16px;
   padding: 10px 28px;
-  background: #2e7d32;
-  color: #fff;
+  background: var(--clr-primary);
+  color: var(--clr-white);
   border: none;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
+  transition: background var(--transition-fast), transform 0.15s;
 }
 
 #btn-reset:hover {
-  background: #1b5e20;
+  background: var(--clr-primary-dark);
   transform: scale(1.04);
 }
 
-/* 17. Instruction note */
-.ais-note {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.85rem;
-  margin-bottom: 24px;
+
+/* =====================================================
+   14. ACTION CARDS GRID LAYOUT
+   CSS Grid with auto-fill columns: each card is at
+   least 280px wide; extra columns added on wider screens.
+   ===================================================== */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 36px;
 }
 
+
+/* =====================================================
+   15. ACTION CARD – DEFAULT (UNSELECTED) STATE
+   White semi-transparent card with transparent border
+   (border is always present to prevent layout shift
+   when it turns green on selection).
+   user-select: none prevents accidental text highlight
+   when clicking rapidly.
+   ===================================================== */
+.action-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 3px solid transparent;
+  border-radius: var(--radius-card);
+  padding: 20px;
+  cursor: pointer;
+  transition:
+    transform      var(--transition-fast),
+    border-color   var(--transition-fast),
+    box-shadow     var(--transition-fast);
+  user-select: none;
+}
+
+
+/* =====================================================
+   16. ACTION CARD – HOVER STATE
+   Lifts the card with translateY and adds a green glow.
+   ===================================================== */
+.action-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.35);
+}
+
+
+/* =====================================================
+   17. ACTION CARD – SELECTED STATE
+   Green border + light green background indicate the
+   card has been chosen. Outer glow reinforces selection.
+   aria-checked="true" is also set by JavaScript for
+   screen-reader accessibility.
+   ===================================================== */
+.action-card.selected {
+  border-color: var(--clr-primary);
+  background: var(--clr-primary-light);
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.2);
+}
+
+
+/* =====================================================
+   18. CARD THUMBNAIL IMAGE
+   Fixed height with object-fit: cover ensures all
+   images fill the same space regardless of aspect ratio.
+   ===================================================== */
+.action-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+
+/* =====================================================
+   19. CARD TITLE (h3)
+   Uses the serif heading font in the primary green.
+   ===================================================== */
+.action-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--clr-primary);
+  margin-bottom: 6px;
+}
+
+
+/* =====================================================
+   20. CARD DESCRIPTION TEXT
+   Small body copy describing the climate action.
+   ===================================================== */
+.action-card p {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--clr-text-mid);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   21. IMPACT POINTS BADGE
+   Pill-shaped label showing the point value of the card.
+   Uses the primary green background with white text.
+   ===================================================== */
+.impact-badge {
+  display: inline-block;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+
+/* =====================================================
+   22. SELECTED TICK INDICATOR
+   Green tick (✔) floated right, only visible when the
+   card has the .selected class (toggled by JavaScript).
+   ===================================================== */
+.action-card .tick {
+  display: none;
+  float: right;
+  font-size: 1.4rem;
+  color: var(--clr-primary);
+}
+
+.action-card.selected .tick {
+  display: inline;
+}
+
+
+/* =====================================================
+   23. RESPONSIVE LAYOUT (max-width: 600px)
+   On small screens:
+   - Feedback panel padding reduced
+   - Score number slightly smaller
+   ===================================================== */
+@media (max-width: 600px) {
+
+  #feedback-panel {
+    padding: 20px 16px;
+  }
+
+  #score-display {
+    font-size: 2.4rem;
+  }
+
+}
