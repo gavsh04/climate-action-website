@@ -52,7 +52,7 @@
    ===================================================== */
 :root {
   --clr-primary:       #2e7d32;   /* deep forest green – main brand colour      */
-  --clr-primary-dark:  #1b5e20;   /* darker green – hover states                */
+  --clr-primary-dark:  #10e71e;   /* darker green – hover states                */
   --clr-primary-light: #e8f5e9;   /* very light green – selected card bg        */
   --clr-accent:        #66bb6a;   /* mid green – decorative accents              */
   --clr-white:         #ffffff;
