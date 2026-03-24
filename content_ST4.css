@@ -1,0 +1,148 @@
+/* =============================================
+   Embedded CSS — content_ST4.html
+   Page-specific styles for the Ocean Health content page
+   These styles do NOT override the global style.css
+   ============================================= */
+
+/* 1. Ocean-themed hero banner for this content page */
+.content-hero {
+  background: linear-gradient(135deg, #01579B 0%, #0277BD 40%, #2E7D32 100%);
+  color: white;
+  text-align: center;
+  padding: 70px 20px 50px;
+}
+
+.content-hero h1 {
+  font-size: 50px;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+}
+
+.content-hero p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.92;
+}
+
+/* 2. Internal navigation menu at the top of the page */
+.internal-nav {
+  background: #E8F5E9;
+  padding: 18px 30px;
+  border-left: 5px solid #2E7D32;
+  max-width: 860px;
+  margin: 40px auto 0;
+  border-radius: 8px;
+}
+
+.internal-nav h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #1B5E20;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.internal-nav ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.internal-nav ul li {
+  margin-bottom: 6px;
+}
+
+.internal-nav ul li a {
+  color: #2E7D32;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.internal-nav ul li a:hover {
+  color: #1B5E20;
+  text-decoration: underline;
+}
+
+/* 3. Main article wrapper */
+.content-article {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+/* 4. Section styling — each section uses scroll-margin for internal links */
+.content-section {
+  margin-bottom: 60px;
+  scroll-margin-top: 80px; /* Offset for sticky header */
+}
+
+.content-section h2 {
+  font-size: 30px;
+  color: #01579B;
+  border-bottom: 3px solid #B3E5FC;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.content-section h3 {
+  font-size: 22px;
+  color: #2E7D32;
+  margin: 24px 0 10px;
+}
+
+.content-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 14px;
+}
+
+/* 5. Content images — responsive, with borders and shadows */
+.content-img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #B3E5FC;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  margin: 20px 0;
+}
+
+/* 6. Fact highlight box — pulls out key statistics */
+.fact-box {
+  background: #E1F5FE;
+  border-left: 5px solid #0277BD;
+  padding: 18px 22px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+.fact-box p {
+  font-size: 16px;
+  color: #01579B;
+  margin: 0;
+}
+
+/* 7. "Go to Top" button — fixed position, always visible */
+.go-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #2E7D32;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s, transform 0.2s;
+  z-index: 999;
+}
+
+.go-top-btn:hover {
+  background: #1B5E20;
+  transform: translateY(-3px);
+}
