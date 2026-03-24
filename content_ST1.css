@@ -79,7 +79,7 @@
     width: calc(100% - 40px);
 }
 
-.toc h3 {
+.toc h2 {
     color: #1B5E20;
     margin-bottom: 10px;
     font-size: 16px;
