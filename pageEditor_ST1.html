@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor Student - Gavin Shimek</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pageEditor_validator.css"> <!-- External CSS link -->
+
+</head>
+
+<body>
+
+    <div id="top"></div>
+
+    <!-- Update the header and the footer to be consistent with the rest of the pages you implemented -->
+
+    <header>
+        <nav>
+            <h2>Climate Action</h2>
+
+            <ul>
+                <li><a href="splash.html">Splash</a></li>
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="ais.html">Simulator</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <section class="stud">
+        <h2>Gavin Shimek, Clime, Implementation Lead</h2>
+    </section>
+
+    <div class="container">
+        <!-- Main content area -->
+        <main>
+
+            <!-- Update those first three sections for the pages you were responsible to implement -->
+
+            <section>
+                <h2 id="home">Home page</h2>
+                <h3>Technical Description</h3>
+                <p>The Home Page utilizes semantic HTML5 tags like
+                    "header", "nav"", and "main" to provide a clear and logical document structure. The layout is styled
+                    using home.css and a global style.css, where Flexbox is employed to create a responsive
+                    navigation bar and align climate topic cards. A high-impact "Hero" section uses a CSS linear
+                    gradient overlay on a background image to ensure text readability. Interactivity is added
+                    through a sticky header and scroll-reveal animations controlled by script.js, which toggles
+                    CSS classes as elements enter the viewport.</p>
+
+                <h3>Accessibility</h3>
+                <p>Readability is prioritized through high color contrast, specifically using white text on
+                    a dark green (#2E7D32) background. Semantic landmarks and descriptive alt text for
+                    images (e.g., "Solar panels on a roof") ensure that users with screen readers can
+                    navigate the site effectively.
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <!-- Update the path to link the Page Editor with the splash page -->
+                <p><a href="validation_ST1.html#splashVal">Go to validation</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                <h3>Link to the page</h3>
+                <p><a href="home.html">Home</a></p>
+            </section>
+
+            <section>
+                <h2 id="gallery">Gallery Page</h2>
+                <h3>Technical Description</h3>
+                <p>The gallery grid is implemented using CSS Grid with the repeat(auto-fit, minmax(250px, 1fr))
+                    property, allowing the layout to automatically adjust based on the screen width. A custom Lightbox
+                    modal was developed for the "Extended View" requirement. This modal uses absolute positioning and a
+                    high z-index to overlay the content. JavaScript in gallery.js handles the logic for opening the
+                    modal, dynamically populating it with data from HTML data-* attributes (like data-description), and
+                    toggling color schemes or font styles.</p>
+
+                <h3>Accessibility</h3>
+                <p>The modal includes aria-hidden attributes to manage visibility for assistive technologies. Keyboard
+                    accessibility is supported by allowing users to close the modal using the "Escape" key, and every
+                    gallery item is interactive with clear focus states.</p>
+
+                <h3>Link to the validation page</h3>
+                <!-- Update the path to link the Page Editor with the splash page -->
+                <p><a href="validation_ST1.html#volunteerVal">Go to validation</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+
+                <h3>Link to the page</h3>
+                <p><a href="gallery.html">Gallery</a></p>
+            </section>
+
+            <section>
+                <h2 id="content">Content Page</h2>
+                <h3>Technical Description</h3>
+                <p>his research-heavy page uses an
+                    "article" tag to wrap the main content, with sub-sections defined by "section" tags. A functional
+                    Table
+                    of Contents uses internal fragment identifiers (e.g., "a href="#definition") to allow users to
+                    jump to specific parts of the research. Technical data is presented in a responsive "table"
+                    and a card-based grid layout, both styled specifically in content_ST1.css to prevent
+                    conflicts with other pages.</p>
+
+                <h3>Accessibility</h3>
+                <p>A strict heading hierarchy (h1 through h3) is maintained to provide a clear roadmap
+                    for screen reader navigation. Content images include both descriptive alt text and
+                <p class="caption"> elements to provide context for all users.</p>
+
+                <h3>Link to the validation page</h3>
+                <!-- Update the path to link the Page Editor with the splash page -->
+                <p><a href="validation_ST1.html#contentVal">Go to validation</a></p>
+                <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+
+                <h3>Link to the page</h3>
+                <p><a href="content_ST1.html">Content</a></p>
+            </section>
+
+            <section>
+                <h2 id="challenge"> Challenges and Lessons Learned</h2>
+                <br>Managing global vs. page-specific styles during the team merge. Initially, teammate styles
+                were overwriting the shared navigation colors.<br><br>
+
+                I established a strict "Global CSS" (style.css) for shared components like the footer and
+                nav, while requiring teammates to use unique class prefixes in their own CSS files.<br><br>
+
+                I learned the importance of modularity in JavaScript. Moving the lightbox logic from the main
+                script.js to a dedicated gallery.js made the code easier to maintain and faster to load on
+                non-gallery pages.
+
+                </p>
+            </section>
+
+            <section>
+                <h2 id="compliance"> Compliance</h2>
+                <p>The pages I developed for the 'Clime' project are fully compliant with Janet regulations. The website
+                    is created strictly for educational purposes as part of my 4COSC011W coursework and contains no
+                    commercial or for-profit content. I have ensured that all media used, including the solar and forest
+                    imagery, are either royalty-free or correctly attributed to respect copyright laws. Furthermore, the
+                    site does not host any illegal, offensive, or defamatory material, and I have optimized the code to
+                    ensure it does not place an excessive or wasteful burden on network resources" <a
+                        href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html"
+                        target="_blank">See the lecture notes for more details on compliance.</a></p>
+
+
+            </section>
+
+            <section>
+                <h2 id="compliance"> Group Meetings and Individual Contribution Log</h2>
+                <p>Include a Group Meetings and Contribution Log that documents your engagement with group work.
+                </p>
+                Requirements:
+                <ul>
+                    <li>A minimum of six (6) group meetings must be recorded.</li>
+                    <li>Each student must provide their own account of the meetings.</li>
+                    <li>The log must focus on individual contribution, not just group activity.</li>
+                </ul>
+                <p>Feel free to follow the example table structure below:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="6">Group Meetings and Contribution Log</th>
+                        </tr>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>Your Individual Contribution</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>3 Feb 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Agree SDG and assign roles</td>
+                            <td>Yes</td>
+                            <td>I agreed to take the Implementation Lead role and responsibility for the Home Page and
+                                template.</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>17 Feb 2026</td>
+                            <td>Online</td>
+                            <td>Review Home Page design</td>
+                            <td>Yes</td>
+                            <td>I suggested the green colour palette and developed the responsive card-based layout for
+                                the home page.</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>03 Mar 2026</td>
+                            <td>Hybrid</td>
+                            <td>Progress review</td>
+                            <td>No</td>
+                            <td>I reviewed the meeting minutes and updated the shared CSS file to ensure font
+                                consistency across all student pages.</td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>10 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Gallery Implementation</td>
+                            <td>Yes</td>
+                            <td>I developed the custom Lightbox modal logic in gallery.js and ensured images load
+                                dynamically using data attributes.</td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>17 Mar 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Research &amp; Integration</td>
+                            <td>Yes</td>
+                            <td>I implemented the content_ST1.html page and established the final directory structure
+                                for images and report snapshots.</td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td>24 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Final Validation &amp; Links</td>
+                            <td>Yes</td>
+                            <td>I performed final W3C validation for all Implementation Lead pages and synchronised the
+                                cross-links between all project reports.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+
+            <section>
+                <h2 id="ref">References</h2>
+                <p>The following resources were utilized to provide accurate environmental data for the research
+                    components and to implement the technical features of the website:</p><br><br>
+                <ul>
+                    <li>
+                        United Nations, n.d. <i>Goal 13: Take urgent action to combat climate change and its
+                            impacts.</i>
+                        [online] Available at:
+                        <a href="https://sdgs.un.org/goals/goal13" target="_blank">
+                            https://sdgs.un.org/goals/goal13
+                        </a>
+                        (Accessed: 24 Mar 2026).
+                    </li>
+
+                    <li>
+                        International Renewable Energy Agency (IRENA), 2023. <i>Renewable Energy Statistics 2023.</i>
+                        [online] Available at:
+                        <a href="https://www.irena.org" target="_blank">
+                            https://www.irena.org
+                        </a>
+                        (Accessed: 24 Mar 2026).
+                    </li>
+
+                    <li>
+                        Pexels, 2024. <i>Collection of Environmental and Climate Action Images (Forest, Solar, Wind,
+                            Ocean).</i>
+                        [online] Available at:
+                        <a href="https://www.pexels.com" target="_blank">
+                            https://www.pexels.com
+                        </a>
+                        (Accessed: 24 Mar 2026).
+                    </li>
+
+                    <li>
+                        Duckett, J., 2011. <i>HTML and CSS: Design and Build Websites.</i>
+                        Indianapolis: John Wiley & Sons.
+                    </li>
+
+                    <li>
+                        W3Schools, 2026. <i>How To - Modal Boxes (Lightbox).</i>
+                        [online] Available at:
+                        <a href="https://www.w3schools.com/howto/howto_css_modals.asp" target="_blank">
+                            https://www.w3schools.com/howto/howto_css_modals.asp
+                        </a>
+                        (Accessed: 24 Mar 2026).
+                    </li>
+
+                    <li>
+                        MDN Web Docs, 2026. <i>Using data attributes.</i>
+                        [online] Available at:
+                        <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes"
+                            target="_blank">
+                            https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+                        </a>
+                        (Accessed: 24 Mar 2026).
+                    </li>
+                </ul>
+            </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <!-- Sidebar area -->
+        <aside>
+            <h3>Core pages developed:</h3>
+
+            <!-- Customize this to the role you undertook. Keep only the list items you were responsible to develop, delete the rest -->
+            <ul class="top-level-ul">
+                <!-- Keep only the list items you were responsible to develop, delete the rest and update the links to the corresponding markers -->
+                <li>Student 1</li>
+                <ul>
+                    <li><a href="#home">Home page </a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#content">Content</a></li>
+                </ul>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-navigation">
+            <a href="pageEditor_ST1.html">Page Editor</a> |
+            <a href="validation_ST1.html">Validation</a> |
+            <a href="accessibility.html">Accessibility</a>
+        </div>
+
+        <p>Page implemented by: Gavin | Role: Student 1 (Implementation Lead)</p>
+
+        <p>© 2026 Climate Action | Protecting Our Planet</p>
+    </footer>
+</body>
+
+</html>
