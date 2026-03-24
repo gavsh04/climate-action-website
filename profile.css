@@ -1,0 +1,273 @@
+/* =============================================
+   profile.css
+   Page-specific styles for the User Profile page
+   (profile.html — Student 4: Dinura)
+   These styles do NOT override the global style.css
+   ============================================= */
+
+/* --------------------------------------------------
+   PROFILE HERO BANNER
+   Ocean-themed gradient to match "Climate Action" SDG
+-------------------------------------------------- */
+.profile-hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #1565C0 100%);
+  color: white;
+}
+
+.profile-hero h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.profile-hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------
+   PROFILE BUILDER SECTION
+   Main container for the whole builder interface
+-------------------------------------------------- */
+.profile-builder {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px 60px;
+}
+
+/* --------------------------------------------------
+   CONTROL BUTTONS (Start / Reset)
+-------------------------------------------------- */
+.profile-controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.profile-controls button {
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Start button — green theme matching the SDG */
+#startBtn {
+  background: #2E7D32;
+  color: white;
+}
+
+#startBtn:hover {
+  background: #1B5E20;
+  transform: scale(1.04);
+}
+
+/* Reset button — subtle neutral style */
+#resetBtn {
+  background: #B0BEC5;
+  color: #333;
+}
+
+#resetBtn:hover {
+  background: #90A4AE;
+  transform: scale(1.04);
+}
+
+/* --------------------------------------------------
+   PROGRESS CONTAINER
+   Holds the progress bar, step counter, and revisit buttons
+-------------------------------------------------- */
+.progress-container {
+  background: #E8F5E9;
+  border: 2px solid #A5D6A7;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 30px;
+}
+
+.progress-container h3 {
+  font-size: 20px;
+  color: #2E7D32;
+  margin-bottom: 14px;
+}
+
+/* Progress bar outer wrapper */
+.progress-bar-wrapper {
+  width: 100%;
+  height: 28px;
+  background: #C8E6C9;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+/* Progress bar fill — width controlled by JavaScript */
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2E7D32, #66BB6A);
+  border-radius: 14px;
+  text-align: center;
+  line-height: 28px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  transition: width 0.6s ease;
+}
+
+/* Step counter text below the bar */
+.step-counter {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+/* --------------------------------------------------
+   REVISIT STEP BUTTONS
+   Enabled/disabled by JavaScript
+-------------------------------------------------- */
+.step-nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.revisit-btn {
+  padding: 10px 20px;
+  border: 2px solid #2E7D32;
+  border-radius: 8px;
+  background: white;
+  color: #2E7D32;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.revisit-btn:hover:not(:disabled) {
+  background: #2E7D32;
+  color: white;
+}
+
+.revisit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------
+   PROFILE OUTPUT AREA
+   Container revealed progressively as steps complete
+-------------------------------------------------- */
+.profile-output {
+  background: #FFFFFF;
+  border: 2px solid #C8E6C9;
+  border-radius: 12px;
+  padding: 30px;
+  min-height: 80px;
+}
+
+/* Status message bar */
+.status-msg {
+  background: #E3F2FD;
+  border-left: 4px solid #1565C0;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #1565C0;
+  margin-bottom: 20px;
+}
+
+/* --------------------------------------------------
+   INDIVIDUAL PROFILE SECTIONS (one per step)
+   Each section is revealed after its step completes
+-------------------------------------------------- */
+.profile-section {
+  margin-bottom: 30px;
+  animation: fadeInSection 0.5s ease forwards;
+}
+
+/* Fade-in animation when a section is revealed */
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-section h2 {
+  font-size: 22px;
+  color: #2E7D32;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #A5D6A7;
+  padding-bottom: 8px;
+}
+
+/* --------------------------------------------------
+   PROFILE GRID
+   Displays collected data as labelled key-value cards
+-------------------------------------------------- */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+/* Individual data card inside the grid */
+.profile-card {
+  background: #F1F8E9;
+  border: 1px solid #A5D6A7;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.profile-card .label {
+  font-size: 12px;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.profile-card .value {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1B5E20;
+  word-break: break-word;
+}
+
+/* --------------------------------------------------
+   CONFIRMATION BOX
+   Displayed when all three steps are completed
+-------------------------------------------------- */
+.confirmation-box {
+  background: linear-gradient(135deg, #E8F5E9, #E3F2FD);
+  border: 2px solid #66BB6A;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  animation: fadeInSection 0.6s ease forwards;
+}
+
+.confirmation-box h2 {
+  font-size: 28px;
+  color: #2E7D32;
+  margin-bottom: 12px;
+}
+
+.confirmation-box p {
+  font-size: 16px;
+  color: #333;
+  max-width: 500px;
+  margin: 0 auto;
+}
