@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ocean Health &amp; Climate Action | Climate Action</title>
+
+  <!-- Global CSS shared across all pages -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-specific embedded CSS is below in a <style> block -->
+  <style>
+    /* =============================================
+       Embedded CSS — content_ST4.html
+       Page-specific styles for the Ocean Health content page
+       These styles do NOT override the global style.css
+       ============================================= */
+
+    /* 1. Ocean-themed hero banner for this content page */
+    .content-hero {
+      background: linear-gradient(135deg, #01579B 0%, #0277BD 40%, #2E7D32 100%);
+      color: white;
+      text-align: center;
+      padding: 70px 20px 50px;
+    }
+
+    .content-hero h1 {
+      font-size: 50px;
+      margin-bottom: 14px;
+      letter-spacing: 2px;
+    }
+
+    .content-hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.92;
+    }
+
+    /* 2. Internal navigation menu at the top of the page */
+    .internal-nav {
+      background: #E8F5E9;
+      padding: 18px 30px;
+      border-left: 5px solid #2E7D32;
+      max-width: 860px;
+      margin: 40px auto 0;
+      border-radius: 8px;
+    }
+
+    .internal-nav h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #1B5E20;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .internal-nav ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .internal-nav ul li {
+      margin-bottom: 6px;
+    }
+
+    .internal-nav ul li a {
+      color: #2E7D32;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .internal-nav ul li a:hover {
+      color: #1B5E20;
+      text-decoration: underline;
+    }
+
+    /* 3. Main article wrapper */
+    .content-article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* 4. Section styling — each section uses scroll-margin for internal links */
+    .content-section {
+      margin-bottom: 60px;
+      scroll-margin-top: 80px; /* Offset for sticky header */
+    }
+
+    .content-section h2 {
+      font-size: 30px;
+      color: #01579B;
+      border-bottom: 3px solid #B3E5FC;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .content-section h3 {
+      font-size: 22px;
+      color: #2E7D32;
+      margin: 24px 0 10px;
+    }
+
+    .content-section p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    /* 5. Content images — responsive, with borders and shadows */
+    .content-img {
+      width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #B3E5FC;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+      margin: 20px 0;
+    }
+
+    /* 6. Fact highlight box — pulls out key statistics */
+    .fact-box {
+      background: #E1F5FE;
+      border-left: 5px solid #0277BD;
+      padding: 18px 22px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+
+    .fact-box p {
+      font-size: 16px;
+      color: #01579B;
+      margin: 0;
+    }
+
+    /* 7. "Go to Top" button — fixed position, always visible */
+    .go-top-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #2E7D32;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: background 0.3s, transform 0.2s;
+      z-index: 999;
+    }
+
+    .go-top-btn:hover {
+      background: #1B5E20;
+      transform: translateY(-3px);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =============================================
+       PAGE TOP ANCHOR (for "Go to Top" link)
+  ============================================= -->
+  <div id="top"></div>
+
+  <!-- =============================================
+       HEADER / NAVIGATION BAR (shared template)
+       Active page: Content Page ST4
+  ============================================= -->
+  <header>
+    <nav>
+      <h2>🌍 Climate Action</h2>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="ais.html">Action Simulator</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =============================================
+       MAIN CONTENT AREA
+  ============================================= -->
+  <main>
+
+    <!-- Hero banner for this content page -->
+    <section class="content-hero">
+      <h1>🌊 Ocean Health &amp; Climate Action</h1>
+      <p>How our oceans are changing due to climate change — and what we can do about it.</p>
+    </section>
+
+    <!-- =============================================
+         INTERNAL NAVIGATION MENU
+         Links to sections within this page using anchor IDs
+    ============================================= -->
+    <nav class="internal-nav" aria-label="Page sections">
+      <h3>On This Page</h3>
+      <ul>
+        <li><a href="#introduction">Introduction: Why Oceans Matter</a></li>
+        <li><a href="#threats">Threats Facing Our Oceans</a></li>
+        <li><a href="#coral-reefs">The Coral Reef Crisis</a></li>
+        <li><a href="#sea-level">Rising Sea Levels</a></li>
+        <li><a href="#actions">Actions You Can Take</a></li>
+      </ul>
+    </nav>
+
+    <!-- =============================================
+         ARTICLE CONTENT
+    ============================================= -->
+    <article class="content-article">
+
+      <!-- SECTION 1: Introduction -->
+      <section class="content-section" id="introduction">
+        <h2>Introduction: Why Oceans Matter</h2>
+
+        <img src="images/ocean_overview.jpg"
+             alt="A wide-angle view of the ocean surface under a blue sky, showing the vastness of the sea"
+             class="content-img" />
+
+        <p>
+          Oceans cover more than 70% of the Earth's surface and are fundamental to all life on our planet.
+          They produce over half of the world's oxygen, regulate global temperature, and are home to
+          approximately 80% of all living species on Earth. For billions of people, oceans are also a
+          primary source of food and livelihood.
+        </p>
+
+        <p>
+          Yet despite their critical importance, our oceans are under unprecedented threat from climate change.
+          Rising temperatures, ocean acidification, pollution, and overfishing are pushing marine ecosystems
+          to breaking point. As a student and future professional, understanding ocean health is not just
+          a scientific concern — it is a deeply human one.
+        </p>
+
+        <div class="fact-box">
+          <p>📊 <strong>Key Fact:</strong> Oceans have absorbed about 90% of the excess heat generated
+          by the greenhouse effect since industrialisation began. This is dramatically altering marine biodiversity
+          and weather patterns worldwide.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2: Threats Facing Our Oceans -->
+      <section class="content-section" id="threats">
+        <h2>Threats Facing Our Oceans</h2>
+
+        <img src="images/ocean_pollution.jpg"
+             alt="Plastic waste and debris floating in ocean water, illustrating ocean pollution"
+             class="content-img" />
+
+        <h3>Ocean Acidification</h3>
+        <p>
+          When carbon dioxide (CO₂) is released into the atmosphere, a significant portion is absorbed by
+          the ocean. This triggers a chemical reaction that increases acidity levels in seawater. Since
+          the Industrial Revolution, ocean acidity has increased by about 26%. This threatens shellfish,
+          corals, and the entire marine food web that depends on calcium carbonate structures.
+        </p>
+
+        <h3>Ocean Warming</h3>
+        <p>
+          The top layers of the ocean have been warming at an accelerating rate. Warmer water holds less
+          oxygen, disrupting habitats for fish and marine mammals. It also intensifies hurricanes and
+          typhoons, affects rainfall patterns on land, and alters the ocean currents that millions of
+          species — and weather systems — depend on.
+        </p>
+
+        <h3>Plastic Pollution</h3>
+        <p>
+          Every year, an estimated 8 million tonnes of plastic waste enters the ocean. This waste
+          fragments into microplastics that are ingested by sea creatures at every level of the food chain —
+          including fish that end up on our plates. Coastal communities, especially in developing nations,
+          face the most direct impacts of this crisis.
+        </p>
+
+        <div class="fact-box">
+          <p>📊 <strong>Key Fact:</strong> There are now more pieces of microplastic in the ocean than there
+          are stars in the Milky Way galaxy. Most of this plastic comes from single-use consumer packaging.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Coral Reef Crisis -->
+      <section class="content-section" id="coral-reefs">
+        <h2>The Coral Reef Crisis</h2>
+
+        <img src="images/coral_reef.jpg"
+             alt="A bleached coral reef showing the impact of ocean warming, with pale white coral structures"
+             class="content-img" />
+
+        <p>
+          Coral reefs are often called the rainforests of the sea. Covering less than 1% of the ocean floor,
+          they support around 25% of all marine species. They also protect coastlines from storm surges and
+          generate billions of pounds in tourism and fishing income for communities worldwide.
+        </p>
+
+        <p>
+          Rising ocean temperatures cause coral bleaching — a process where stressed corals expel the
+          symbiotic algae that give them colour and nutrition. If temperatures remain elevated for too long,
+          the coral dies. Since the 1950s, the world has lost roughly 50% of its coral reefs, and projections
+          suggest that 90% could disappear by 2050 if global warming continues at its current rate.
+        </p>
+
+        <h3>What Is Being Done?</h3>
+        <p>
+          Scientists and local communities are working on coral restoration projects, breeding heat-resistant
+          coral strains, and establishing Marine Protected Areas (MPAs). However, these efforts can only
+          succeed if the root cause — carbon emissions — is meaningfully reduced on a global scale.
+        </p>
+      </section>
+
+      <!-- SECTION 4: Rising Sea Levels -->
+      <section class="content-section" id="sea-level">
+        <h2>Rising Sea Levels</h2>
+
+        <img src="images/sea_level.jpg"
+             alt="A low-lying coastal village partially flooded, illustrating the impact of sea level rise on communities"
+             class="content-img" />
+
+        <p>
+          Global sea levels are rising at a rate of approximately 3.6 mm per year, driven by the melting
+          of glaciers and ice sheets, and the thermal expansion of warming seawater. Since 1900, sea levels
+          have risen by about 20 cm on average globally, but this is not evenly distributed — some regions
+          experience far greater increases.
+        </p>
+
+        <p>
+          For small island nations in the Pacific and Indian Oceans — places like Tuvalu and the Maldives —
+          sea level rise is an existential threat. Entire nations risk becoming uninhabitable within decades.
+          Closer to home, coastal cities such as London, Jakarta, and Miami face increased flooding risks
+          that will require massive infrastructure investment.
+        </p>
+
+        <div class="fact-box">
+          <p>📊 <strong>Key Fact:</strong> If the Antarctic ice sheet were to fully melt, global sea levels
+          could rise by an estimated 60 metres — enough to submerge most of the world's major coastal cities.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 5: Actions You Can Take -->
+      <section class="content-section" id="actions">
+        <h2>Actions You Can Take</h2>
+
+        <img src="images/ocean_action.jpg"
+             alt="A group of young volunteers cleaning a beach, picking up plastic waste near the waterline"
+             class="content-img" />
+
+        <p>
+          Protecting the ocean is not only the responsibility of governments and corporations. As a student
+          and citizen, there are many meaningful actions you can take today to reduce your impact on marine
+          environments and advocate for systemic change.
+        </p>
+
+        <h3>Reduce Your Plastic Use</h3>
+        <p>
+          Carry a reusable water bottle, coffee cup, and shopping bag. Refuse single-use plastics wherever
+          possible. Choose products with minimal or recyclable packaging. These small daily choices, at scale,
+          significantly reduce the flow of plastic into our oceans.
+        </p>
+
+        <h3>Lower Your Carbon Footprint</h3>
+        <p>
+          Since ocean acidification and warming are directly driven by CO₂ emissions, reducing your personal
+          carbon footprint has a direct benefit for marine health. Eat less meat, use public transport, fly
+          less frequently, and choose energy-efficient appliances and suppliers.
+        </p>
+
+        <h3>Support Marine Conservation</h3>
+        <p>
+          Donate to or volunteer with organisations dedicated to ocean health. Participate in local beach
+          clean-up events. Sign petitions for stronger marine protection laws and greater Marine Protected
+          Area coverage. Educate others — sharing knowledge is one of the most powerful tools we have.
+        </p>
+
+        <h3>Choose Sustainable Seafood</h3>
+        <p>
+          Look for certified sustainable seafood labels (such as MSC) when shopping. Unsustainable fishing
+          practices devastate fish populations and destroy the seabed. Your purchasing decisions send
+          signals to supermarkets and suppliers about what consumers value.
+        </p>
+
+      </section>
+
+    </article>
+
+  </main>
+
+  <!-- =============================================
+       GO TO TOP BUTTON (HTML + CSS only, no JS required)
+  ============================================= -->
+  <a href="#top" class="go-top-btn" aria-label="Go back to the top of the page">▲ Top</a>
+
+  <!-- =============================================
+       FOOTER (shared template — updated by Student 4)
+  ============================================= -->
+  <footer>
+    <div class="footer-navigation">
+      <a href="pageEditor_ST4.html">Page Editor</a>
+      <a href="validation_ST4.html">Validation</a>
+      <a href="#">Accessibility</a>
+    </div>
+    <p>Student: Dinura | Role: User Profile &amp; Sitemap | Climate Action Website &copy; 2026</p>
+  </footer>
+
+</body>
+</html>
