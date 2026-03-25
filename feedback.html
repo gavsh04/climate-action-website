@@ -10,8 +10,8 @@
     <!-- 
          GLOBAL CSS – shared across all pages
     -->
-    <link rel="stylesheet" href="style.css" >
-    
+    <link rel="stylesheet" href="style.css">
+
 
     <!--
          PAGE-SPECIFIC EMBEDDED CSS – feedback.html only
@@ -26,16 +26,20 @@
     -->
     <header>
         <nav>
-            <h2>Climate Action</h2>
+            <h2>
+                <img id="nav-logo" src="images/logo.png" alt="Climate Action Logo"
+                    onclick="this.classList.toggle('enlarged')" />
+                Climate Action
+            </h2>
             <ul>
                 <li><a href="splash.html">Splash</a></li>
                 <li><a href="home.html" class="active">Home</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="ais.html">Simulator</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
-                 <li><a href="team.html">Team</a></li>
-                 <li><a href="profile.html">Profile</a></li>
-                 <li><a href="sitemap.html">Sitemap</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
             </ul>
         </nav>
     </header>
@@ -47,13 +51,14 @@
         <div class="feedback-page-main">
 
             <!-- Hero heading -->
-            <div class="mission" style="padding: 40px 0 10px; background: linear-gradient(135deg, #1B5E20, #2E7D32, #43A047); color: white;">
+            <div class="mission"
+                style="padding: 40px 0 10px; background: linear-gradient(135deg, #1B5E20, #2E7D32, #43A047); color: white;">
                 <h2>Feedback &amp; Programme Directory</h2>
                 <p>Explore climate action opportunities and share your thoughts with us. Every voice matters in the
                     fight against climate change.</p>
             </div>
 
-            <hr class="section-divider" >
+            <hr class="section-divider">
 
             <!--
                  SECTION 1 – Scrollable Programme Directory
@@ -84,7 +89,7 @@
                             and reference it in your Page Editor.
                         -->
                         <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=150&fit=crop"
-                            alt="Volunteers planting trees in a deforested area to restore green cover" >
+                            alt="Volunteers planting trees in a deforested area to restore green cover">
                         <div class="prog-card-body">
                             <h3> Urban Tree Planting Initiative</h3>
                             <p>Join local volunteers every weekend to plant trees in urban areas, helping absorb CO₂
@@ -96,7 +101,7 @@
                     <!-- Card 2 -->
                     <article class="prog-card">
                         <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&h=150&fit=crop"
-                            alt="Solar panels installed on rooftops providing clean renewable energy" >
+                            alt="Solar panels installed on rooftops providing clean renewable energy">
                         <div class="prog-card-body">
                             <h3> Campus Solar Drive</h3>
                             <p>A student-led campaign to promote solar energy adoption on university campuses. Sign
@@ -108,7 +113,7 @@
                     <!-- Card 3 -->
                     <article class="prog-card">
                         <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=400&h=150&fit=crop"
-                            alt="People sorting recyclable materials at a community recycling drive" >
+                            alt="People sorting recyclable materials at a community recycling drive">
                         <div class="prog-card-body">
                             <h3> Zero Waste Campus</h3>
                             <p>Help reduce plastic and food waste on campus through awareness workshops, recycling
@@ -120,7 +125,7 @@
                     <!-- Card 4 -->
                     <article class="prog-card">
                         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=150&fit=crop"
-                            alt="Students cycling to university as a sustainable transport alternative" >
+                            alt="Students cycling to university as a sustainable transport alternative">
                         <div class="prog-card-body">
                             <h3> Green Commute Challenge</h3>
                             <p>Swap your car or bus for a bike or walk for 30 days. Track your carbon savings and earn
@@ -132,7 +137,7 @@
                 </div>
             </section><!-- programme-scroll -->
 
-            <hr class="section-divider" >
+            <hr class="section-divider">
 
             <!-- 
                  SECTION 2 – Ratings & Reviews Summary
@@ -211,19 +216,19 @@
 
                     <div class="form-group">
                         <label for="fullName">Full Name *</label>
-                        <input type="text" id="fullName" placeholder="e.g. Nadith sanjuna" maxlength="80" >
+                        <input type="text" id="fullName" placeholder="e.g. Nadith sanjuna" maxlength="80">
                         <span class="error-msg" id="err-name">Please enter your full name.</span>
                     </div>
 
                     <div class="form-group">
                         <label for="emailAddr">Email Address *</label>
-                        <input type="email" id="emailAddr" placeholder="e.g. nadith@email.com" >
+                        <input type="email" id="emailAddr" placeholder="e.g. nadith@email.com">
                         <span class="error-msg" id="err-email">Please enter a valid email address.</span>
                     </div>
 
                     <div class="form-group">
                         <label for="telNumber">Telephone Number</label>
-                        <input type="tel" id="telNumber" placeholder="e.g. +94 0770000000" >
+                        <input type="tel" id="telNumber" placeholder="e.g. +94 0770000000">
                     </div>
 
                     <div class="form-group">
@@ -250,20 +255,19 @@
 
                     <div class="form-group">
                         <label for="visitDate">Date of Participation *</label>
-                        <input type="date" id="visitDate" >
+                        <input type="date" id="visitDate">
                         <span class="error-msg" id="err-date">Please select a date.</span>
                     </div>
 
                     <div class="form-group">
                         <label for="visitDateTime">Preferred Follow-up Time</label>
-                        <input type="datetime-local" id="visitDateTime" >
+                        <input type="datetime-local" id="visitDateTime">
                     </div>
 
                     <!-- Searchable programme suggestion via datalist -->
                     <div class="form-group">
                         <label for="topicSuggest">Suggest a New Programme Topic</label>
-                        <input type="text" id="topicSuggest" list="topicList"
-                            placeholder="e.g. Ocean clean-up drive">
+                        <input type="text" id="topicSuggest" list="topicList" placeholder="e.g. Ocean clean-up drive">
                         <datalist id="topicList">
                             <option value="Ocean clean-up drive"></option>
                             <option value="Urban farming workshop"></option>
@@ -302,23 +306,23 @@
     <!-- 
          FOOTER (shared template – Student 3 version)
      -->
-    
-     
-  <footer>
 
-    <div class="footer-navigation">
 
-      <a href="pageEditor_ST1.html">Page Editor</a> |
-      <a href="validation_ST1.html">Validation</a> |
-      <a href="accessibility.html">Accessibility</a>
+    <footer>
 
-    </div>
+        <div class="footer-navigation">
 
-    <p>Page implemented by: Gavin | Role: Student 1 (Template & Home Page)</p>
+            <a href="pageEditor_ST1.html">Page Editor</a> |
+            <a href="validation_ST1.html">Validation</a> |
+            <a href="accessibility.html">Accessibility</a>
 
-    <p>© 2026 Climate Action | Protecting Our Planet</p>
+        </div>
 
-  </footer>
+        <p>Page implemented by: Gavin | Role: Student 1 (Template & Home Page)</p>
+
+        <p>© 2026 Climate Action | Protecting Our Planet</p>
+
+    </footer>
     <!-- External JavaScript file for Nadith (Student 3) -->
     <script src="nadithScript.js"></script>
 
