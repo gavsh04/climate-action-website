@@ -306,15 +306,6 @@
         <p>© 2026 Climate Action | Protecting Our Planet</p>
     </footer>
 
-    <script>
-        // Inject popup elements into benefit cards
-        document.querySelectorAll('.benefit-card[data-popup]').forEach(card => {
-            const popup = document.createElement('div');
-            popup.className = 'benefit-popup';
-            popup.textContent = card.getAttribute('data-popup');
-            card.appendChild(popup);
-        });
-    </script>
     <script src="script.js"></script>
 </body>
 
