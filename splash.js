@@ -1,11 +1,4 @@
-/*
- * SPLASH SCREEN JAVASCRIPT
- * ─────────────────────────────────────────────
- * 1. Countdown timer – updates every second (4 → 3 → 2 → 1 → Redirecting now…)
- * 2. Auto-redirect – navigates to home.html after 4 seconds
- * 3. skipIntro()   – cancels the timer and redirects immediately
- * ─────────────────────────────────────────────
- */
+//SPLASH SCREEN JAVASCRIPT
 
 // Store the auto-redirect timer ID so we can cancel it if the user skips
 let redirectTimer;
@@ -34,4 +27,4 @@ function skipIntro() {
     clearInterval(countdownInterval);
     window.location.href = 'home.html';
 }
-//check line 28 and line 35 to link home page
+
