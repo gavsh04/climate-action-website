@@ -1,40 +1,8 @@
 /*
  * =====================================================
  * ais.css – Page-specific CSS for AIS Page
- * SDG 13: Climate Action
- * Team: CLMT | University of Westminster 2025/26
- * Author: Student 2
- * Spec ref: Section 4.5 – SDG Action Impact Simulator
- * =====================================================
- *
- * TABLE OF CONTENTS
- * -----------------
- * 1.  Font Import
- * 2.  CSS Custom Properties (Variables)
- * 3.  Page Background Wrapper
- * 4.  Dark Overlay
- * 5.  Main Content Area
- * 6.  Page Heading (h1)
- * 7.  Page Subtitle
- * 8.  Instruction Note
- * 9.  Feedback / Score Panel
- * 10. Score Display Number
- * 11. Impact Level Label
- * 12. Impact Message Text
- * 13. Reset Button
- * 14. Action Cards Grid Layout
- * 15. Action Card – Default State
- * 16. Action Card – Hover State
- * 17. Action Card – Selected State
- * 18. Card Thumbnail Image
- * 19. Card Title (h3)
- * 20. Card Description Text
- * 21. Impact Points Badge
- * 22. Selected Tick Indicator
- * 23. Responsive Layout (max-width: 600px)
- * =====================================================
+ * Studenr 2
  */
-
 
 /* =====================================================
    1. FONT IMPORT
