@@ -2,73 +2,178 @@
    sitemap.css
    Page-specific styles for the Sitemap page
    (sitemap.html — Student 4: Dinura)
+   =============================================
+
+   SECTIONS:
+   1. Hero Banner
+   2. Sitemap Container & SVG
+   3. Node Base Styles
+   4. Hover & Focus Effects
+   5. Special Node Variants
+   6. Info Panel
+   7. Responsive Adjustments
    ============================================= */
 
+
 /* --------------------------------------------------
-   SITEMAP HERO BANNER
+   1. HERO BANNER
 -------------------------------------------------- */
 .sitemap-hero {
   text-align: center;
-  padding: 50px 20px 30px;
-  background: linear-gradient(135deg, #1B5E20, #2E7D32);
+  padding: 55px 20px 35px;
+  background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 55%, #01579B 100%);
   color: white;
 }
 
 .sitemap-hero h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 42px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
 }
 
 .sitemap-hero p {
   font-size: 16px;
   opacity: 0.9;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
+
 /* --------------------------------------------------
-   SITEMAP CONTAINER
-   Centers and constrains the SVG on the page
+   2. SITEMAP CONTAINER & SVG ELEMENT
+   Background uses a subtle grid pattern to give
+   the diagram a professional "whiteboard" look.
 -------------------------------------------------- */
 .sitemap-container {
-  padding: 50px 20px;
-  background: #F5F5F5;
+  padding: 40px 20px 50px;
   display: flex;
   justify-content: center;
+  /* Subtle dot-grid background */
+  background-color: #F9FBF9;
+  background-image:
+    radial-gradient(circle, #C8E6C9 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-/* --------------------------------------------------
-   SVG ELEMENT
-   Responsive: scales with the page width
--------------------------------------------------- */
+/* SVG scales responsively */
 .sitemap-svg {
   width: 100%;
-  max-width: 900px;
+  max-width: 960px;
   height: auto;
   display: block;
+  /* Soft card shadow around the entire diagram */
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.08));
 }
 
+
 /* --------------------------------------------------
-   SITEMAP NODE HOVER EFFECT
-   CSS hover styles for SVG node rectangles.
-   The JS file also adds event listeners for hover effects.
+   3. NODE BASE STYLES
+   All <rect> elements inside .sitemap-node get
+   a smooth transition for hover/focus effects.
 -------------------------------------------------- */
 .sitemap-node rect {
-  transition: filter 0.25s ease, opacity 0.25s ease;
+  transition:
+    filter   0.22s ease,
+    opacity  0.22s ease,
+    transform 0.22s ease;
   cursor: pointer;
 }
 
+/* Node text should not interfere with pointer events */
+.sitemap-node text {
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* --------------------------------------------------
+   4. HOVER & FOCUS EFFECTS
+   CSS-based visual feedback. JavaScript event
+   listeners in sitemap.js ALSO run for hover/focus
+   to satisfy the coursework JS requirement.
+-------------------------------------------------- */
+
+/* All nodes brighten and lift on hover */
 .sitemap-node:hover rect,
 .sitemap-node:focus rect {
-  filter: brightness(1.25) drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
-  opacity: 0.9;
+  filter: brightness(1.22) drop-shadow(0 0 8px rgba(0, 0, 0, 0.35));
+  opacity: 0.88;
 }
 
-/* Focus outline for keyboard navigation */
+/* Content nodes get a blue-tinted glow */
+.content-node:hover rect,
+.content-node:focus rect {
+  filter: brightness(1.28) drop-shadow(0 0 8px rgba(2, 119, 189, 0.55));
+}
+
+/* Keyboard focus: bright yellow outline for accessibility */
 .sitemap-node:focus {
-  outline: 3px solid #FFD600;
-  outline-offset: 3px;
+  outline: none; /* remove browser default; we use SVG stroke below */
 }
 
-/* Content nodes (blue) hover */
-.content-node:hover rect {
-  filter: brightness(1.3) drop-shadow(0 0 6px rgba(2, 119, 189, 0.6));
+.sitemap-node:focus rect {
+  stroke: #FFD600 !important;
+  stroke-width: 3.5 !important;
+}
+
+
+/* --------------------------------------------------
+   5. SPECIAL NODE VARIANTS
+
+   .current-node — the Sitemap node (this page):
+     Pulsing ring animation to show the user
+     where they currently are.
+-------------------------------------------------- */
+
+/* Pulsing ring around the current (Sitemap) node */
+.current-node rect {
+  animation: pulse-ring 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0%   { stroke-width: 2;   stroke-opacity: 1;   }
+  50%  { stroke-width: 5;   stroke-opacity: 0.6; }
+  100% { stroke-width: 2;   stroke-opacity: 1;   }
+}
+
+/* Hover on current node */
+.current-node:hover rect,
+.current-node:focus rect {
+  filter: brightness(1.3) drop-shadow(0 0 10px rgba(93, 64, 55, 0.6));
+  animation: none; /* pause pulse on hover for clarity */
+}
+
+
+/* --------------------------------------------------
+   6. INFO PANEL
+   The #info-panel group at the bottom of the SVG
+   is updated dynamically by sitemap.js.
+   The rect and text are styled here.
+-------------------------------------------------- */
+
+/* The info panel rect is styled inside SVG attributes,
+   but we can add a subtle animation when it updates. */
+#info-panel rect {
+  transition: fill 0.3s ease;
+}
+
+#info-text {
+  transition: opacity 0.25s ease;
+}
+
+
+/* --------------------------------------------------
+   7. RESPONSIVE ADJUSTMENTS
+   On small screens the SVG scales down via viewBox,
+   but we ensure the container doesn't clip.
+-------------------------------------------------- */
+@media (max-width: 600px) {
+  .sitemap-hero h1 {
+    font-size: 28px;
+  }
+
+  .sitemap-container {
+    padding: 20px 8px 30px;
+    background-size: 20px 20px; /* scale grid dots smaller */
+  }
 }
