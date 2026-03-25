@@ -99,3 +99,8 @@ thead{
     background-color: #333;
     color: azure;
 }
+
+/* Prevents the sticky header from covering titles when jumping to an ID */
+section h2[id] {
+    scroll-margin-top: 100px; /* Adjust this number to match your header's height */
+}
