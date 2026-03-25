@@ -104,16 +104,6 @@
 
                 <img class="val-img" src="validationSnapshots_ST2/validation_ais.png"
                     alt="W3C validation result for ais.html showing no errors">
-                <h3>Reflection</h3>
-                <p>
-                    An early draft of the AIS page included an <code>onclick</code> attribute directly on a
-                    <code>&lt;div&gt;</code> element. While this works in browsers, the W3C validator flagged it
-                    as poor practice since <code>&lt;div&gt;</code> elements are not inherently interactive. Adding
-                    <code>role="checkbox"</code> and <code>tabindex="0"</code> alongside the event handler resolved
-                    the accessibility concern and, combined with the ARIA attributes, produced a fully valid
-                    and accessible card component. This was a key learning point about the relationship between
-                    HTML validity and accessibility.
-                </p>
 
                 <h3>Back to Page Editor</h3>
                 <p><a href="pageEditor_ST2.html#ais">← Return to AIS section in Page Editor</a></p>
@@ -147,18 +137,6 @@
 
                 <img class="val-img" src="validationSnapshots_ST2/validation_content_ST2.png"
                     alt="W3C validation result for content_ST2.html showing no errors">
-                <h3>Reflection</h3>
-                <p>
-                    The content page had one initial validation error: a stray <code>&lt;/a&gt;</code> closing tag
-                    that had no matching opening tag, discovered during the final group review meeting. Removing
-                    the orphaned tag resolved the error immediately. This highlighted how easy it is for closing
-                    tags to become detached during editing and confirmed that validation should be part of the
-                    regular development workflow rather than treated as a final step. A secondary lesson was that
-                    the <code>&lt;table&gt;</code> element required a <code>&lt;caption&gt;</code> or a clear
-                    <code>&lt;th scope&gt;</code> for accessibility; adding <code>scope="col"</code> to each
-                    <code>&lt;th&gt;</code> in the milestone table improved both validation output and
-                    screen-reader usability.
-                </p>
 
                 <h3>Back to Page Editor</h3>
                 <p><a href="pageEditor_ST2.html#content">← Return to Content Page section in Page Editor</a></p>
