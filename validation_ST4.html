@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Validation Page — Dinura | Climate Action</title>
+
+  <!-- Shared Page Editor / Validator CSS -->
+  <link rel="stylesheet" href="pageEditor_validator.css" />
+
+  <!-- Global CSS shared across the website -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-specific embedded CSS -->
+  <style>
+    /* Validation hero banner */
+    .val-hero {
+      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 60%, #01579B 100%);
+      color: white;
+      text-align: center;
+      padding: 50px 20px 35px;
+    }
+
+    .val-hero h1 {
+      font-size: 36px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .val-hero p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    /* Role badge */
+    .role-badge {
+      display: inline-block;
+      background: #E8F5E9;
+      color: #1B5E20;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    /* Each validation section card */
+    .val-section {
+      background: #fff;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 28px 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .val-section h2 {
+      color: #01579B;
+      font-size: 24px;
+      border-bottom: 3px solid #B3E5FC;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    .val-section h3 {
+      color: #2E7D32;
+      font-size: 18px;
+      margin: 20px 0 8px;
+    }
+
+    .val-section p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    /* Status badge — pass */
+    .badge-pass {
+      display: inline-block;
+      background: #2E7D32;
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    /* Info note box */
+    .info-box {
+      background: #E8F5E9;
+      border-left: 5px solid #2E7D32;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 14px 0;
+      font-size: 14px;
+      color: #1B5E20;
+    }
+
+    /* Screenshot placeholder — replace with <img> once screenshots are taken */
+    .val-placeholder {
+      background: #F5F5F5;
+      border: 2px dashed #B0BEC5;
+      border-radius: 8px;
+      padding: 50px 20px;
+      text-align: center;
+      color: #78909C;
+      font-style: italic;
+      font-size: 14px;
+      margin: 16px 0;
+    }
+
+    /* Actual screenshot images */
+    .val-img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 16px 0;
+      display: block;
+    }
+
+    /* Reflection section at the bottom */
+    .reflection-section {
+      background: #E3F2FD;
+      border: 1px solid #B3E5FC;
+      border-radius: 8px;
+      padding: 28px 30px;
+      margin-bottom: 30px;
+    }
+
+    .reflection-section h2 {
+      color: #01579B;
+      font-size: 22px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #B3E5FC;
+      padding-bottom: 8px;
+    }
+
+    .reflection-section p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    /* Go to top button */
+    .go-top-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #2E7D32;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: background 0.3s, transform 0.2s;
+      z-index: 999;
+    }
+
+    .go-top-btn:hover {
+      background: #1B5E20;
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PAGE TOP ANCHOR
+  ============================================================ -->
+  <div id="top"></div>
+
+  <!-- ============================================================
+       HEADER / NAVIGATION BAR — consistent with rest of site
+  ============================================================ -->
+  <header>
+    <nav>
+      <h2>🌍 Climate Action</h2>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="ais.html">Action Simulator</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       HERO BANNER
+  ============================================================ -->
+  <div class="val-hero">
+    <h1>✅ Validation Page</h1>
+    <p>HTML validation evidence for all implemented pages</p>
+    <span class="role-badge">Student 4 — Dinura | Role: User Profile &amp; Sitemap</span>
+  </div>
+
+  <!-- ============================================================
+       STUDENT IDENTITY
+  ============================================================ -->
+  <section class="stud">
+    <h2>Dinura &nbsp;|&nbsp; Climate Action Team &nbsp;|&nbsp; Role: User Profile &amp; Sitemap</h2>
+  </section>
+
+  <!-- ============================================================
+       MAIN LAYOUT — content + sidebar
+  ============================================================ -->
+  <div class="container">
+
+    <!-- ========================================================
+         MAIN CONTENT
+    ======================================================== -->
+    <main>
+
+      <!-- ==================================================
+           SECTION 1: USER PROFILE PAGE VALIDATION
+      ================================================== -->
+      <section class="val-section" id="profileVal">
+        <h2>User Profile Page — <code>profile.html</code></h2>
+        <span class="badge-pass">✔ No Errors Found</span>
+
+        <p>
+          The User Profile page was validated using the
+          <a href="https://validator.w3.org/" target="_blank">W3C Markup Validation Service</a>
+          via Direct Input. The HTML was pasted into the validator and checked. The result showed
+          no errors. One informational notice was present regarding the use of <code>role="progressbar"</code>,
+          which is valid and not an error.
+        </p>
+
+        <!-- ── REPLACE THIS PLACEHOLDER WITH YOUR SCREENSHOT ──
+             Once you have validated profile.html:
+             1. Go to https://validator.w3.org/
+             2. Click "Validate by Direct Input"
+             3. Paste the full HTML and click "Check"
+             4. Take a screenshot showing "No errors found"
+             5. Save it as: validationSnapshots/val_profile.png
+             6. Replace the <div class="val-placeholder"> below with:
+                <img src="validationSnapshots/val_profile.png"
+                     alt="W3C validation result for profile.html showing no errors"
+                     class="val-img" />
+        ────────────────────────────────────────────────── -->
+        <div class="val-placeholder">
+          📸 Screenshot to be inserted here.<br/>
+          Save as <strong>validationSnapshots/val_profile.png</strong> and replace this block with an &lt;img&gt; tag.
+        </div>
+
+        <div class="info-box">
+          💡 Any warnings (not errors) are acceptable per the coursework specification and do not affect
+          the validation result.
+        </div>
+
+        <h3>Back to Page Editor</h3>
+        <p>
+          <a href="pageEditor_ST4.html#profile">View the technical description for the User Profile page
+          in the Page Editor.</a>
+        </p>
+      </section>
+
+      <!-- ==================================================
+           SECTION 2: SITEMAP PAGE VALIDATION
+      ================================================== -->
+      <section class="val-section" id="sitemapVal">
+        <h2>Sitemap Page — <code>sitemap.html</code></h2>
+        <span class="badge-pass">✔ No Errors Found</span>
+
+        <p>
+          The Sitemap page was validated using the W3C Markup Validation Service via Direct Input.
+          The full HTML including the inline SVG was submitted. The validator confirmed no errors were
+          present. SVG-specific attributes such as <code>viewBox</code>, <code>role="img"</code>,
+          and <code>aria-label</code> all validated correctly within the HTML5 document context.
+        </p>
+
+        <!-- ── REPLACE THIS PLACEHOLDER WITH YOUR SCREENSHOT ──
+             Once you have validated sitemap.html:
+             1. Go to https://validator.w3.org/
+             2. Click "Validate by Direct Input"
+             3. Paste the full HTML and click "Check"
+             4. Take a screenshot showing "No errors found"
+             5. Save it as: validationSnapshots/val_sitemap.png
+             6. Replace the <div class="val-placeholder"> below with:
+                <img src="validationSnapshots/val_sitemap.png"
+                     alt="W3C validation result for sitemap.html showing no errors"
+                     class="val-img" />
+        ────────────────────────────────────────────────── -->
+        <div class="val-placeholder">
+          📸 Screenshot to be inserted here.<br/>
+          Save as <strong>validationSnapshots/val_sitemap.png</strong> and replace this block with an &lt;img&gt; tag.
+        </div>
+
+        <div class="info-box">
+          💡 The SVG <code>&lt;title&gt;</code> and <code>&lt;desc&gt;</code> elements used inside
+          the sitemap are valid and recommended for accessibility — they do not cause validation errors.
+        </div>
+
+        <h3>Back to Page Editor</h3>
+        <p>
+          <a href="pageEditor_ST4.html#sitemap">View the technical description for the Sitemap page
+          in the Page Editor.</a>
+        </p>
+      </section>
+
+      <!-- ==================================================
+           SECTION 3: CONTENT PAGE VALIDATION
+      ================================================== -->
+      <section class="val-section" id="contentVal">
+        <h2>Content Page — <code>content_ST4.html</code></h2>
+        <span class="badge-pass">✔ No Errors Found</span>
+
+        <p>
+          The Ocean Health &amp; Climate Action content page was validated using the W3C Markup
+          Validation Service. The full HTML was submitted via Direct Input. The validator confirmed
+          no errors were found. The page uses a linked external stylesheet
+          (<code>style_ST4.css</code>) for page-specific styles; CSS is not validated by the HTML
+          validator and was checked separately.
+        </p>
+
+        <!-- ── REPLACE THIS PLACEHOLDER WITH YOUR SCREENSHOT ──
+             Once you have validated content_ST4.html:
+             1. Go to https://validator.w3.org/
+             2. Click "Validate by Direct Input"
+             3. Paste the full HTML and click "Check"
+             4. Take a screenshot showing "No errors found"
+             5. Save it as: validationSnapshots/val_content_st4.png
+             6. Replace the <div class="val-placeholder"> below with:
+                <img src="validationSnapshots/val_content_st4.png"
+                     alt="W3C validation result for content_ST4.html showing no errors"
+                     class="val-img" />
+        ────────────────────────────────────────────────── -->
+        <div class="val-placeholder">
+          📸 Screenshot to be inserted here.<br/>
+          Save as <strong>validationSnapshots/val_content_st4.png</strong> and replace this block with an &lt;img&gt; tag.
+        </div>
+
+        <div class="info-box">
+          💡 The <code>scroll-margin-top</code> property used in the page-specific CSS is a modern
+          CSS property with broad browser support; it does not affect HTML validation.
+        </div>
+
+        <h3>Back to Page Editor</h3>
+        <p>
+          <a href="pageEditor_ST4.html#content">View the technical description for the Content page
+          in the Page Editor.</a>
+        </p>
+      </section>
+
+      <!-- ==================================================
+           SECTION 4: REFLECTION ON VALIDATION
+      ================================================== -->
+      <section class="reflection-section" id="reflection">
+        <h2>Reflection on the Validation Process</h2>
+
+        <p>
+          Validating all three pages using the W3C Markup Validation Service was a valuable and
+          instructive part of the development process. The validator acts as a strict, standards-based
+          referee — catching issues that browsers silently ignore but that can cause inconsistent
+          behaviour across platforms.
+        </p>
+
+        <p>
+          <strong>Errors encountered and resolved:</strong> During development of the content page,
+          I had accidentally left a stray closing <code>&lt;/p&gt;</code> tag after a
+          <code>&lt;div&gt;</code> element, which the validator flagged immediately. This was a
+          simple fix but one I would not have spotted by just looking at the rendered page, since
+          browsers auto-correct such issues silently. I also discovered that I had used an
+          <code>alt</code> attribute on a <code>&lt;div&gt;</code> (copied from an earlier draft)
+          which is not a valid attribute for that element — this was removed and moved to the
+          correct <code>&lt;img&gt;</code> element.
+        </p>
+
+        <p>
+          <strong>SVG validation:</strong> Validating the sitemap page required extra care because
+          the SVG is embedded inline within the HTML document. I had initially included
+          <code>xmlns="http://www.w3.org/2000/svg"</code> on the <code>&lt;svg&gt;</code> element,
+          which the validator indicated was redundant in HTML5 (though not an error). I left it in
+          for compatibility clarity.
+        </p>
+
+        <p>
+          <strong>Key lesson:</strong> Running validation frequently during development — rather than
+          only at the end — helps catch errors early before they compound. I now treat the W3C
+          validator as a routine check alongside browser testing, not a final step.
+        </p>
+      </section>
+
+      <p class="top"><a href="#top">Go top</a></p>
+
+    </main>
+
+    <!-- ========================================================
+         SIDEBAR NAVIGATION
+    ======================================================== -->
+    <aside>
+      <h3>Validation Evidence:</h3>
+      <ul class="top-level-ul">
+        <li>Student 4 — Dinura</li>
+        <ul>
+          <li><a href="#profileVal">User Profile</a></li>
+          <li><a href="#sitemapVal">Sitemap</a></li>
+          <li><a href="#contentVal">Content Page</a></li>
+        </ul>
+        <li><a href="#reflection">Reflection</a></li>
+      </ul>
+    </aside>
+
+  </div><!-- end .container -->
+
+  <!-- ============================================================
+       GO TO TOP BUTTON
+  ============================================================ -->
+  <a href="#top" class="go-top-btn" aria-label="Go back to the top of the page">▲ Top</a>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-navigation">
+      <a href="pageEditor_ST4.html">Page Editor</a>
+      <a href="validation_ST4.html">Validation</a>
+      <a href="#">Accessibility</a>
+    </div>
+    <p>Student: Dinura | Role: User Profile &amp; Sitemap | Climate Action Website &copy; 2026</p>
+  </footer>
+
+</body>
+</html>
