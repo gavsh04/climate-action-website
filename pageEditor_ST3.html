@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Editor – Nadith | Student 3 | Climate Action</title>
+    <title>Page Editor – Nadith</title>
 
-    <!-- Page Editor specific CSS -->
-    <link rel="stylesheet" href="pageEditor_validator.css">
     <!-- Global site CSS (shared template) -->
     <link rel="stylesheet" href="style.css">
+    <!-- Page Editor specific CSS -->
+    <link rel="stylesheet" href="pageEditor_validator.css">
 </head>
-<body id="top">
 
-    <!-- 
-         SHARED HEADER & NAVIGATION BAR
-         Active page: none (Page Editor is not in main nav)
-    -->
-    <header >
+<body>
+    <div id="top"></div>
+
+    <header>
         <nav>
-            <h2>🌍 Climate Action</h2>
+            <h2>
+                <img id="nav-logo" src="images/logo.png" alt="Climate Action Logo"
+                    onclick="this.classList.toggle('enlarged')" />
+                Climate Action
+            </h2>
             <ul>
+                <li><a href="splash.html">Splash</a></li>
                 <li><a href="home.html">Home</a></li>
-                <li><a href="ais.html">AIS</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="profile.html">Profile</a></li>
+                <li><a href="ais.html">Simulator</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
                 <li><a href="team.html">Team</a></li>
+                <li><a href="profile.html">Profile</a></li>
                 <li><a href="sitemap.html">Sitemap</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Student identity banner -->
     <section class="stud">
-        <h2>Nadith &nbsp;|&nbsp; Climate Action Team &nbsp;|&nbsp; Student 3 – Feedback &amp; Team</h2>
+        <h2>Nadith, Clime, Student 3 (Feedback & Team)</h2>
     </section>
 
     <!--
@@ -160,7 +163,8 @@
                     provides a shared mission paragraph using semantic HTML without extra markup complexity.
                 </p>
                 <p>
-                    <strong>Key CSS Properties:</strong> <code>grid-template-columns: repeat(auto-fill, minmax(...))</code>
+                    <strong>Key CSS Properties:</strong>
+                    <code>grid-template-columns: repeat(auto-fill, minmax(...))</code>
                     for responsive grid; <code>max-height</code> transition for expand effect; <code>transform</code>
                     and <code>box-shadow</code> transitions for hover lift; <code>object-fit: cover; object-position:
                     top center</code> for portrait photos; <code>outline: 3px solid #2E7D32</code> on focus for
@@ -377,7 +381,8 @@
                             <td>Face-to-face</td>
                             <td>Agree SDG and assign roles</td>
                             <td>Yes</td>
-                            <td>Agreed to take responsibility for the Feedback, Team, and Content pages. Voted for SDG 13 – Climate Action.</td>
+                            <td>Agreed to take responsibility for the Feedback, Team, and Content pages. Voted for SDG
+                                13 – Climate Action.</td>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -385,7 +390,8 @@
                             <td>Online (Teams)</td>
                             <td>Review shared template and agree visual design</td>
                             <td>Yes</td>
-                            <td>Provided feedback on the green colour palette proposed by Student 1. Agreed on the nav structure and file naming convention.</td>
+                            <td>Provided feedback on the green colour palette proposed by Student 1. Agreed on the nav
+                                structure and file naming convention.</td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -393,7 +399,8 @@
                             <td>Face-to-face</td>
                             <td>Progress check – first drafts</td>
                             <td>Yes</td>
-                            <td>Presented the initial wireframe sketch for the feedback form. Discussed fieldset grouping with team. Reviewed Student 1's home page draft.</td>
+                            <td>Presented the initial wireframe sketch for the feedback form. Discussed fieldset
+                                grouping with team. Reviewed Student 1's home page draft.</td>
                         </tr>
                         <tr>
                             <td>4</td>
@@ -401,7 +408,8 @@
                             <td>Online (Teams)</td>
                             <td>Integration and cross-page consistency</td>
                             <td>Yes</td>
-                            <td>Shared feedback.css and team.css with the group. Confirmed footer links (pageEditor_ST3.html, validation_ST3.html) are correctly formatted.</td>
+                            <td>Shared feedback.css and team.css with the group. Confirmed footer links
+                                (pageEditor_ST3.html, validation_ST3.html) are correctly formatted.</td>
                         </tr>
                         <tr>
                             <td>5</td>
@@ -409,7 +417,8 @@
                             <td>Hybrid</td>
                             <td>Testing and validation run-through</td>
                             <td>Yes</td>
-                            <td>Ran W3C validation on all three of my pages. Fixed two stray closing tag errors in feedback.html. Tested keyboard navigation on team page cards.</td>
+                            <td>Ran W3C validation on all three of my pages. Fixed two stray closing tag errors in
+                                feedback.html. Tested keyboard navigation on team page cards.</td>
                         </tr>
                         <tr>
                             <td>6</td>
@@ -417,7 +426,8 @@
                             <td>Face-to-face</td>
                             <td>Final review before submission</td>
                             <td>Yes</td>
-                            <td>Reviewed complete website together. Verified all nav links work from my pages. Completed this Page Editor and validation screenshots.</td>
+                            <td>Reviewed complete website together. Verified all nav links work from my pages. Completed
+                                this Page Editor and validation screenshots.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -431,7 +441,7 @@
                 <ul class="ref">
                     <li>
                         Unsplash (2026) <i>Royalty-free photographs used in feedback.html, team.html, and
-                        content_ST3.html.</i> Available at:
+                            content_ST3.html.</i> Available at:
                         <a href="https://unsplash.com/" target="_blank">https://unsplash.com/</a>
                         (Last accessed: 20 Mar 2026).
                     </li>
@@ -448,7 +458,8 @@
                     </li>
                     <li>
                         MDN Web Docs (2026) <i>ARIA: role="button" and tabindex.</i> Available at:
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role" target="_blank">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role"
+                            target="_blank">
                             https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
                         </a>
                         (Last accessed: 14 Mar 2026).
@@ -460,7 +471,8 @@
                     </li>
                     <li>
                         University of Westminster (2026) <i>JANET Compliance Guidance – 4COSC011W.</i> Available at:
-                        <a href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html" target="_blank">
+                        <a href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html"
+                            target="_blank">
                             https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html
                         </a>
                         (Last accessed: 19 Mar 2026).
@@ -483,12 +495,13 @@
         <aside>
             <h3>Pages implemented by Nadith (Student 3):</h3>
             <ul class="top-level-ul">
-                <li><strong>Student 3 – Nadith</strong></li>
                 <ul>
                     <li><a href="#feedback">Feedback &amp; Programme Directory</a></li>
                     <li><a href="#team">Team Page</a></li>
                     <li><a href="#content">Content Page (ST3)</a></li>
                 </ul>
+                <br>
+                <h3>Further sections:</h3>
                 <li><a href="#challenge">Challenges &amp; Lessons Learned</a></li>
                 <li><a href="#compliance">Compliance</a></li>
                 <li><a href="#group">Group Meetings Log</a></li>
@@ -512,4 +525,5 @@
     </footer>
 
 </body>
+
 </html>
