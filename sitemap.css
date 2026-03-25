@@ -21,7 +21,7 @@
 .sitemap-hero {
   text-align: center;
   padding: 65px 20px 48px;
-  background: linear-gradient(160deg, #1B5E20 0%, #2E7D32 45%, #0D6B7A 80%, #01579B 100%);
+  background: linear-gradient(160deg, #1B5E20 0%, #2E7D32 45%, #388E3C 75%, #43A047 100%);
   color: white;
   position: relative;
   overflow: hidden;
@@ -121,10 +121,10 @@
   opacity: 0.9;
 }
 
-/* Content nodes get a richer blue-tinted glow */
+/* Content nodes get a richer green-tinted glow */
 .content-node:hover rect,
 .content-node:focus rect {
-  filter: brightness(1.24) drop-shadow(0 0 10px rgba(1, 87, 155, 0.5));
+  filter: brightness(1.24) drop-shadow(0 0 10px rgba(46, 125, 50, 0.5));
   opacity: 0.92;
 }
 
