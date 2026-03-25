@@ -89,15 +89,20 @@
 
 .toc ol {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Forces two equal columns */
-    gap: 10px 40px;                /* 10px vertical gap, 40px horizontal gap */
-    padding-left: 25px;            /* Gives space for the numbers */
+    grid-template-columns: 1fr 1fr;
+    /* Forces two equal columns */
+    gap: 10px 40px;
+    /* 10px vertical gap, 40px horizontal gap */
+    padding-left: 25px;
+    /* Gives space for the numbers */
     margin: 0;
 }
 
 .toc ol li {
-    margin-bottom: 0;              /* Gap property handles spacing now */
-    white-space: nowrap;           /* Prevents text from wrapping to a new line */
+    margin-bottom: 0;
+    /* Gap property handles spacing now */
+    white-space: nowrap;
+    /* Prevents text from wrapping to a new line */
 }
 
 .toc ol li a {
@@ -337,7 +342,8 @@
     }
 
     .toc ol {
-        grid-template-columns: 1fr; /* Stacks to 1 column on mobile */
+        grid-template-columns: 1fr;
+        /* Stacks to 1 column on mobile */
     }
 
     .energy-grid {
@@ -349,4 +355,8 @@
     }
 }
 
-
+/* Fix for sticky header covering section titles in content page */
+article section[id] {
+    scroll-margin-top: 100px;
+    /* Adjust this to match your header height */
+}
