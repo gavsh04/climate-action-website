@@ -75,10 +75,8 @@ footer {
 }
 
 .footer-navigation a:hover {
-    color: #C8E6C9;
-    /* Changes to light green on hover */
-    text-decoration: underline;
-    /* Adds the underline back only when hovering */
+    color: #C8E6C9; /* Changes to light green on hover */
+    text-decoration: underline; /* Adds the underline back only when hovering */
 }
 
 /* GLOBAL REVEAL ANIMATION */
