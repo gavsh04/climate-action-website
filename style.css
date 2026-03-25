@@ -1,9 +1,4 @@
-/* =====================================
-   GLOBAL RESET
-   Removes default browser spacing
-   and keeps sizing consistent
-===================================== */
-
+/* GLOBAL RESET & TYPOGRAPHY */
 html {
     scroll-behavior: smooth;
 }
@@ -14,11 +9,6 @@ html {
     box-sizing: border-box;
 }
 
-/* =====================================
-   GENERAL BODY STYLING
-   Sets overall font, colors, and layout
-===================================== */
-
 body {
     font-family: Arial, sans-serif;
     background-color: #F5F5F5;
@@ -26,11 +16,7 @@ body {
     line-height: 1.6;
 }
 
-/* =====================================
-   HEADER / NAVBAR
-   Shared navigation bar for all pages
-===================================== */
-
+/* SHARED HEADER & NAVBAR */
 header {
     position: sticky;
     top: 0;
@@ -60,246 +46,25 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 16px;
     transition: 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
     color: #C8E6C9;
 }
 
-/* Highlights the current page in the navigation */
 nav ul li a.active {
-    color: #C8E6C9;
     border-bottom: 2px solid #C8E6C9;
     padding-bottom: 4px;
 }
 
-/* =====================================
-   HERO SECTION
-   Main landing section on the home page
-===================================== */
-
-.hero {
-    text-align: center;
-    padding: 140px 20px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url("climate.jpg");
-    background-size: cover;
-    background-position: center;
-    color: white;
-}
-
-.hero h1 {
-    font-size: 64px;
-    margin-bottom: 25px;
-}
-
-.hero p {
-    max-width: 750px;
-    margin: auto;
-    font-size: 18px;
-}
-
-.hero button {
-    margin-top: 30px;
-    padding: 14px 28px;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    background: #4CAF50;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.hero button:hover {
-    background: #039BE5;
-    transform: scale(1.05);
-}
-
-/* =====================================
-   MISSION SECTION
-   Shared centered text section
-===================================== */
-
-.mission {
-    padding: 80px 20px;
-    text-align: center;
-    background-color: #F5F5F5;
-}
-
-.mission h2 {
-    font-size: 42px;
-    margin-bottom: 25px;
-}
-
-.mission p {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-/* =====================================
-   TOPICS SECTION
-   Used for home page cards and similar blocks
-===================================== */
-
-.topics {
-    padding: 80px 20px;
-    text-align: center;
-    background: #FFFFFF;
-}
-
-.topics h2 {
-    font-size: 40px;
-    margin-bottom: 50px;
-}
-
-/* Container holding topic cards */
-.topic-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-/* Individual topic card */
-.topic {
-    width: 250px;
-    padding: 20px;
-    background: #F5F5F5;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.topic:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.topic img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 10px;
-}
-
-.topic h3 {
-    margin-bottom: 10px;
-}
-
-/* =====================================
-   STATS SECTION
-   Displays animated impact statistics
-===================================== */
-
-.stats {
-    padding: 80px 20px;
-    text-align: center;
-    background: #E8F5E9;
-}
-
-.stats h2 {
-    font-size: 40px;
-    margin-bottom: 40px;
-}
-
-/* Container for statistics */
-.stats-container {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-}
-
-.stat h3 {
-    font-size: 48px;
-    color: #2E7D32;
-}
-
-.stat p {
-    font-size: 18px;
-}
-
-/* =====================================
-   SCROLL REVEAL ANIMATION
-   Used on sections that animate into view
-===================================== */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =====================================
-   GALLERY PAGE
-   Shared thumbnail gallery layout only
-===================================== */
-
-.gallery {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.gallery h1 {
-    font-size: 48px;
-    margin-bottom: 40px;
-}
-
-/* Grid layout for gallery items */
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-/* Individual gallery card */
-.gallery-item {
-    background: #F5F5F5;
-    padding: 10px;
-    border-radius: 8px;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-/* Gallery image styling */
-.gallery-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-.gallery-item p {
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-/* =====================================
-   FOOTER
-   Shared footer for all pages
-===================================== */
-
+/* SHARED FOOTER */
 footer {
     background: #2E7D32;
     color: white;
     text-align: center;
     padding: 20px;
-}
-
-.footer-navigation {
-    margin-bottom: 10px;
 }
 
 .footer-navigation a {
@@ -311,25 +76,46 @@ footer {
 
 .footer-navigation a:hover {
     color: #C8E6C9;
+    /* Changes to light green on hover */
+    text-decoration: underline;
+    /* Adds the underline back only when hovering */
 }
 
-/* =====================================
-   LIGHTBOX MODAL
-   Hidden by default. This modal is used
-   to display an expanded gallery image
-   when a user clicks a gallery item.
-   JavaScript changes display to "flex"
-   to show the modal.
-===================================== */
+/* GLOBAL REVEAL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
 
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= NAV LOGO ================= */
+nav h2 {
+    display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+#nav-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#nav-logo:hover {
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.5);
+}
+
+#nav-logo.enlarged {
+    transform: scale(2);
+    box-shadow: 0 0 24px rgba(76, 175, 80, 0.7);
+    z-index: 999;
+    position: relative;
 }
