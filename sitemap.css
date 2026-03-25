@@ -20,22 +20,41 @@
 -------------------------------------------------- */
 .sitemap-hero {
   text-align: center;
-  padding: 55px 20px 35px;
-  background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 55%, #01579B 100%);
+  padding: 65px 20px 48px;
+  background: linear-gradient(160deg, #1B5E20 0%, #2E7D32 45%, #0D6B7A 80%, #01579B 100%);
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft radial depth layers */
+.sitemap-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 15% 70%, rgba(255,255,255,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 55% at 85% 25%, rgba(255,255,255,0.04) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .sitemap-hero h1 {
   font-size: 42px;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .sitemap-hero p {
   font-size: 16px;
-  opacity: 0.9;
+  opacity: 0.88;
   max-width: 500px;
   margin: 0 auto;
+  line-height: 1.7;
+  font-weight: 400;
+  position: relative;
 }
 
 
@@ -45,14 +64,15 @@
    the diagram a professional "whiteboard" look.
 -------------------------------------------------- */
 .sitemap-container {
-  padding: 40px 20px 50px;
+  padding: 48px 20px 60px;
   display: flex;
   justify-content: center;
-  /* Subtle dot-grid background */
-  background-color: #F9FBF9;
+  background-color: #F6FAF6;
   background-image:
     radial-gradient(circle, #C8E6C9 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-size: 26px 26px;
+  /* Vignette to frame the diagram canvas */
+  box-shadow: inset 0 0 80px rgba(27, 94, 32, 0.04);
 }
 
 /* SVG scales responsively */
@@ -61,8 +81,7 @@
   max-width: 960px;
   height: auto;
   display: block;
-  /* Soft card shadow around the entire diagram */
-  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.09));
 }
 
 
@@ -73,9 +92,11 @@
 -------------------------------------------------- */
 .sitemap-node rect {
   transition:
-    filter   0.22s ease,
-    opacity  0.22s ease,
-    transform 0.22s ease;
+    filter    0.2s ease,
+    opacity   0.2s ease,
+    transform 0.2s ease,
+    stroke    0.2s ease,
+    stroke-width 0.2s ease;
   cursor: pointer;
 }
 
@@ -96,24 +117,26 @@
 /* All nodes brighten and lift on hover */
 .sitemap-node:hover rect,
 .sitemap-node:focus rect {
-  filter: brightness(1.22) drop-shadow(0 0 8px rgba(0, 0, 0, 0.35));
-  opacity: 0.88;
+  filter: brightness(1.18) drop-shadow(0 0 10px rgba(0, 0, 0, 0.28));
+  opacity: 0.9;
 }
 
-/* Content nodes get a blue-tinted glow */
+/* Content nodes get a richer blue-tinted glow */
 .content-node:hover rect,
 .content-node:focus rect {
-  filter: brightness(1.28) drop-shadow(0 0 8px rgba(2, 119, 189, 0.55));
+  filter: brightness(1.24) drop-shadow(0 0 10px rgba(1, 87, 155, 0.5));
+  opacity: 0.92;
 }
 
-/* Keyboard focus: bright yellow outline for accessibility */
+/* Keyboard focus: vivid yellow outline for accessibility */
 .sitemap-node:focus {
-  outline: none; /* remove browser default; we use SVG stroke below */
+  outline: none;
 }
 
 .sitemap-node:focus rect {
   stroke: #FFD600 !important;
   stroke-width: 3.5 !important;
+  filter: drop-shadow(0 0 6px rgba(255, 214, 0, 0.5));
 }
 
 
@@ -127,20 +150,20 @@
 
 /* Pulsing ring around the current (Sitemap) node */
 .current-node rect {
-  animation: pulse-ring 2.4s ease-in-out infinite;
+  animation: pulse-ring 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes pulse-ring {
   0%   { stroke-width: 2;   stroke-opacity: 1;   }
-  50%  { stroke-width: 5;   stroke-opacity: 0.6; }
+  50%  { stroke-width: 5.5; stroke-opacity: 0.5; }
   100% { stroke-width: 2;   stroke-opacity: 1;   }
 }
 
 /* Hover on current node */
 .current-node:hover rect,
 .current-node:focus rect {
-  filter: brightness(1.3) drop-shadow(0 0 10px rgba(93, 64, 55, 0.6));
-  animation: none; /* pause pulse on hover for clarity */
+  filter: brightness(1.28) drop-shadow(0 0 12px rgba(93, 64, 55, 0.55));
+  animation: none;
 }
 
 
@@ -151,14 +174,13 @@
    The rect and text are styled here.
 -------------------------------------------------- */
 
-/* The info panel rect is styled inside SVG attributes,
-   but we can add a subtle animation when it updates. */
+/* Smooth fill transition when panel content updates */
 #info-panel rect {
-  transition: fill 0.3s ease;
+  transition: fill 0.3s ease, opacity 0.3s ease;
 }
 
 #info-text {
-  transition: opacity 0.25s ease;
+  transition: opacity 0.22s ease;
 }
 
 
@@ -168,12 +190,21 @@
    but we ensure the container doesn't clip.
 -------------------------------------------------- */
 @media (max-width: 600px) {
+  .sitemap-hero {
+    padding: 48px 16px 36px;
+  }
+
   .sitemap-hero h1 {
     font-size: 28px;
+    letter-spacing: 0;
+  }
+
+  .sitemap-hero p {
+    font-size: 15px;
   }
 
   .sitemap-container {
-    padding: 20px 8px 30px;
-    background-size: 20px 20px; /* scale grid dots smaller */
+    padding: 24px 8px 36px;
+    background-size: 20px 20px;
   }
 }
