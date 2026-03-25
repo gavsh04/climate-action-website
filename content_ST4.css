@@ -1,12 +1,13 @@
 /* =============================================
    Embedded CSS — content_ST4.html
    Page-specific styles for the Ocean Health content page
-   These styles do NOT override the global style.css
+   Theme: Climate Action Green (Implementation Lead Gavin)
    ============================================= */
 
-/* 1. Ocean-themed hero banner for this content page */
+/* 1. Green-themed hero banner to match site branding */
 .content-hero {
-  background: linear-gradient(135deg, #01579B 0%, #0277BD 40%, #2E7D32 100%);
+  /* Replaced Blue with Gavin's primary green gradient */
+  background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 60%, #43A047 100%);
   color: white;
   text-align: center;
   padding: 70px 20px 50px;
@@ -25,11 +26,11 @@
   opacity: 0.92;
 }
 
-/* 2. Internal navigation menu at the top of the page */
+/* 2. Internal navigation menu (Matches the project's semantic styling) */
 .internal-nav {
-  background: #E8F5E9;
+  background: #E8F5E9; /* Replaced blue with Gavin's light green background */
   padding: 18px 30px;
-  border-left: 5px solid #2E7D32;
+  border-left: 5px solid #2E7D32; /* Primary dark green accent */
   max-width: 860px;
   margin: 40px auto 0;
   border-radius: 8px;
@@ -38,7 +39,7 @@
 .internal-nav h3 {
   font-size: 16px;
   margin-bottom: 10px;
-  color: #1B5E20;
+  color: #1B5E20; /* Dark green text */
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -72,16 +73,16 @@
   padding: 40px 20px 80px;
 }
 
-/* 4. Section styling — each section uses scroll-margin for internal links */
+/* 4. Section styling — using Gavin's green hierarchy */
 .content-section {
   margin-bottom: 60px;
-  scroll-margin-top: 80px; /* Offset for sticky header */
+  scroll-margin-top: 80px; /* Offset for the sticky header established in script.js */
 }
 
 .content-section h2 {
   font-size: 30px;
   color: #1B5E20;
-  border-bottom: 3px solid #B3E5FC;
+  border-bottom: 3px solid #A5D6A7; /* Replaced light blue with a light green border */
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
@@ -99,21 +100,21 @@
   margin-bottom: 14px;
 }
 
-/* 5. Content images — responsive, with borders and shadows */
+/* 5. Content images — Green border to match site palette */
 .content-img {
   width: 100%;
   max-height: 340px;
   object-fit: cover;
   border-radius: 10px;
-  border: 2px solid #B3E5FC;
+  border: 2px solid #A5D6A7; /* Replaced blue border with light green */
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   margin: 20px 0;
 }
 
-/* 6. Fact highlight box — pulls out key statistics */
+/* 6. Fact highlight box — Replaced blue tint with green tint */
 .fact-box {
-  background: #E1F5FE;
-  border-left: 5px solid #2E7D32;
+  background: #E8F5E9; /* Using the global light green background */
+  border-left: 5px solid #2E7D32; /* Primary green border */
   padding: 18px 22px;
   border-radius: 6px;
   margin: 20px 0;
@@ -121,16 +122,16 @@
 
 .fact-box p {
   font-size: 16px;
-  color: #2E7D32;
+  color: #1B5E20; /* Replaced blue text with dark green */
   margin: 0;
 }
 
-/* 7. "Go to Top" button — fixed position, always visible */
+/* 7. "Go to Top" button — Matches Gavin's Lead implementation */
 .go-top-btn {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #2E7D32;
+  background: #2E7D32; /* Gavin's dark green */
   color: white;
   padding: 12px 18px;
   border-radius: 50px;
