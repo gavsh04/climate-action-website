@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Page – Lehan | Student 2 | CLMT</title>
+    <link rel="stylesheet" href="css/pageEditor_validator.css">
+
+    <style>
+        /* ── Validation-page-specific overrides ── */
+        :root {
+            --green:       #2E7D32;
+            --green-light: #E8F5E9;
+            --green-mid:   #4CAF50;
+            --accent:      #81C784;
+            --text:        #333;
+            --muted:       #555;
+            --border:      #ddd;
+        }
+
+        body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--text); }
+
+        header {
+            background: var(--green);
+            color: #fff;
+            padding: 0;
+        }
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        header nav h2 { font-size: 20px; color: #fff; margin: 0; }
+        header nav ul { list-style: none; display: flex; gap: 18px; flex-wrap: wrap; }
+        header nav ul li a {
+            color: #fff; text-decoration: none; font-weight: bold;
+            font-size: 14px; transition: color .3s;
+        }
+        header nav ul li a:hover { color: #C8E6C9; }
+
+        footer {
+            background: var(--green);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        footer a { color: #C8E6C9; text-decoration: none; margin: 0 8px; }
+        footer a:hover { text-decoration: underline; }
+
+        .stud {
+            text-align: center;
+            background: #4a5240;
+            color: #fff;
+            padding: 12px 20px;
+        }
+        .stud h2 { font-size: 17px; margin: 0; line-height: 1.5; }
+
+        .container {
+            display: flex;
+            flex-direction: row-reverse;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            gap: 30px;
+        }
+        main  { flex: 3; }
+        aside {
+            flex: 1;
+            background: var(--green-light);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            align-self: flex-start;
+            position: sticky;
+            top: 10px;
+        }
+
+        aside h3 { color: var(--green); margin-bottom: 12px; font-size: 16px; }
+        aside ul { list-style: none; padding: 0; }
+        aside ul li { padding: 4px 0; }
+        aside ul li a { text-decoration: none; color: var(--green); font-size: 14px; }
+        aside ul li a:hover { text-decoration: underline; }
+        aside ul ul { padding-left: 14px; }
+        aside ul ul li a { color: var(--muted); font-size: 13px; }
+
+        section {
+            margin-bottom: 28px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        section h2 {
+            color: var(--green);
+            font-size: 22px;
+            margin-bottom: 14px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 6px;
+        }
+        section h3 { color: #444; font-size: 16px; margin: 18px 0 8px; }
+        section p { font-size: 15px; line-height: 1.7; color: var(--muted); margin-bottom: 8px; }
+        section a { color: var(--green); font-weight: bold; }
+        section a:hover { text-decoration: underline; }
+
+        .tag {
+            display: inline-block;
+            background: var(--green);
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Placeholder screenshot box */
+        .screenshot-placeholder {
+            width: 100%;
+            background: #e0e0e0;
+            border: 2px dashed #aaa;
+            border-radius: 8px;
+            padding: 60px 20px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+            margin: 16px 0;
+        }
+        .screenshot-placeholder strong { display: block; font-size: 16px; color: #555; margin-bottom: 6px; }
+
+        /* Status badge */
+        .status-pass {
+            display: inline-block;
+            background: #c8e6c9;
+            color: #1b5e20;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid #81c784;
+            margin: 8px 0 12px;
+        }
+
+        .highlight-box {
+            background: var(--green-light);
+            border-left: 4px solid var(--green);
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 14px 0;
+            font-size: 14px;
+            color: #1b5e20;
+        }
+
+        .top { position: fixed; bottom: 5%; right: 5%; }
+        .top a {
+            padding: 10px 20px;
+            background: var(--green);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,.2);
+        }
+        .top a:hover { background: #1b5e20; }
+
+        img.val-img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin: 12px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        }
+
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            aside { position: static; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="top">
+    <nav>
+        <h2>🌿 Climate Action</h2>
+        <ul>
+            <li><a href="splash.html">Splash</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="ais.html">Simulator</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="stud">
+    <h2>Lehan &nbsp;·&nbsp; CLMT &nbsp;·&nbsp; Student 2 &nbsp;|&nbsp; Validation Page</h2>
+</div>
+
+<div class="container">
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ── SPLASH SCREEN VALIDATION ── -->
+        <section>
+            <span class="tag">Page 1</span>
+            <h2 id="splashVal">Splash Screen – Validation Report</h2>
+
+            <span class="status-pass">✔ No Errors – Validated Successfully</span>
+
+            <p>
+                The Splash Screen (<code>splash.html</code>) was validated using the
+                <a href="https://validator.w3.org" target="_blank">W3C Markup Validation Service</a>.
+                The page passed with <strong>no errors</strong>. A small warning was present regarding
+                the <code>&lt;meta http-equiv="refresh"&gt;</code> tag, which validators flag as a
+                potential usability concern for users who cannot adjust refresh rates; however,
+                a "Skip Intro" button is provided to mitigate this, and the warning does not constitute
+                a validation error.
+            </p>
+
+            <div class="highlight-box">
+                <strong>Validation outcome:</strong> 0 errors · 1 warning (meta refresh – expected and acceptable per spec)
+            </div>
+
+            <!--
+                INSTRUCTIONS FOR STUDENT:
+                Replace the placeholder below with your actual W3C validation screenshot.
+                Name the file: validationSnapshots/validation_splash.png
+                Then replace the div below with:
+                <img class="val-img" src="validationSnapshots/validation_splash.png"
+                     alt="W3C validation screenshot showing no errors for splash.html">
+            -->
+            <div class="screenshot-placeholder">
+                <strong>📸 Screenshot placeholder</strong>
+                Replace this box with your W3C validation screenshot.<br>
+                Save as: <code>validationSnapshots/validation_splash.png</code><br>
+                Then use: <code>&lt;img class="val-img" src="validationSnapshots/validation_splash.png" alt="..."&gt;</code>
+            </div>
+
+            <h3>Reflection</h3>
+            <p>
+                Validating the Splash Screen revealed that the <code>&lt;button&gt;</code> element I initially
+                placed inside an <code>&lt;a&gt;</code> tag is invalid HTML — a button should not be nested inside
+                an anchor. I corrected this by using only the <code>&lt;button&gt;</code> with an
+                <code>onclick</code> handler, which both resolved the error and improved semantic clarity.
+                This experience reinforced the importance of running validation <em>during</em> development,
+                not only at the end.
+            </p>
+
+            <h3>Back to Page Editor</h3>
+            <p><a href="pageEditor_ST2.html#splash">← Return to Splash Screen section in Page Editor</a></p>
+        </section>
+
+        <!-- ── AIS VALIDATION ── -->
+        <section>
+            <span class="tag">Page 2</span>
+            <h2 id="aisVal">Action Impact Simulator – Validation Report</h2>
+
+            <span class="status-pass">✔ No Errors – Validated Successfully</span>
+
+            <p>
+                The AIS page (<code>ais.html</code>) was submitted to the W3C validator and returned
+                <strong>no errors</strong>. The validator confirmed that all ARIA attributes
+                (<code>role="checkbox"</code>, <code>aria-checked</code>, <code>aria-live</code>,
+                <code>role="region"</code>) are used on appropriate elements, which was a particular
+                concern given the heavy use of ARIA on the action cards.
+            </p>
+
+            <div class="highlight-box">
+                <strong>Validation outcome:</strong> 0 errors · 0 warnings
+            </div>
+
+            <!--
+                INSTRUCTIONS FOR STUDENT:
+                Replace the placeholder below with your actual W3C validation screenshot.
+                Name the file: validationSnapshots/validation_ais.png
+            -->
+            <div class="screenshot-placeholder">
+                <strong>📸 Screenshot placeholder</strong>
+                Replace this box with your W3C validation screenshot.<br>
+                Save as: <code>validationSnapshots/validation_ais.png</code><br>
+                Then use: <code>&lt;img class="val-img" src="validationSnapshots/validation_ais.png" alt="..."&gt;</code>
+            </div>
+
+            <h3>Reflection</h3>
+            <p>
+                An early draft of the AIS page included an <code>onclick</code> attribute directly on a
+                <code>&lt;div&gt;</code> element. While this works in browsers, the W3C validator flagged it
+                as poor practice since <code>&lt;div&gt;</code> elements are not inherently interactive. Adding
+                <code>role="checkbox"</code> and <code>tabindex="0"</code> alongside the event handler resolved
+                the accessibility concern and, combined with the ARIA attributes, produced a fully valid
+                and accessible card component. This was a key learning point about the relationship between
+                HTML validity and accessibility.
+            </p>
+
+            <h3>Back to Page Editor</h3>
+            <p><a href="pageEditor_ST2.html#ais">← Return to AIS section in Page Editor</a></p>
+        </section>
+
+        <!-- ── CONTENT PAGE VALIDATION ── -->
+        <section>
+            <span class="tag">Page 3</span>
+            <h2 id="contentVal">Content Page (Reforestation) – Validation Report</h2>
+
+            <span class="status-pass">✔ No Errors – Validated Successfully</span>
+
+            <p>
+                The Reforestation content page (<code>content_ST2.html</code>) was validated with the W3C
+                Markup Validation Service and returned <strong>no errors</strong>. The page uses a rich
+                mix of semantic elements (<code>&lt;section&gt;</code>, <code>&lt;h1&gt;</code>–<code>&lt;h3&gt;</code>,
+                <code>&lt;table&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;a&gt;</code>), all of which
+                were checked for correct nesting and attribute usage.
+            </p>
+
+            <div class="highlight-box">
+                <strong>Validation outcome:</strong> 0 errors · 0 warnings
+            </div>
+
+            <!--
+                INSTRUCTIONS FOR STUDENT:
+                Replace the placeholder below with your actual W3C validation screenshot.
+                Name the file: validationSnapshots/validation_content_ST2.png
+            -->
+            <div class="screenshot-placeholder">
+                <strong>📸 Screenshot placeholder</strong>
+                Replace this box with your W3C validation screenshot.<br>
+                Save as: <code>validationSnapshots/validation_content_ST2.png</code><br>
+                Then use: <code>&lt;img class="val-img" src="validationSnapshots/validation_content_ST2.png" alt="..."&gt;</code>
+            </div>
+
+            <h3>Reflection</h3>
+            <p>
+                The content page had one initial validation error: a stray <code>&lt;/a&gt;</code> closing tag
+                that had no matching opening tag, discovered during the final group review meeting. Removing
+                the orphaned tag resolved the error immediately. This highlighted how easy it is for closing
+                tags to become detached during editing and confirmed that validation should be part of the
+                regular development workflow rather than treated as a final step. A secondary lesson was that
+                the <code>&lt;table&gt;</code> element required a <code>&lt;caption&gt;</code> or a clear
+                <code>&lt;th scope&gt;</code> for accessibility; adding <code>scope="col"</code> to each
+                <code>&lt;th&gt;</code> in the milestone table improved both validation output and
+                screen-reader usability.
+            </p>
+
+            <h3>Back to Page Editor</h3>
+            <p><a href="pageEditor_ST2.html#content">← Return to Content Page section in Page Editor</a></p>
+        </section>
+
+        <p class="top"><a href="#top">↑ Go Top</a></p>
+    </main>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside>
+        <h3>Validation sections:</h3>
+        <ul>
+            <li><a href="#splashVal">🌅 Splash Screen</a></li>
+            <li><a href="#aisVal">⚡ Action Impact Simulator</a></li>
+            <li><a href="#contentVal">🌿 Content – Reforestation</a></li>
+        </ul>
+        <br>
+        <h3>Other students:</h3>
+        <ul>
+            <li>Student 1
+                <ul><li><a href="validation_ST1.html">Validation page</a></li></ul>
+            </li>
+            <li>Student 3
+                <ul><li><a href="validation_ST3.html">Validation page</a></li></ul>
+            </li>
+            <li>Student 4
+                <ul><li><a href="validation_ST4.html">Validation page</a></li></ul>
+            </li>
+        </ul>
+        <br>
+        <h3>Quick links:</h3>
+        <ul>
+            <li><a href="pageEditor_ST2.html">📝 My Page Editor</a></li>
+            <li><a href="splash.html">🌅 Splash Screen</a></li>
+            <li><a href="ais.html">⚡ AIS Page</a></li>
+            <li><a href="content_ST2.html">🌿 Content Page</a></li>
+        </ul>
+    </aside>
+
+</div><!-- end .container -->
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-navigation">
+        <a href="pageEditor_ST2.html">Page Editor</a> |
+        <a href="validation_ST2.html">Validation</a> |
+        <a href="accessibility.html">Accessibility</a>
+    </div>
+    <p>Page implemented by: Lehan &nbsp;|&nbsp; Role: Student 2 (Splash Screen &amp; AIS)</p>
+    <p>© 2026 Climate Action | Protecting Our Planet</p>
+</footer>
+
+</body>
+</html>
