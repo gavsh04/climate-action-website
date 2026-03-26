@@ -40,9 +40,7 @@
 
         /* 
            3. FORM VALIDATION (JavaScript-enhanced)
-           Called when the user clicks "Send Feedback".
-           Checks each required field and shows inline error messages.
-           Returns true only if all required fields pass.
+           .
        */
         function validateForm() {
             let isValid = true;
@@ -99,8 +97,7 @@
 
         /* 
            4. SUBMISSION HANDLER
-           Runs validation. On success, shows a confirmation message
-           and hides the submit button. No server request is made.
+           
          */
         function submitFeedback() {
             // Hide any previous confirmation message
@@ -129,8 +126,7 @@
 
         /* 
            5. REAL-TIME INLINE VALIDATION
-           As the user leaves each field (blur event), immediately show
-           or clear its error — gives faster feedback than waiting for submit.
+           
          */
         document.getElementById('fullName').addEventListener('blur', function () {
             setError('fullName', 'err-name', this.value.trim() === '');
