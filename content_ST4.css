@@ -39,7 +39,7 @@
 .internal-nav h3 {
   font-size: 16px;
   margin-bottom: 10px;
-  color: #1B5E20; /* Dark green text */
+  color: #2E7D32; 
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -62,7 +62,7 @@
 }
 
 .internal-nav ul li a:hover {
-  color: #1B5E20;
+  color: #2E7D32;
   text-decoration: underline;
 }
 
@@ -81,7 +81,7 @@
 
 .content-section h2 {
   font-size: 30px;
-  color: #1B5E20;
+  color: #2E7D32;
   border-bottom: 3px solid #A5D6A7; /* Replaced light blue with a light green border */
   padding-bottom: 10px;
   margin-bottom: 20px;
