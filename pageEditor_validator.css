@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+
+=======
+>>>>>>> main
+<<<<<<< HEAD
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -125,11 +129,17 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
+<<<<<<< HEAD
+main {
+    flex: 3;
+}
+=======
 
 main {
     flex: 3;
 }
 
+>>>>>>> main
 aside {
     flex: 1;
     background-color: #f4f4f4;
@@ -138,27 +148,52 @@ aside {
     margin-right: 20px;
 }
 
+<<<<<<< HEAD
+h2{
+    color: #333;
+}
+=======
 h2 {
     color: #333;
 }
 
+>>>>>>> main
 section {
     margin-bottom: 20px;
     padding: 15px;
     border: 1px solid #ddd;
     background-color: #fafafa;
 }
+<<<<<<< HEAD
+header, footer {
+    text-align: center;
+    background-color: #2E7D32;
+    color: white;
+    padding: 10px 0;
+}
+
+.ref li{
+=======
 
 .ref li {
+>>>>>>> main
     list-style: none;
     padding-bottom: 9px;
 }
 
+<<<<<<< HEAD
+aside a{
+    text-decoration : none;
+}
+
+aside li{
+=======
 aside a {
     text-decoration: none;
 }
 
 aside li {
+>>>>>>> main
     padding-bottom: 4px;
 }
 
@@ -175,6 +210,31 @@ aside li {
     bottom: 5%;
     right: 5%;
 }
+<<<<<<< HEAD
+        
+.top a {
+    padding: 10px 20px; /* Adds padding for button-like feel */
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    text-decoration: none; /* Removes underline */
+    border-radius: 20px; /* Rounds the corners */
+    font-size: 12px; /* Adjust font size */
+    font-weight: bold; /* Make the text stand out */
+}
+
+.top a:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+img{
+    width: 100%;
+    height: 50%;
+}
+
+
+table{
+=======
 
 .top a {
     padding: 10px 20px;
@@ -206,10 +266,21 @@ img {
 
 
 table {
+>>>>>>> main
     border: 1px solid black;
     border-collapse: collapse;
 }
 
+<<<<<<< HEAD
+th, td{
+    padding: 4px;
+    border: 1px solid black;
+}
+thead{
+    background-color: #333;
+    color: azure;
+}
+=======
 th,
 td {
     padding: 4px;
@@ -227,3 +298,4 @@ section h2[id] {
     /* Adjust this number to match your header's height */
 >>>>>>> main
 }
+>>>>>>> main
