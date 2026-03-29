@@ -40,7 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Click event for each gallery item
     galleryItems.forEach(function (item) {
-        item.addEventListener("click", function () {
+        item.addEventListener("click", function (event) {
+            event.stopPropagation();
             openGalleryModal(item);
         });
 
