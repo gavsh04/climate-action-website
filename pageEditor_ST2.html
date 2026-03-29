@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor – Lehan</title>
+    <link rel="stylesheet" href="pageEditor_validator.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <header>
+        <nav>
+            <h2>
+                <img id="nav-logo" src="images/logo.png" alt="Climate Action Logo"
+                    onclick="this.classList.toggle('enlarged')" />
+                Climate Action
+            </h2>
+            <ul>
+                <li><a href="splash.html">Splash</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="ais.html">Simulator</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="stud">
+        <h2>Lehan, Clime, Student 2 (Splash & AIS)</h2>
+    </section>
+
+    <div class="container">
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main>
+
+            <!-- ── SPLASH SCREEN ── -->
+            <section>
+                <span class="tag">Page 1</span>
+                <h2 id="splash">Splash Screen</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The Splash Screen (<code>splash.html</code>) is a standalone, full-viewport page that does not use
+                    the shared
+                    navigation template — consistent with the coursework specification. Its layout is achieved
+                    entirely with <strong>Flexbox</strong> on the <code>&lt;body&gt;</code> element
+                    (<code>display: flex; flex-direction: column; justify-content: center; align-items: center</code>),
+                    centering all content vertically and horizontally without JavaScript.
+                </p>
+                <p>
+                    A full-screen background image is applied via a <code>background-image</code> CSS property with a
+                    dark linear-gradient overlay <code>rgba(0,0,0,0.72)</code> layered on top, ensuring white text
+                    remains readable at all viewport sizes. A decorative <code>::before</code> pseudo-element creates a
+                    radial green glow that pulses using a <code>@keyframes pulse-glow</code> animation — a purely CSS
+                    effect requiring no images or scripts.
+                </p>
+                <p>
+                    The page includes several semantic elements: a prominent <code>&lt;h1&gt;</code> for the website
+                    title,
+                    a mission <code>&lt;p&gt;</code>, a team member list built with <code>&lt;div&gt;</code> elements
+                    styled
+                    as pill badges, a CSS spinning loader ring, a countdown text paragraph, a CSS progress bar, and
+                    a Skip Intro <code>&lt;button&gt;</code>. All content blocks carry the <code>.fade-in</code> class
+                    which
+                    triggers a <code>fadeUp</code> CSS keyframe animation with staggered <code>animation-delay</code>
+                    values,
+                    creating a smooth sequential reveal on load.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Key CSS techniques:</strong> Flexbox layout · <code>background-image</code> overlay ·
+                    <code>@keyframes</code> (pulse-glow, spin, shrink-bar, fadeUp) · <code>animation-delay</code>
+                    staggering ·
+                    <code>clamp()</code> for fluid font-size · <code>position: relative; z-index</code> layering
+                </div>
+
+                <p>
+                    The auto-redirect is implemented with an <strong>HTML meta refresh</strong> tag
+                    (<code>&lt;meta http-equiv="refresh" content="4;url=home.html"&gt;</code>) as required by the spec.
+                    JavaScript additionally manages a <code>setInterval</code> countdown timer that updates the
+                    on-screen
+                    text each second (4 → 3 → 2 → 1 → "Redirecting now…") and a <code>setTimeout</code> that fires the
+                    redirect after exactly 4 000 ms. The <code>skipIntro()</code> function cancels both timers via
+                    <code>clearTimeout</code> / <code>clearInterval</code> and immediately navigates to
+                    <code>home.html</code>.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    The loading spinner uses <code>role="status"</code> and
+                    <code>aria-label="Loading, please wait"</code> so
+                    screen readers announce it without reading visual CSS content. The countdown paragraph uses
+                    <code>aria-live="polite"</code>, causing assistive technologies to announce each countdown value as
+                    it
+                    changes dynamically. The progress bar wrapper carries <code>role="progressbar"</code> and
+                    <code>aria-label="Redirect countdown"</code>. The Skip Intro button has a visible
+                    <code>:focus</code> outline style to support keyboard navigation. All team member names and the
+                    SDG badge are plain text — no icon fonts or images are used — ensuring full screen-reader access.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p><a href="validation_ST2.html#splashVal" target="_blank">View Splash Screen validation evidence →</a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p><a href="splash.html" target="_blank">Open Splash Screen →</a></p>
+            </section>
+
+            <!-- ── ACTION IMPACT SIMULATOR ── -->
+            <section>
+                <span class="tag">Page 2</span>
+                <h2 id="ais">Action Impact Simulator (AIS)</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The AIS page (<code>ais.html</code>) uses the shared team template (header, nav, footer) and links
+                    both the global <code>style.css</code> and a dedicated <code>ais.css</code> for page-specific
+                    styles.
+                    The outer wrapper <code>#ais-wrapper</code> is a full-viewport container styled with
+                    <code>min-height: 100vh</code>, <code>background-size: cover</code>, and
+                    <code>background-attachment: fixed</code> to create a parallax effect. A semi-transparent dark
+                    overlay is rendered via the <code>#ais-wrapper::before</code> pseudo-element using
+                    <code>position: fixed; inset: 0</code> and <code>pointer-events: none</code>, so it never blocks
+                    click interactions on the cards below.
+                </p>
+                <p>
+                    The six action cards are arranged in a <strong>CSS Grid</strong> layout using
+                    <code>grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))</code>, which automatically
+                    creates responsive columns without media queries. Each card uses a transparent <code>border</code>
+                    (always present, to prevent layout shift on selection) that turns green when the
+                    <code>.selected</code> class is applied. The feedback panel is a centred white card styled with
+                    <code>border-radius</code>, <code>box-shadow</code>, and <code>rgba</code> background for a frosted
+                    appearance over the dynamic background.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Impact thresholds (defined in code comments):</strong>
+                    Low = 1–7 pts &nbsp;|&nbsp; Medium = 8–14 pts &nbsp;|&nbsp; High = 15+ pts
+                </div>
+
+                <p>
+                    All JavaScript is in <code>ais.js</code>. The <code>toggleCard(index)</code> function reads a
+                    <code>data-points</code> attribute from each card's HTML element to retrieve its point value —
+                    avoiding hard-coded arrays and keeping HTML and JS in sync. <code>updateFeedback()</code>
+                    recalculates
+                    the score on every toggle, updates the DOM (score number, level label, message text), and sets
+                    <code>wrapper.style.backgroundImage</code> to one of three Unsplash URLs depending on the score
+                    tier — fulfilling the spec requirement for JavaScript-controlled background changes.
+                    <code>resetAll()</code> iterates the <code>selected</code> array, removes the
+                    <code>.selected</code> class from all cards, and calls <code>updateFeedback()</code> to restore the
+                    neutral state. CSS custom properties (<code>:root</code> variables) centralise the colour palette so
+                    all elements remain visually consistent.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    Each action card is given <code>role="checkbox"</code>, <code>tabindex="0"</code>, and a dynamic
+                    <code>aria-checked</code> attribute (<code>true</code> / <code>false</code>) that is toggled by
+                    JavaScript alongside the visual <code>.selected</code> class. This means keyboard and screen-reader
+                    users receive full parity with mouse users. The <code>handleKey(event, index)</code> function
+                    intercepts <strong>Enter</strong> and <strong>Space</strong> key presses and calls
+                    <code>toggleCard()</code>, replicating native checkbox keyboard behaviour.
+                    The feedback panel carries <code>role="region"</code> and <code>aria-live="polite"</code> so its
+                    score updates are announced without disrupting the reading flow. All card images have descriptive
+                    <code>alt</code> text explaining the depicted scene. The tick indicator is marked
+                    <code>aria-hidden="true"</code> to prevent redundant announcements.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p><a href="validation_ST2.html#aisVal" target="_blank">View AIS validation evidence →</a></p>
+
+                <h3>Link to the Page</h3>
+                <p><a href="ais.html" target="_blank">Open Action Impact Simulator →</a></p>
+            </section>
+
+            <!-- ── CONTENT PAGE ── -->
+            <section>
+                <span class="tag">Page 3</span>
+                <h2 id="content">Content Page – Reforestation</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The content page (<code>content_ST2.html</code>) links both the shared <code>style.css</code> and a
+                    dedicated <code>content_ST2.css</code>. It opens with a full-width hero section using a
+                    <code>background-image</code> overlay technique (consistent with the AIS page), then organises
+                    the remaining body inside a <code>.content-wrapper</code> container.
+                </p>
+                <p>
+                    Content is divided into semantically distinct <code>&lt;section&gt;</code> elements, each with a
+                    visually distinctive <code>.section-tag</code> label (OVERVIEW, THE CRISIS, THE SOLUTION, etc.)
+                    to give the reader clear structural waypoints. The "Why Forests Are Disappearing" grid and
+                    the "How You Can Help" grid both use <strong>CSS Grid</strong> with
+                    <code>repeat(auto-fill, minmax(220px, 1fr))</code> for responsive tiling. The benefits section
+                    uses <code>data-popup</code> attributes on cards; a small inline script injects
+                    <code>&lt;div class="benefit-popup"&gt;</code> elements dynamically into each card, which are then
+                    revealed on <code>:hover</code> via CSS transitions — demonstrating DOM manipulation.
+                </p>
+                <p>
+                    A <strong>sticky internal navigation bar</strong> (or go-to-top button styled with
+                    <code>position: fixed; bottom; right</code>) keeps orientation clear on a long-scroll page.
+                    Four or more Unsplash images are included throughout, each with descriptive <code>alt</code> text,
+                    consistent <code>border-radius</code>, and <code>object-fit: cover</code> to maintain aspect ratios.
+                    A photo credits section at the bottom properly attributes all external image sources with
+                    direct Unsplash links, meeting both academic referencing and the coursework's royalty-free
+                    image requirements.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Key HTML elements used:</strong>
+                    <code>&lt;section&gt;</code> · <code>&lt;h1&gt;</code>–<code>&lt;h3&gt;</code> hierarchy ·
+                    <code>&lt;img alt="…"&gt;</code> · <code>&lt;table&gt;</code> (global milestones) ·
+                    <code>data-*</code> attributes · inline <code>&lt;script&gt;</code> for DOM injection
+                </div>
+
+                <h3>Accessibility</h3>
+                <p>
+                    All images include descriptive <code>alt</code> text that conveys the image content to screen
+                    readers
+                    rather than simply saying "image". Headings follow a strict
+                    <code>&lt;h1&gt; → &lt;h2&gt; → &lt;h3&gt;</code>
+                    hierarchy, giving assistive technologies an accurate document outline. The milestone table
+                    uses a <code>&lt;thead&gt;</code> with labelled <code>&lt;th&gt;</code> elements.
+                    Colour contrast between text and backgrounds follows WCAG AA guidelines
+                    (dark green on white / light green). Internal anchor links let keyboard users jump directly
+                    to each section without tabbing through all preceding content.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p><a href="validation_ST2.html#contentVal" target="_blank">View Content Page validation evidence →</a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p><a href="content_ST2.html" target="_blank">Open Reforestation Content Page →</a></p>
+            </section>
+
+            <!-- ── CHALLENGES ── -->
+            <section>
+                <h2 id="challenge">Challenges and Lessons Learned</h2>
+
+                <h3>Splash Screen – Auto-redirect race condition</h3>
+                <p>
+                    An early challenge was ensuring the JavaScript countdown and the HTML
+                    <code>meta refresh</code> did not conflict. If the user clicked "Skip Intro" just before the
+                    4-second mark, both timers could theoretically fire simultaneously. The fix was to call
+                    <code>clearTimeout(redirectTimer)</code> inside <code>skipIntro()</code> before issuing the
+                    manual redirect, guaranteeing only one navigation event occurs. This taught me the importance
+                    of managing JavaScript timer IDs explicitly rather than relying on execution order.
+                </p>
+
+                <h3>AIS – Background image transition</h3>
+                <p>
+                    Setting <code>background-image</code> via JavaScript does not support CSS transitions natively
+                    (unlike <code>background-color</code>). I initially expected a smooth fade between levels but
+                    observed a hard cut. The workaround was to apply a CSS <code>transition</code> on the wrapper's
+                    <code>opacity</code> briefly, then change the image. This limitation also reinforced why
+                    CSS custom properties are powerful — swapping a variable triggers the cascade automatically.
+                </p>
+
+                <h3>Responsive grid layout</h3>
+                <p>
+                    Making the six action cards reflow gracefully from three columns (desktop) to one column
+                    (mobile) without explicit breakpoints was solved using
+                    <code>grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))</code>. This single rule
+                    replaced four separate media queries and taught me the practical power of intrinsic web design
+                    techniques.
+                </p>
+
+                <h3>General lesson</h3>
+                <p>
+                    Code comments written at the time of implementation proved invaluable when revisiting files
+                    days later. Structured CSS using a table-of-contents comment block (as in <code>ais.css</code>)
+                    made editing much faster and aligns with professional codebases.
+                </p>
+            </section>
+
+            <!-- ── COMPLIANCE ── -->
+            <section>
+                <h2 id="compliance">Compliance</h2>
+                <p>
+                    All pages I developed comply with JANET regulations governing web page publication. Specifically:
+                </p>
+                <p>
+                    <strong>Copyright and licensing:</strong> All images are sourced from Unsplash and used under
+                    the Unsplash License, which permits free use for any purpose without attribution (though
+                    attribution is provided voluntarily in the Photo Credits section for good academic practice).
+                    No copyrighted text has been reproduced from external sources; all written content is original.
+                </p>
+                <p>
+                    <strong>Appropriate content:</strong> All content relates to SDG 13 (Climate Action) and
+                    presents factual, balanced, and constructive information. No offensive, discriminatory, or
+                    illegal material is present.
+                </p>
+                <p>
+                    <strong>Accessibility:</strong> Semantic HTML, ARIA attributes, keyboard navigation, and
+                    alt text are implemented throughout, supporting WCAG 2.1 AA compliance where possible.
+                </p>
+                <p>
+                    <strong>No personal data collection:</strong> The AIS simulator stores no user data — all
+                    selections are held in a JavaScript in-memory array and reset on page reload, so no personal
+                    information is transmitted or persisted.
+                </p>
+                <p>
+                    <strong>Academic integrity:</strong> All HTML, CSS, and JavaScript was written by me. No
+                    pre-made templates were downloaded from the internet, consistent with the coursework
+                    requirement. Where external resources (Unsplash, Google Fonts) are used, they are
+                    properly referenced.
+                </p>
+            </section>
+
+            <!-- ── GROUP MEETINGS ── -->
+            <section>
+                <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>My Individual Contribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>3 Feb 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Agree SDG and assign roles</td>
+                            <td>Yes</td>
+                            <td>Agreed to take responsibility for Splash Screen and AIS. Voted for SDG 13 (Climate
+                                Action).</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>17 Feb 2026</td>
+                            <td>Online </td>
+                            <td>Review home page design</td>
+                            <td>Yes</td>
+                            <td>Confirmed green palette (#2E7D32, #4CAF50, #C8E6C9) for consistency. Shared early Splash
+                                Screen mockup.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>03 Mar 2026</td>
+                            <td>Hybrid</td>
+                            <td>Review Splash Screen draft</td>
+                            <td>Yes</td>
+                            <td>Presented countdown timer and CSS loader. Team suggested adding the progress bar —
+                                implemented after meeting.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>10 Mar 2026</td>
+                            <td>Online </td>
+                            <td>Progress check on individual pages</td>
+                            <td>Yes</td>
+                            <td>Demonstrated early AIS card grid. Discussed impact point thresholds and agreed on Low /
+                                Medium / High levels.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>17 Mar 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Integration testing and navigation links</td>
+                            <td>Yes</td>
+                            <td>Fixed broken nav links from splash.html and ais.html after team agreed final file names.
+                                Verified footer links.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>24 Mar 2026</td>
+                            <td>online</td>
+                            <td>Final review and validation before submission</td>
+                            <td>Yes</td>
+                            <td>Ran W3C validation on all three pages. Corrected one stray <code>&lt;/a&gt;</code> tag
+                                in content_ST2.html. Prepared Page Editor and Validation page.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ── REFERENCES ── -->
+            <section>
+                <h2 id="ref">References</h2>
+                <ul class="ref">
+                    <li>
+                        Unsplash (2025) <i>Unsplash – Free high-resolution photos.</i>
+                        Available at: <a href="https://unsplash.com" target="_blank">https://unsplash.com</a>
+                        (Last accessed: 20 March 2026).
+                    </li>
+                    <li>
+                        Google Fonts (2025) <i>Playfair Display &amp; Lato.</i>
+                        Available at: <a href="https://fonts.google.com" target="_blank">https://fonts.google.com</a>
+                        (Last accessed: 15 March 2026).
+                    </li>
+                    <li>
+                        MDN Web Docs (2025) <i>CSS Grid Layout.</i>
+                        Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout"
+                            target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout</a>
+                        (Last accessed: 18 March 2026).
+                    </li>
+                    <li>
+                        MDN Web Docs (2025) <i>ARIA: checkbox role.</i>
+                        Available at: <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/checkbox_role"
+                            target="_blank">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/checkbox_role</a>
+                        (Last accessed: 19 March 2026).
+                    </li>
+                    <li>
+                        Duckett, J. (2011) <i>HTML and CSS: Design and Build Websites.</i> Indianapolis: John Wiley
+                        &amp; Sons.
+                    </li>
+                    <li>
+                        United Nations (2015) <i>Sustainable Development Goal 13 – Climate Action.</i>
+                        Available at: <a href="https://sdgs.un.org/goals/goal13"
+                            target="_blank">https://sdgs.un.org/goals/goal13</a>
+                        (Last accessed: 3 February 2026).
+                    </li>
+                    <li>
+                        JANET (2024) <i>Acceptable Use Policy.</i>
+                        Available at: <a href="https://www.jisc.ac.uk/janet"
+                            target="_blank">https://www.jisc.ac.uk/janet</a>
+                        (Last accessed: 20 March 2026).
+                    </li>
+                </ul>
+            </section>
+
+            <p class="top"><a href="#top">↑ Go Top</a></p>
+        </main>
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside>
+            <h3>Student 2 – Pages:</h3>
+            <ul>
+                <li><a href="#splash">Splash Screen</a></li>
+                <li><a href="#ais">Action Impact Simulator</a></li>
+                <li><a href="#content">Content</a></li>
+            </ul>
+            <br>
+            <h3>Further sections:</h3>
+            <ul>
+                <li><a href="#challenge">Challenges &amp; Lessons</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Group Meetings Log</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+
+    </div><!-- end .container -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-navigation">
+            <a href="pageEditor_ST2.html">Page Editor</a> |
+            <a href="validation_ST2.html">Validation</a> |
+            <a href="accessibility.html">Accessibility</a>
+        </div>
+        <p>Page implemented by: Lehan |Role: Student 2 (Splash Screen & AIS)</p>
+        <p>© 2026 Climate Action | Protecting Our Planet</p>
+    </footer>
+
+</body>
+
+</html>

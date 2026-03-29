@@ -1,9 +1,4 @@
-/* =============================================
-   SPLASH SCREEN – PAGE-SPECIFIC STYLES
-   Does NOT use shared template layout.
-   Matches website colour palette & typography.
-   Fonts loaded via <link> in splash.html.
-============================================= */
+/*SPLASH SCREEN – PAGE-SPECIFIC STYLES*/
 
 /* Full-screen dark overlay on background image */
 * {

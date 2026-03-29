@@ -1,11 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile | Climate Action</title>
+
+  <!-- Global CSS shared across all pages -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-specific CSS for the User Profile page -->
+  <link rel="stylesheet" href="profile.css" />
 </head>
+
 <body>
 
-<h1>Page under construction</h1>
+  <!-- =============================================
+       HEADER / NAVIGATION BAR (shared template)
+       Active page: Profile
+  ============================================= -->
+  <header>
+    <nav>
+      <h2>
+        <img id="nav-logo" src="images/logo.png" alt="Climate Action Logo"
+          onclick="this.classList.toggle('enlarged')" />
+        Climate Action
+      </h2>
+      <ul>
+        <li><a href="splash.html">Splash</a></li>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="ais.html">Simulator</a></li>
+        <li><a href="content_ST4.html">Research</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="profile.html" class="active">Profile</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =============================================
+       MAIN CONTENT AREA
+  ============================================= -->
+  <main>
+
+    <!-- Page heading section -->
+    <section class="profile-hero">
+      <h1>🌿 Your Climate Action Profile</h1>
+      <p>Build your personal profile step by step and discover how you contribute to climate action.</p>
+    </section>
+
+    <!-- Profile builder interface -->
+    <section class="profile-builder">
+
+      <!-- Control buttons at the top -->
+      <div class="profile-controls">
+        <button id="startBtn" onclick="startProfile()">▶ Start / Continue Profile</button>
+        <button id="resetBtn" onclick="resetProfile()">🔄 Reset Profile</button>
+      </div>
+
+      <!-- Progress indicator bar -->
+      <div class="progress-container" id="progressContainer">
+        <h1>Profile Completion</h1>
+        <div class="progress-bar-wrapper">
+          <div class="progress-bar" id="progressBar" style="width: 0%;">0%</div>
+        </div>
+        <!-- Step counter text -->
+        <p id="stepCounter" class="step-counter">Step 0 of 3 completed</p>
+
+        <!-- Step navigation buttons to revisit skipped steps -->
+        <div class="step-nav" id="stepNav">
+          <button onclick="revisitStep(1)" id="revisitBtn1" class="revisit-btn" disabled>Revisit Step 1</button>
+          <button onclick="revisitStep(2)" id="revisitBtn2" class="revisit-btn" disabled>Revisit Step 2</button>
+          <button onclick="revisitStep(3)" id="revisitBtn3" class="revisit-btn" disabled>Revisit Step 3</button>
+        </div>
+      </div>
+
+      <!-- Profile output display (hidden initially, revealed progressively) -->
+      <div class="profile-output" id="profileOutput">
+
+        <!-- Status message updated by JavaScript -->
+        <p id="statusMsg" class="status-msg"></p>
+
+        <!-- Step 1 output section — hidden until Step 1 is completed -->
+        <div class="profile-section" id="section1" style="display:none;">
+          <h2>👤 Step 1: Basic Details</h2>
+          <div class="profile-grid" id="grid1"></div>
+        </div>
+
+        <!-- Step 2 output section — hidden until Step 2 is completed -->
+        <div class="profile-section" id="section2" style="display:none;">
+          <h2>🌱 Step 2: Climate Interests</h2>
+          <div class="profile-grid" id="grid2"></div>
+        </div>
+
+        <!-- Step 3 output section — hidden until Step 3 is completed -->
+        <div class="profile-section" id="section3" style="display:none;">
+          <h2>⚡ Step 3: Actions & Commitments</h2>
+          <div class="profile-grid" id="grid3"></div>
+        </div>
+
+        <!-- Confirmation message shown when all 3 steps are done -->
+        <div class="confirmation-box" id="confirmationBox" style="display:none;">
+          <h2>🎉 Profile Complete!</h2>
+          <p>Thank you for building your Climate Action Profile. Together, every action counts towards a greener future!
+          </p>
+        </div>
+
+      </div>
+      <!-- end profile-output -->
+
+    </section>
+    <!-- end profile-builder -->
+
+  </main>
+
+  <!-- =============================================
+       FOOTER (shared template — updated by Student 4)
+  ============================================= -->
+  <footer>
+    <div class="footer-navigation">
+      <a href="pageEditor_ST4.html">Page Editor</a>
+      <a href="validation_ST4.html">Validation</a>
+      <a href="accessibility.html">Accessibility</a>
+    </div>
+
+    <p>Page implemented by: Dinura | Role: Student 4 (profile-sitemap)</p>
+
+    <p>© 2026 Climate Action | Protecting Our Planet</p>
+  </footer>
+
+  <!-- Profile JavaScript (external file) -->
+  <script src="profile.js"></script>
 
 </body>
+
 </html>

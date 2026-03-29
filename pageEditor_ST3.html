@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor – Nadith</title>
+
+    <!-- Global site CSS  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Page Editor  CSS -->
+    <link rel="stylesheet" href="pageEditor_validator.css">
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <header>
+        <nav>
+            <h2>
+                <img id="nav-logo" src="images/logo.png" alt="Climate Action Logo"
+                    onclick="this.classList.toggle('enlarged')" />
+                Climate Action
+            </h2>
+            <ul>
+                <li><a href="splash.html">Splash</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="ais.html">Simulator</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="stud">
+        <h2>Nadith, Clime, Student 3 (Feedback & Team)</h2>
+    </section>
+
+    <!--
+         TWO-COLUMN LAYOUT: main content + sidebar
+     -->
+    <div class="container">
+
+        <!-- ── MAIN CONTENT ── -->
+        <main>
+
+            <!-- 
+                 SECTION 1 – FEEDBACK & PROGRAMME DIRECTORY
+            -->
+            <section>
+                <h2 id="feedback">Feedback &amp; Programme Directory Page</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The <strong>feedback.html</strong> page is structured using the shared team template, linking
+                    both <code>style.css</code> (global) and <code>feedback.css</code> (page-specific). The page is
+                    divided into three main functional sections, each wrapped in semantic HTML elements.
+                </p>
+                <p>
+                    <strong>Programme Directory Section:</strong> A scrollable card grid was created using a
+                    <code>&lt;div class="programme-scroll"&gt;</code> container with <code>overflow-y: auto</code>
+                    and a fixed <code>max-height</code> in CSS. Each programme is an <code>&lt;article&gt;</code>
+                    element containing an image, heading, paragraph description, and a styled anchor button. The grid
+                    layout uses CSS <code>display: grid</code> with <code>grid-template-columns: repeat(auto-fit,
+                    minmax(220px, 1fr))</code>, making it fully responsive. A styled <code>&lt;select&gt;</code>
+                    dropdown provides a sorting UI (visual only, no functional filtering required by the spec).
+                </p>
+                <p>
+                    <strong>Ratings &amp; Reviews Section:</strong> A large numeric rating (<code>8.7</code>) is
+                    displayed using a large font-size span styled in <code>feedback.css</code>. Three review cards are
+                    arranged using <code>display: flex; flex-wrap: wrap</code>. Each card has a coloured left border
+                    (<code>border-left: 4px solid #00c71c</code>) to create visual accent without heavy design overhead.
+                </p>
+                <p>
+                    <strong>Feedback Form Section:</strong> The form is built with two <code>&lt;fieldset&gt;</code>
+                    groups — "Personal Details" and "Feedback Details" — each containing a <code>&lt;legend&gt;</code>
+                    for accessibility grouping. Fields include <code>type="text"</code>, <code>type="email"</code>,
+                    <code>type="tel"</code>, <code>type="date"</code>, <code>type="datetime-local"</code>,
+                    a <code>&lt;textarea&gt;</code> with <code>maxlength="300"</code>, a <code>&lt;select&gt;</code>
+                    dropdown, and a <code>&lt;datalist&gt;</code> for searchable suggestions. A live character counter
+                    (<code>&lt;span id="charCount"&gt;</code>) is updated by JavaScript as the user types. Form
+                    validation is handled by <code>submitFeedback()</code> in <code>nadith script.js</code>, which
+                    checks required fields, shows <code>.error-msg</code> spans near invalid inputs, and on success
+                    reveals a <code>#confirmation-msg</code> div via DOM manipulation.
+                </p>
+                <p>
+                    <strong>Key CSS Properties:</strong> <code>overflow-y: auto</code> for scrollable section;
+                    <code>display: grid / flex</code> for responsive card layouts; CSS transitions
+                    (<code>transform: translateY / scale</code>) for hover effects on programme cards and submit button;
+                    <code>::-webkit-scrollbar</code> custom styling for the scroll track; <code>:focus</code>
+                    pseudo-class highlighting for form fields; <code>display: none</code> toggled to show error
+                    messages and confirmation via JavaScript.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    All programme card images include descriptive <code>alt</code> text explaining the scene, not
+                    just the file name. Each form input has an explicit <code>&lt;label for="..."&gt;</code> matching
+                    its <code>id</code>, ensuring screen readers announce the field purpose correctly. The two
+                    <code>&lt;fieldset&gt; / &lt;legend&gt;</code> groups allow assistive technology to present the
+                    form in logical chunks. The confirmation message uses <code>role="alert"</code> and
+                    <code>aria-live="polite"</code> so screen readers announce it without requiring focus. The sort
+                    dropdown carries an <code>aria-label</code> attribute. Colour contrast between the green palette
+                    (<code>#2E7D32</code>) and white text was verified to meet WCAG AA standards.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p>
+                    <a href="validation_ST3.html#feedbackVal">View the HTML validation report for feedback.html</a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p>
+                    <a href="feedback.html" target="_blank">Open feedback.html</a>
+                </p>
+            </section>
+
+            <!-- 
+                 SECTION 2 – TEAM PAGE
+             -->
+            <section>
+                <h2 id="team">Team Page</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The <strong>team.html</strong> page uses the shared template with <code>style.css</code> as the
+                    global stylesheet and <code>team.css</code> as the page-specific external CSS. No embedded
+                    <code>&lt;style&gt;</code> block was needed because the page-specific rules are entirely
+                    encapsulated in <code>team.css</code>.
+                </p>
+                <p>
+                    <strong>Hero Banner:</strong> A full-width hero is created using a <code>&lt;section
+                    class="team-hero"&gt;</code> with a CSS <code>background</code> combining a dark linear gradient
+                    overlay (<code>rgba(0,0,0,0.52)</code>) over a high-resolution Unsplash image. This ensures text
+                    readability regardless of the image brightness.
+                </p>
+                <p>
+                    <strong>Team Grid:</strong> Four member blocks are arranged inside a
+                    <code>.team-grid</code> container using <code>display: grid; grid-template-columns: repeat
+                    (auto-fill, minmax(240px, 1fr))</code>. This creates a fluid responsive layout that naturally
+                    reflows from 4 columns on large screens to 1 column on mobile.
+                </p>
+                <p>
+                    <strong>Interactive Hover-Expand Cards:</strong> Each <code>.team-member</code> card uses a CSS
+                    <code>max-height: 0; overflow: hidden; transition: max-height 0.5s ease</code> technique on the
+                    <code>.member-details</code> panel. On <code>:hover</code> and <code>:focus</code>, the
+                    <code>max-height</code> is expanded to <code>300px</code>, smoothly revealing the contribution
+                    summary, role, and list of pages. The thumbnail image simultaneously fades to
+                    <code>opacity: 0.6</code>, hinting to users that more content is available below. A
+                    <code>transform: translateY(-10px) scale(1.02)</code> on hover creates a subtle lift effect.
+                </p>
+                <p>
+                    <strong>Keyboard Accessibility (tabindex):</strong> Each <code>.team-member</code> div carries
+                    <code>tabindex="0"</code> and <code>role="button"</code> so keyboard users can Tab into each card
+                    and trigger the same hover state via <code>:focus</code>. This means the expand behaviour works
+                    identically with the keyboard as with the mouse — no JavaScript required for the interaction.
+                </p>
+                <p>
+                    <strong>Team Statement:</strong> A closing <code>&lt;section class="team-statement"&gt;</code>
+                    provides a shared mission paragraph using semantic HTML without extra markup complexity.
+                </p>
+                <p>
+                    <strong>Key CSS Properties:</strong>
+                    <code>grid-template-columns: repeat(auto-fill, minmax(...))</code>
+                    for responsive grid; <code>max-height</code> transition for expand effect; <code>transform</code>
+                    and <code>box-shadow</code> transitions for hover lift; <code>object-fit: cover; object-position:
+                    top center</code> for portrait photos; <code>outline: 3px solid #2E7D32</code> on focus for
+                    visible focus ring.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    All team member photos include <code>alt</code> attributes describing the person, their student
+                    number, and their responsibility. Each interactive card has <code>tabindex="0"</code> for keyboard
+                    navigation and <code>role="button"</code> with a descriptive <code>aria-label</code> (e.g.
+                    <em>"Nadith – Student 3, Feedback and Team pages. Hover for more details."</em>), giving screen
+                    reader users context before they interact. The <code>:focus</code> state applies the same visible
+                    green outline as the hover state, meeting WCAG 2.1 Focus Visible (2.4.7) criteria. The
+                    CSS-only expand requires no scripting, reducing complexity and failure points for assistive
+                    technology.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p>
+                    <a href="validation_ST3.html#teamVal">View the HTML validation report for team.html</a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p>
+                    <a href="team.html" target="_blank">Open team.html</a>
+                </p>
+            </section>
+
+            <!--
+                 SECTION 3 – CONTENT PAGE (ST3)
+             -->
+            <section>
+                <h2 id="content">Content Page – Climate Policy Changes</h2>
+
+                <h3>Technical Description</h3>
+                <p>
+                    The <strong>content_ST3.html</strong> page is the individual content page covering
+                    <em>Climate Policy Changes</em>. It links <code>style.css</code> (global) and
+                    <code>content.css</code> (page-specific external stylesheet). The page uses the
+                    <code>id="top"</code> attribute on <code>&lt;body&gt;</code> as the anchor target for the
+                    "Back to Top" button.
+                </p>
+                <p>
+                    <strong>Page Structure:</strong> The page is divided into five content sections — Why Policy
+                    Matters, The Paris Agreement, UK Climate Policy, Challenges, and What Students Can Do — each
+                    identified with a unique <code>id</code> attribute. This enables the Table of Contents
+                    (<code>&lt;nav class="toc"&gt;</code>) at the top of <code>&lt;main&gt;</code> to use anchor
+                    links (<code>href="#why"</code>, <code>href="#paris"</code>, etc.) for in-page navigation.
+                </p>
+                <p>
+                    <strong>Table of Contents:</strong> Implemented as a <code>&lt;nav&gt;</code> with
+                    <code>aria-label="Page contents"</code> and an ordered list (<code>&lt;ol&gt;</code>) of anchor
+                    links. The <code>.toc</code> class in <code>content.css</code> applies a green left border
+                    (<code>border-left: 4px solid #4CAF50</code>), a light green background, and padding to visually
+                    distinguish it from body text.
+                </p>
+                <p>
+                    <strong>Images:</strong> Each section includes a full-width image styled with
+                    <code>width: 100%; height: 260px; object-fit: cover; border-radius: 8px</code>. All images are
+                    sourced from Unsplash (royalty-free) and include descriptive <code>alt</code> text and a
+                    <code>&lt;p class="caption"&gt;</code> below each image crediting the source.
+                </p>
+                <p>
+                    <strong>Info Boxes:</strong> Highlighted key facts are wrapped in
+                    <code>&lt;div class="info-box"&gt;</code> elements styled with a left green border and italic
+                    font to draw attention to critical statistics.
+                </p>
+                <p>
+                    <strong>"Go to Top" Button:</strong> An <code>&lt;a href="#top" id="go-top"&gt;</code> element
+                    is positioned with <code>position: fixed; bottom: 28px; right: 28px</code> and styled as a
+                    circular green button, always visible as the user scrolls. No JavaScript is used — this is a
+                    pure CSS/HTML implementation as required.
+                </p>
+                <p>
+                    <strong>Key CSS Properties (content.css):</strong> <code>.content-hero</code> — gradient overlay
+                    + background image for the hero; <code>.page-content</code> — <code>max-width: 800px; margin: 0
+                    auto</code> for readable line length; <code>.toc</code> — accent border and background;
+                    <code>#go-top</code> — fixed circular button; <code>.info-box</code> — highlighted callout block;
+                    <code>.caption</code> — small italic image credit.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>
+                    Heading hierarchy is maintained throughout: one <code>&lt;h1&gt;</code> in the hero section
+                    followed by <code>&lt;h2&gt;</code> for each content section. All four images include specific
+                    <code>alt</code> text describing the depicted scene. The Table of Contents <code>&lt;nav&gt;</code>
+                    carries an <code>aria-label</code> so screen readers can distinguish it from the main navigation
+                    bar. The "Go to Top" button uses an <code>aria-label="Back to top"</code> to provide a meaningful
+                    label for its upward arrow symbol. Colour contrast between <code>#2E7D32</code> headings and the
+                    white background was checked to meet WCAG AA. Lists use <code>&lt;ul&gt; / &lt;li&gt;</code>
+                    elements correctly rather than styled paragraphs, preserving list semantics for screen readers.
+                </p>
+
+                <h3>Link to the Validation Page</h3>
+                <p>
+                    <a href="validation_ST3.html#contentVal">View the HTML validation report for content_ST3.html</a>
+                </p>
+
+                <h3>Link to the Page</h3>
+                <p>
+                    <a href="content_ST3.html" target="_blank">Open content_ST3.html</a>
+                </p>
+            </section>
+
+            <!-- 
+                 SECTION 4 – CHALLENGES AND LESSONS LEARNED
+            -->
+            <section>
+                <h2 id="challenge">Challenges and Lessons Learned</h2>
+
+                <p>
+                    <strong>CSS-only hover-expand on team cards:</strong> My initial approach used JavaScript click
+                    events to toggle a class, but the specification required the Team Page interactivity to be
+                    CSS-based. I refactored to use the <code>max-height</code> transition technique — setting
+                    <code>max-height: 0</code> by default and <code>max-height: 300px</code> on
+                    <code>:hover / :focus</code>. The key lesson was that <code>height: auto</code> cannot be
+                    transitioned, so <code>max-height</code> with a reasonable upper bound is the standard workaround.
+                    I also learned that <code>tabindex="0"</code> combined with <code>:focus</code> pseudo-class is
+                    the correct approach for making non-anchor, non-button elements keyboard accessible.
+                </p>
+                <p>
+                    <strong>JavaScript form validation — error message placement:</strong> Early versions of the
+                    feedback form showed a single alert dialog for all errors, which was disruptive. I refactored to
+                    use inline <code>&lt;span class="error-msg"&gt;</code> elements placed directly below each input,
+                    shown and hidden by toggling <code>display: none / block</code> via DOM manipulation. This required
+                    careful co-ordination between <code>feedback.css</code> (styling the spans) and
+                    <code>nadith script.js</code> (controlling visibility). The lesson was to design HTML structure
+                    and JavaScript interaction together from the start rather than retrofitting.
+                </p>
+                <p>
+                    <strong>Scrollable section height:</strong> The programme directory initially collapsed to zero
+                    height on some screen sizes because the parent container had no explicit height and
+                    <code>overflow-y: auto</code> requires the container to have a bounded height. Setting
+                    <code>max-height: 520px</code> on <code>.programme-scroll</code> resolved this. I also added
+                    custom scrollbar styling (<code>::-webkit-scrollbar</code>) to maintain the green visual identity
+                    inside the scrollable container.
+                </p>
+                <p>
+                    <strong>Image sourcing and referencing:</strong> Using Unsplash URLs directly in
+                    <code>src</code> attributes was convenient for development but risks broken images if URLs
+                    change. This reinforced the importance of downloading royalty-free assets locally and referencing
+                    them with relative paths, which I have documented in the References section below.
+                </p>
+            </section>
+
+            <!-- 
+                 SECTION 5 – COMPLIANCE
+            -->
+            <section>
+                <h2 id="compliance">Compliance with JANET Regulations</h2>
+
+                <p>
+                    All pages I implemented comply with JANET regulations governing web page publication in the
+                    following ways:
+                </p>
+                <p>
+                    <strong>Content appropriateness:</strong> All written content on feedback.html,
+                    team.html, and content_ST3.html is original, factual, and appropriate for a university academic
+                    context. No offensive, defamatory, or discriminatory material is present.
+                </p>
+                <p>
+                    <strong>Copyright and external resources:</strong> All images are sourced from Unsplash
+                    (royalty-free, free for commercial and personal use) or are photographs of team members used with
+                    their consent. All external image sources are referenced in the References section of this Page
+                    Editor. No copyrighted third-party content has been reproduced without permission.
+                </p>
+                <p>
+                    <strong>Privacy:</strong> The feedback form does not transmit data to any server. JavaScript
+                    validation runs entirely client-side, and no personal data entered by users is stored or
+                    processed beyond the current browser session. This is made clear by the form's confirmation message.
+                </p>
+                <p>
+                    <strong>Accessibility:</strong> Semantic HTML, ARIA attributes, and WCAG-compliant colour
+                    contrast are used throughout. This aligns with the University of Westminster's commitment to
+                    inclusive digital practice as required under JANET acceptable use policies.
+                </p>
+                <p>
+                    <strong>Honest representation:</strong> Team member information on team.html represents actual
+                    contributions accurately. No misleading content is published.
+                </p>
+                
+            </section>
+
+            <!-- 
+                 SECTION 6 – GROUP MEETINGS LOG
+            -->
+            <section>
+                <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="6">Group Meetings and Contribution Log – Nadith (Student 3)</th>
+                        </tr>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>Your Individual Contribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>3 Feb 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Agree SDG and assign roles</td>
+                            <td>Yes</td>
+                            <td>I agreed to take responsibility for the Feedback &amp; Programme Directory page, the
+                                Team page, and my individual Content page.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>17 Feb 2026</td>
+                            <td>Online</td>
+                            <td>Review Home Page design</td>
+                            <td>Yes</td>
+                            <td>I reviewed the shared template and provided feedback on the green colour palette. I
+                                agreed on the card layout and proposed the fieldset structure for the feedback form.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>03 Mar 2026</td>
+                            <td>Hybrid</td>
+                            <td>Progress review</td>
+                            <td>yes</td>
+                            <td>I reviewed the meeting notes shared by the team and followed up by sending my initial
+                                feedback.html draft to the group chat for review.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>10 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Gallery Implementation</td>
+                            <td>Yes</td>
+                            <td>I shared feedback.css and team.css with the group and demonstrated the live character
+                                counter and JavaScript form validation I implemented in feedback.html.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>17 Mar 2026</td>
+                            <td>Face-to-face</td>
+                            <td>Research &amp; Integration</td>
+                            <td>Yes</td>
+                            <td>I implemented the content_ST3.html page and confirmed all internal anchor links work
+                                correctly. I also verified the footer links to my Page Editor and Validation page.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>24 Mar 2026</td>
+                            <td>Online</td>
+                            <td>Final Validation &amp; Links</td>
+                            <td>Yes</td>
+                            <td>I ran W3C validation on all my pages and fixed stray tag errors in feedback.html. I
+                                completed the Page Editor and took validation screenshots for submission.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 
+                 SECTION 7 – REFERENCES
+            -->
+            <section>
+                <h2 id="ref">References</h2>
+                <ul class="ref">
+                    <li>
+                        Unsplash (2026) <i>Royalty-free photographs used in feedback.html, team.html, and
+                            content_ST3.html.</i> Available at:
+                        <a href="https://unsplash.com/" target="_blank">https://unsplash.com/</a>
+                       
+                    </li>
+                   
+                    <li>
+                        MDN Web Docs (2026) <i>CSS: max-height transition technique.</i> Available at:
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-height" target="_blank">
+                            https://developer.mozilla.org/en-US/docs/Web/CSS/max-height
+                        </a>
+                        
+                    </li>
+                    <li>
+                        MDN Web Docs (2026) <i>ARIA: role="button" and tabindex.</i> Available at:
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role"
+                            target="_blank">
+                            https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
+                        </a>
+                        
+                    </li>
+                    <li>
+                        W3C (2026) <i>Web Content Accessibility Guidelines (WCAG) 2.1.</i> Available at:
+                        <a href="https://www.w3.org/TR/WCAG21/" target="_blank">https://www.w3.org/TR/WCAG21/</a>
+                        
+                    </li>
+
+                    <li>
+                        UK Government (2019) <i>UK Net Zero Strategy.</i> Available at:
+                        <a href="https://www.gov.uk/government/publications/net-zero-strategy" target="_blank">
+                            https://www.gov.uk/government/publications/net-zero-strategy
+                        </a>
+                        
+                    </li>
+                </ul>
+            </section>
+
+            <p class="top"><a href="#top">Go to top</a></p>
+
+        </main>
+
+        <!--  SIDEBAR  -->
+        <aside>
+            <h3>Pages implemented by Nadith (Student 3):</h3>
+            <ul class="top-level-ul">
+                <ul>
+                    <li><a href="#feedback">Feedback &amp; Programme Directory</a></li>
+                    <li><a href="#team">Team Page</a></li>
+                    <li><a href="#content">Content Page (ST3)</a></li>
+                </ul>
+                <br>
+                <h3>Further sections:</h3>
+                <li><a href="#challenge">Challenges &amp; Lessons Learned</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Group Meetings Log</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+
+    </div><!-- /container -->
+
+    <!--
+         SHARED FOOTER – Student 3 details
+    -->
+    <footer>
+        <div class="footer-navigation">
+            <a href="pageEditor_ST3.html">Page Editor</a> |
+            <a href="validation_ST3.html">Validation</a> |
+            <a href="accessibility.html">Accessibility</a>
+        </div>
+        <p>Page implemented by: Nadith | Role: Student 3 (Feedback &amp; Team) | Module: 4COSC011W</p>
+        <p>&copy; 2026 Climate Action Team – Gavin, Lehan, Nadith, Dinura</p>
+    </footer>
+
+</body>
+
+</html>

@@ -4,19 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validator Page Student - provide your student name</title>
+    <title>Validator Page Student - Gavin Shimek</title>
 
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="pageEditor_validator.css"> <!-- External CSS link -->
 
 </head>
 
 <body>
 
-    <!-- Update the header and the footer to be consistent with the rest of the pages you implemented -->
+    <div id="top"></div>
 
-    <header id="top">
+    <!-- Update the header and the footer to be consistent with the rest of the pages you implemented -->
+    <header>
         <nav>
-            <h2>Climate Action</h2>
+            <h2>
+                <img id="nav-logo" src="images/logo.png" alt="Climate Action Logo"
+                    onclick="this.classList.toggle('enlarged')" />
+                Climate Action
+            </h2>
 
             <ul>
                 <li><a href="splash.html">Splash</a></li>
@@ -46,35 +52,34 @@
                 <h2 id="splashVal">Home Page validation report</h2>
                 <p>The Home page successfully passed the W3C HTML5 validator. One warning regarding the use of an empty
                     "section" was resolved by adding a descriptive "h2" for better semantic structure</p>
-                <img src="validationSnapshots/home.png">
+                <img src="validationSnapshots_ST1/home_validation.png">
 
                 <h3>Back to Page Editor page</h3>
-                <p><a href="pageEditor_ST1.html">Include a link back to the corresponding section of the Page
-                        Editor.</a></p>
+                <p><a href="pageEditor_ST1.html#home">Return to editor</a></p>
                 <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
             </section>
 
-            <section>
+            <section> 
                 <h2 id="volunteerVal">Gallery Page validation report</h2>
-                <p>Include a short reflection on the validation report for the pages you implemented.</p>
-                <img src="validationSnapshots/validation_splash.png">
+                <p>The Gallery page code is valid. I ensured that all data- attributes used for the lightbox modal
+                    follow HTML5 naming conventions, which prevented any validation errors</p>
+                <img src="validationSnapshots_ST1/gallery_validation.png">
 
                 <h3>Back to Page Editor page</h3>
-                <p><a href="pageEditor_ST0.html#volunteer">Include a link back to the corresponding section of the Page
-                        Editor.</a></p>
+                <p><a href="pageEditor_ST1.html#gallery">Return to editor</a></p>
                 <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
             </section></a></p>
 
             <section>
                 <h2 id="contentVal">Content Page validation report</h2>
-                <p>Include a short reflection on the validation report for the pages you implemented.</p>
-                <img src="validationSnapshots/validation_splash.png">
+                <p>My research page (content_ST1.html) is fully compliant. I verified that the nested "table" and
+                    fragment identifier links (#section) do not produce any syntax errors</p>
+                <img src="validationSnapshots_ST1/content_validation.png">
 
                 <h3>Back to Page Editor page</h3>
-                <p><a href="pageEditor_ST0.html#content">Include a link back to the corresponding section of the Page
-                        Editor.</a></p>
+                <p><a href="pageEditor_ST1.html#content">Return to editor</a></p>
                 <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
-            </section></a></p>
+            </section>
 
 
             <p class="top"><a href="#top">Go top</a></p>
@@ -89,28 +94,9 @@
                 <!-- Keep only the list items you were responsible to develop, delete the rest and update the links to the corresponding markers -->
                 <li>Student 1</li>
                 <ul>
-                    <li><a href="#home">Home page </a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#content">Content</a></li>
-                </ul>
-                <li>Student 2</li>
-                <ul>
-                    <li><a href="#">Splash Screen</a></li>
-                    <li><a href="#">Action Impact Simulator</a></li>
-                    <li><a href="#">Content</a></li>
-                </ul>
-
-                <li>Student 3</li>
-                <ul>
-                    <li><a href="#">Feedback</a> </li>
-                    <li><a href="#">Team</a></li>
-                    <li><a href="#">Content</a></li>
-                </ul>
-                <li>Student 4</li>
-                <ul>
-                    <li><a href="#">User Profile </a></li>
-                    <li><a href="#">Sitemap</a></li>
-                    <li><a href="#">Content</a></li>
+                    <li><a href="#splashVal">Home page </a></li>
+                    <li><a href="#volunteerVal">Gallery</a></li>
+                    <li><a href="#contentVal">Content</a></li>
                 </ul>
             </ul>
         </aside>

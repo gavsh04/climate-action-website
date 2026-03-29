@@ -1,9 +1,6 @@
 /*
  * ===================================================
  * ais.js – JavaScript for the Action Impact Simulator
- * SDG 13: Climate Action
- * Team: CLMT | University of Westminster 2025/26
- * Spec ref: Section 4.5 (Student 2)
  *
  * Impact thresholds:
  *   Low    =  1 – 7  points

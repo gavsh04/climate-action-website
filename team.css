@@ -1,7 +1,6 @@
 /* 
    PAGE-SPECIFIC CSS FOR team.html
-   Student 3 – Nadith | University of Westminster | 4COSC011W
-   Does NOT override or conflict with style.css
+   
  */
 
 /* Team Page Hero Banner  */
@@ -81,14 +80,22 @@
 /* Thumbnail image area */
 .member-thumb {
     width: 100%;
-    height: 200px;
-    object-fit: contain;
+    height: 220px;
+    object-fit: cover;
+    object-position: top center;
     display: block;
     border-radius: 14px 14px 0 0;
     transition: opacity 0.3s;
-    background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
-    padding: 20px;
+    background: #C8E6C9;
+    padding: 0;
     box-sizing: border-box;
+}
+
+/* Dinura uses cartoon icon — restore icon display style */
+.member-thumb.icon-style {
+    object-fit: contain;
+    padding: 20px;
+    background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
 }
 
 /* Placeholder background used when image not found */

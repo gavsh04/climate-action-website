@@ -12,7 +12,11 @@
 
     <!-- Navigation bar -->
     <nav>
-        <h2>Climate Action</h2>
+        <h2>
+        <img id="nav-logo" src="images/logo.png" alt="Climate Action Logo"
+          onclick="this.classList.toggle('enlarged')" />
+        Climate Action
+      </h2>
         <ul>
             <li><a href="splash.html">Splash</a></li>
             <li><a href="home.html">Home</a></li>
@@ -298,19 +302,10 @@
             <a href="validation_ST2.html">Validation</a> |
             <a href="accessibility.html">Accessibility</a>
         </div>
-        <p>Page implemented by: [Your Name] | Student 2</p>
+        <p>Page implemented by: Lehan | Student 2</p>
         <p>© 2026 Climate Action | Protecting Our Planet</p>
     </footer>
 
-    <script>
-        // Inject popup elements into benefit cards
-        document.querySelectorAll('.benefit-card[data-popup]').forEach(card => {
-            const popup = document.createElement('div');
-            popup.className = 'benefit-popup';
-            popup.textContent = card.getAttribute('data-popup');
-            card.appendChild(popup);
-        });
-    </script>
     <script src="script.js"></script>
 </body>
 

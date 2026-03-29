@@ -1,0 +1,391 @@
+/* =============================================
+   profile.css
+   Page-specific styles for the User Profile page
+   (profile.html — Student 4: Dinura)
+   Matches the "Climate Action" green theme
+   ============================================= */
+
+/* --------------------------------------------------
+   PROFILE HERO BANNER
+-------------------------------------------------- */
+.profile-hero {
+  text-align: center;
+  padding: 90px 20px 70px;
+  background: linear-gradient(160deg, #1B5E20 0%, #2E7D32 45%, #388E3C 75%, #43A047 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle leaf-vein texture overlay using pseudo-element */
+.profile-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 60%, rgba(255,255,255,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(255,255,255,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.profile-hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.profile-hero p {
+  font-size: 18px;
+  max-width: 620px;
+  margin: 0 auto;
+  opacity: 0.88;
+  line-height: 1.7;
+  font-weight: 400;
+  position: relative;
+}
+
+/* --------------------------------------------------
+   PROFILE BUILDER SECTION
+-------------------------------------------------- */
+.profile-builder {
+  max-width: 900px;
+  margin: 48px auto;
+  padding: 0 20px 80px;
+}
+
+/* --------------------------------------------------
+   CONTROL BUTTONS (Start / Reset)
+-------------------------------------------------- */
+.profile-controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 44px;
+  justify-content: center;
+}
+
+.profile-controls button {
+  padding: 15px 38px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+/* Start button — Primary Project Green */
+#startBtn {
+  background: #2E7D32;
+  color: white;
+  box-shadow: 0 4px 14px rgba(46, 125, 50, 0.35), inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+#startBtn:hover {
+  background: #1B5E20;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(27, 94, 32, 0.4), inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+#startBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+}
+
+/* Reset button — Neutral secondary style */
+#resetBtn {
+  background: #FAFAFA;
+  color: #555;
+  border: 1.5px solid #DDD;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+#resetBtn:hover {
+  background: #F0F0F0;
+  color: #222;
+  border-color: #BBB;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#resetBtn:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------
+   PROGRESS CONTAINER
+-------------------------------------------------- */
+.progress-container {
+  background: linear-gradient(135deg, #F1F8E9 0%, #E8F5E9 100%);
+  border: 1px solid #C8E6C9;
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.06);
+}
+
+.progress-container h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2E7D32;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2E7D32 0%, #43A047 60%, #66BB6A 100%);
+  border-radius: 100px;
+  text-align: center;
+  line-height: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 11px;
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: visible;
+}
+
+/* Glowing leading edge on the progress bar */
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -2px;
+  width: 6px;
+  height: 14px;
+  background: rgba(102, 187, 106, 0.7);
+  border-radius: 100px;
+  filter: blur(3px);
+}
+
+.step-counter {
+  font-size: 13px;
+  color: #5A8A5E;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------
+   REVISIT STEP BUTTONS
+-------------------------------------------------- */
+.step-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.revisit-btn {
+  padding: 7px 16px;
+  border: 1.5px solid #A5D6A7;
+  border-radius: 100px;
+  background: white;
+  color: #2E7D32;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
+  letter-spacing: 0.2px;
+}
+
+.revisit-btn:hover:not(:disabled) {
+  background: #E8F5E9;
+  border-color: #2E7D32;
+  transform: translateY(-1px);
+}
+
+.revisit-btn:disabled {
+  border-color: #E0E0E0;
+  color: #BDBDBD;
+  cursor: not-allowed;
+  background: #FAFAFA;
+}
+
+/* --------------------------------------------------
+   PROFILE OUTPUT AREA
+-------------------------------------------------- */
+.profile-output {
+  background: white;
+  border: 1px solid #E8F5E9;
+  border-radius: 20px;
+  padding: 44px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.05),
+    0 24px 48px rgba(46, 125, 50, 0.04);
+}
+
+.status-msg {
+  background: #F1F8E9;
+  border-left: 3px solid #43A047;
+  padding: 14px 20px;
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  color: #2E7D32;
+  margin-bottom: 32px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+/* --------------------------------------------------
+   INDIVIDUAL PROFILE SECTIONS
+-------------------------------------------------- */
+.profile-section {
+  margin-bottom: 44px;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.profile-section h2 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #43A047;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border-bottom: 1px solid #E8F5E9;
+  padding-bottom: 10px;
+}
+
+/* --------------------------------------------------
+   PROFILE GRID
+-------------------------------------------------- */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.profile-card {
+  background: #FAFFFE;
+  border: 1px solid #E8F5E9;
+  border-radius: 14px;
+  padding: 20px 22px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top-accent stripe per card */
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2E7D32, #66BB6A);
+  border-radius: 14px 14px 0 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.profile-card:hover {
+  border-color: #A5D6A7;
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.1);
+  transform: translateY(-2px);
+}
+
+.profile-card:hover::before {
+  opacity: 1;
+}
+
+.profile-card .label {
+  font-size: 10px;
+  color: #A5D6A7;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.profile-card .value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1B5E20;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------
+   CONFIRMATION BOX
+-------------------------------------------------- */
+.confirmation-box {
+  background: linear-gradient(150deg, #1B5E20 0%, #2E7D32 50%, #388E3C 100%);
+  border-radius: 20px;
+  padding: 56px 40px;
+  text-align: center;
+  color: white;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(27, 94, 32, 0.25);
+}
+
+/* Decorative background circles */
+.confirmation-box::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  top: -80px;
+  right: -60px;
+  pointer-events: none;
+}
+
+.confirmation-box::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  bottom: -60px;
+  left: -40px;
+  pointer-events: none;
+}
+
+.confirmation-box h2 {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: white;
+  border: none;
+  letter-spacing: -0.3px;
+  position: relative;
+}
+
+.confirmation-box p {
+  font-size: 16px;
+  opacity: 0.88;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+  position: relative;
+}
+
+/* --------------------------------------------------
+   STICKY HEADER FIX
+-------------------------------------------------- */
+.profile-section[id] {
+  scroll-margin-top: 100px;
+}
