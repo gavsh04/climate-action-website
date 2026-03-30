@@ -1,0 +1,130 @@
+/* GALLERY GRID */
+.gallery {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.gallery-item {
+    background: #F5F5F5;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* LIGHTBOX MODAL (Mandatory Student 1 Task) */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    position: relative;
+    background: white;
+    padding: 30px 28px 28px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+#lightbox-img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ================================
+   CLOSE BUTTON — circular x
+   ================================ */
+#closeLightbox {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.07);
+    color: #555;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+#closeLightbox:hover {
+    background: rgba(0, 0, 0, 0.16);
+    transform: rotate(90deg);
+}
+
+/* ================================
+   ACTION BUTTONS — pill style
+   ================================ */
+.lightbox-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+#themeToggle,
+#fontToggle {
+    border: 1.5px solid #2E7D32;
+    border-radius: 999px;
+    background: transparent;
+    color: #2E7D32;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+#themeToggle:hover,
+#fontToggle:hover {
+    background: #2E7D32;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+#themeToggle:active,
+#fontToggle:active {
+    transform: translateY(0);
+}
