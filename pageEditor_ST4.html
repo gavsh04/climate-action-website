@@ -15,12 +15,13 @@
 
     <header>
         <nav>
-            <h2>
-                <img id="nav-logo" src="images/logo.png" alt="Climate Action Logo"
-                    onclick="this.classList.toggle('enlarged')" />
-                Climate Action
-            </h2>
-            <ul>
+            <h2><img id="nav-logo" src="images/logo.png" alt="Logo" /> Climate Action</h2>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+                ☰
+            </button>
+
+            <ul id="nav-list">
                 <li><a href="index.html">Splash</a></li>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
@@ -101,7 +102,8 @@
                 <p><strong>SVG Scaling:</strong> Making the sitemap responsive required using <code>viewBox</code>
                     rather than fixed widths.
                     I learned that SVG elements require specific CSS targeting (like <code>fill</code> instead of
-                    <code>background-color</code>).</p>
+                    <code>background-color</code>).
+                </p>
                 <p><strong>Anchor Offsets:</strong> A major challenge was the sticky header covering titles.
                     I solved this using <code>scroll-margin-top</code>, a technique I shared with the group to ensure
                     consistency.</p>

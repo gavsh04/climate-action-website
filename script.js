@@ -80,3 +80,20 @@ window.addEventListener("scroll", reveal);
 
 // Run reveal once when page first loads
 window.addEventListener("load", reveal);
+
+const menuToggle = document.getElementById('menuToggle');
+const navList = document.getElementById('nav-list');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        // Toggle the 'active' class on the <ul>
+        navList.classList.toggle('active');
+    });
+}
+
+// Close menu if a link is clicked (optional)
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        navList.classList.remove('active');
+    });
+});

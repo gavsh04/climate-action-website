@@ -36,7 +36,7 @@
             padding: 20px;
             background: #fff;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .tech-badge {
@@ -56,12 +56,13 @@
 
     <header>
         <nav>
-            <h2>
-                <img id="nav-logo" src="images/logo.png" alt="Climate Action Logo"
-                    onclick="this.classList.toggle('enlarged')" />
-                Climate Action
-            </h2>
-            <ul>
+            <h2><img id="nav-logo" src="images/logo.png" alt="Logo" /> Climate Action</h2>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+                ☰
+            </button>
+
+            <ul id="nav-list">
                 <li><a href="index.html">Splash</a></li>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
@@ -76,26 +77,39 @@
 
     <main class="access-content">
         <h1>Accessibility Statement</h1>
-        
+
         <section>
-            <p>We are committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards to the <strong>Climate Action</strong> project.</p>
+            <p>We are committed to ensuring digital accessibility for people with disabilities. We are continually
+                improving the user experience for everyone and applying the relevant accessibility standards to the
+                <strong>Climate Action</strong> project.</p>
         </section>
 
         <section>
             <span class="tech-badge">Conformance Status</span>
             <h2>Standard Compliance</h2>
-            <p>The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. This website is <strong>partially conformant with WCAG 2.1 level AA</strong>. Partially conformant means that some parts of the content do not fully conform to the accessibility standard (see Known Limitations).</p>
+            <p>The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to
+                improve accessibility for people with disabilities. This website is <strong>partially conformant with
+                    WCAG 2.1 level AA</strong>. Partially conformant means that some parts of the content do not fully
+                conform to the accessibility standard (see Known Limitations).</p>
         </section>
 
         <section>
             <span class="tech-badge">Technical Features</span>
             <h2>Implemented Improvements</h2>
             <ul>
-                <li><strong>Skip to Content:</strong> We have implemented hidden "Skip to Content" links to allow keyboard users to bypass the navigation menu and jump directly to the main research articles.</li>
-                <li><strong>Semantic Architecture:</strong> Use of <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;aside&gt;</code> landmarks ensures screen readers can identify different areas of the page.</li>
-                <li><strong>Interactive Components:</strong> The <strong>Gallery Lightbox</strong> and <strong>Interactive Simulator</strong> are built with ARIA roles (e.g., <code>role="dialog"</code> and <code>role="progressbar"</code>) to communicate state changes to assistive technology.</li>
-                <li><strong>Visual Clarity:</strong> We maintain a contrast ratio of at least 4.5:1 for all text. The primary dark green (#2E7D32) has been tested against white backgrounds for maximum legibility.</li>
-                <li><strong>SVG Accessibility:</strong> The <strong>Sitemap</strong> uses <code>&lt;title&gt;</code> and <code>&lt;desc&gt;</code> tags within the SVG code to describe the site hierarchy to non-visual users.</li>
+                <li><strong>Skip to Content:</strong> We have implemented hidden "Skip to Content" links to allow
+                    keyboard users to bypass the navigation menu and jump directly to the main research articles.</li>
+                <li><strong>Semantic Architecture:</strong> Use of <code>&lt;main&gt;</code>,
+                    <code>&lt;article&gt;</code>, and <code>&lt;aside&gt;</code> landmarks ensures screen readers can
+                    identify different areas of the page.</li>
+                <li><strong>Interactive Components:</strong> The <strong>Gallery Lightbox</strong> and
+                    <strong>Interactive Simulator</strong> are built with ARIA roles (e.g., <code>role="dialog"</code>
+                    and <code>role="progressbar"</code>) to communicate state changes to assistive technology.</li>
+                <li><strong>Visual Clarity:</strong> We maintain a contrast ratio of at least 4.5:1 for all text. The
+                    primary dark green (#2E7D32) has been tested against white backgrounds for maximum legibility.</li>
+                <li><strong>SVG Accessibility:</strong> The <strong>Sitemap</strong> uses <code>&lt;title&gt;</code> and
+                    <code>&lt;desc&gt;</code> tags within the SVG code to describe the site hierarchy to non-visual
+                    users.</li>
             </ul>
         </section>
 
@@ -104,14 +118,20 @@
             <h2>Current Challenges</h2>
             <p>Despite our best efforts, some areas of the site may have issues:</p>
             <ul>
-                <li><strong>Simulator Complexity:</strong> The real-time updates in the <strong>Action Impact Simulator</strong> may be difficult for some older screen readers to track. We have added <code>aria-live="polite"</code> regions to mitigate this.</li>
-                <li><strong>Third-party Media:</strong> Some photography sourced from Unsplash may contain complex visual data. We provide descriptive captions (<code>.caption</code>) to supplement the <code>alt</code> text.</li>
+                <li><strong>Simulator Complexity:</strong> The real-time updates in the <strong>Action Impact
+                        Simulator</strong> may be difficult for some older screen readers to track. We have added
+                    <code>aria-live="polite"</code> regions to mitigate this.</li>
+                <li><strong>Third-party Media:</strong> Some photography sourced from Unsplash may contain complex
+                    visual data. We provide descriptive captions (<code>.caption</code>) to supplement the
+                    <code>alt</code> text.</li>
             </ul>
         </section>
 
         <section>
             <h2>Feedback</h2>
-            <p>We welcome your feedback on the accessibility of the Climate Action website. Please let us know if you encounter accessibility barriers by contacting the <strong>Implementation Lead</strong> at the University of Westminster.</p>
+            <p>We welcome your feedback on the accessibility of the Climate Action website. Please let us know if you
+                encounter accessibility barriers by contacting the <strong>Implementation Lead</strong> at the
+                University of Westminster.</p>
         </section>
     </main>
 
@@ -126,4 +146,5 @@
     </footer>
 
 </body>
+
 </html>

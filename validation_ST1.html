@@ -18,15 +18,15 @@
     <!-- Update the header and the footer to be consistent with the rest of the pages you implemented -->
     <header>
         <nav>
-            <h2>
-                <img id="nav-logo" src="images/logo.png" alt="Climate Action Logo"
-                    onclick="this.classList.toggle('enlarged')" />
-                Climate Action
-            </h2>
+            <h2><img id="nav-logo" src="images/logo.png" alt="Logo" /> Climate Action</h2>
 
-            <ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+                ☰
+            </button>
+
+            <ul id="nav-list">
                 <li><a href="index.html">Splash</a></li>
-                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="ais.html">Simulator</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
@@ -59,7 +59,7 @@
                 <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
             </section>
 
-            <section> 
+            <section>
                 <h2 id="volunteerVal">Gallery Page validation report</h2>
                 <p>The Gallery page code is valid. I ensured that all data- attributes used for the lightbox modal
                     follow HTML5 naming conventions, which prevented any validation errors</p>
